@@ -16,38 +16,41 @@
 
 <body>
   <!-- <script src="js/login.js"></script> -->
-  <div class="centered">
-    <h1>Bienvenido a Universys</h1>    
+  <div class="container-fluid">
+    <div class="centered">
+      <h1>Bienvenido a Universys</h1>    
+    </div>
+    <div class="centered"> 
+      <h3>Register</h3>
+      <form id="register" action="post">
+          <div>
+              <label for="Nombre" id="firstname_lbl">Nombre</label>
+              <input type="string" name="firstname" id="firstname" value="">
+          </div>
+          <div>
+              <label for="lastname" id="lastname_lbl">Apellido</label>
+              <input type="string" name="lastname" id="lastname" value="">
+          </div>
+          <div>
+              <label for="matricula" id="matricula_lbl">matricula</label>
+              <input type="string" name="matricula" id="matricula" value="">
+          </div>
+          <div>
+              <label for="username" id="username_lbl">Usuario</label>
+              <input type="string" name="username" id="username" value="">
+          </div>
+          <div>
+              <label for="password">Contraseña</label>
+              <input type="string" name="password" id="password" value="">
+          </div>
+          <div>
+              <label for="confirm_password">Confirmar contraseña</label>
+              <input type="string" name="confirm_password" id="confirm_password" value="">
+          </div>
+      </form>
+    </div>
   </div>
-  <div class="centered"> 
-    <h3>Login</h3>
-    <form id="register" action="post">
-        <div>
-             <label for="Nombre">Nombre</label>
-             <input type="string" name="firstname" value="">
-        </div>
-        <div>
-             <label for="lastname">Apellido</label>
-             <input type="string" name="lastname" value="">
-        </div>
-        <div>
-             <label for="matricula">matricula</label>
-             <input type="string" name="matricula" value="">
-        </div>
-        <div>
-             <label for="username">Usuario</label>
-             <input type="string" name="username" value="">
-        </div>
-        <div>
-             <label for="password">Contraseña</label>
-             <input type="string" name="password" value="">
-        </div>
-        <div>
-             <label for="confirm_password">Confirmar contraseña</label>
-             <input type="string" name="confirm_password" value="">
-        </div>
-    </form>
-  </div>
+  
 
   <script src="../js/register.js"></script>
   
