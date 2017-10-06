@@ -1,6 +1,25 @@
 .centered{
     text-align: center;
+    float: left;
+    margin: 5px 5px 5px 5px;
 }
 body{
     background-color: lightblue;
+}
+
+#login_block{
+    margin: auto;
+    width: 80% ;
+    overflow: auto;
+}
+
+.login_form{
+    margin: auto;
+    width: 20%;
+    height: 100%;
+}
+
+#submit{
+    margin: auto;
+    width: 80%;
 }

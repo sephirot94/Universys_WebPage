@@ -31,15 +31,15 @@
     </div>
     <h3>Iniciar Sesión:</h3>
     <br>
-    <div class="centered row">
+    <div class="centered row" id="login_block">
 
-      <form id="login" action="post">
+      <form id="login" action="post" class="login_form">
         <div class="row">
           <div class="col-md-6">
             <label class="centered" for="username">Usuario: </label>
           </div>
           <div class="col-md-6">
-            <input class="centered" type="string" name="username" value="">
+            <input class="centered" type="email" name="username" id="username" value="" placeholder="Ingrese su usuario">
           </div>
         </div>
         <div class="row">
@@ -47,7 +47,7 @@
             <label class="centered" for="password">Contraseña: </label>
           </div>
           <div class="col-md-6">
-            <input class="centered" type="string" name="password" value="">
+            <input class="centered" type="password" name="password" id="password" value="" passwordCheck="passwordCheck" placeholder="Ingrese su contraseña">
           </div>
         </div>
         <br>
@@ -59,6 +59,47 @@
   </div>
 
   <script src="../js/login.js"></script>
+  <script>
+    jQuery.validator.addMethod("passwordCheck",
+        function(value, element, param) {
+            if (this.optional(element)) {
+                return true;
+            } else if (!/[A-Z]/.test(value)) {
+                return false;
+            } else if (!/[a-z]/.test(value)) {
+                return false;
+            } else if (!/[0-9]/.test(value)) {
+                return false;
+            }
+
+            return true;
+        },
+        "La contraseña debe contener al menos una mayuscula, una minuscula y un numero");
+
+    $("#login").validate({
+      rules: {
+        username: {
+          required: true,
+          email: true
+        },
+        password: {
+          required: true,
+          minlength: 8,
+          maxlength: 16
+        }
+      },
+      messages: {
+        username: {
+          required: "Este campo es obligatorio",
+          email : "Este campo debe contener una direccion de correo electronico valida"
+        },
+        password: {
+          required: "Este campo es obligatorio",
+          minlength: "Este campo debe contener al menos 8 caracteres",
+          maxlength: "Este campo debe contener maximo 16 caracteres"
+        }
+    });
+  </script>
 </body>
 
 </html>
