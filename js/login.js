@@ -1,5 +1,8 @@
+//Este archivo implementa la funcionalidad del login en Javascript.
+
 document.getElementById("submit").onclick = function() { loginSubmit() };
 
+//Esta funcion muestra el error cuando la clase no esta implementada
 function LoginControllerBase()
 {
     var login = function(userField, passField)
@@ -8,13 +11,11 @@ function LoginControllerBase()
     };
 }
 
+//Esta funcion es de uso de testeo solamente. No debe ser implementada en ambiente de produccion
 function LoginControllerLocal(LoginControllerBase)
 {
-    var login = function(userField, passField)
-    {   
-        var username = document.getElementById(userField).value;   
-        var password = document.getElementById(passField).value;
-
+    var loginLogic = function(username, password)
+    {
         if(username=="admin@admin.com" && pass=="admin") {
             return '{ "api-version" : "1.0", "error-code" : "200", “usuario” : { \
                 “nombre” : ”Diego”,\
@@ -30,26 +31,66 @@ function LoginControllerLocal(LoginControllerBase)
         if(pass!="admin" && username=="admin@admin.com") {
             return '{ "api-version" : "1.0", "error-code" : "777" }';
         }
-        else {
-            return '{ "api-version" : "1.0", "error-code" : "800" }';
-        }
+        
+        return '{ "api-version" : "1.0", "error-code" : "800" }';
+    }
+
+    var login = function(userField, passField)
+    {
+        return this.loginLogic(document.getElementById(userField).value, document.getElementById(passField).value);
     };
 }
 
+//Esta funcion envia los datos del formulario de login al servidor para ser procesados.
+//Ante la respuesta del servidor, envia el codigo de respuesta a la clase utility para redireccionar.
 function LoginControllerRemote(LoginControllerBase)
 {
+    var loginLogic = function(username, password)
+    {
+        $.ajax({
+            url: "ACA VA LA URL DEL SERVIDOR",
+            type: 'POST',
+            data: {
+                "mail" : username,
+                "password" : password
+            },
+            success : function(result) {
+                window.location.href = '../html/home.html';
+            },
+            error: function(result) {
+                alert("Hubo un error: " + result.error-code);
+            } 
+        });
+    };
+
     var login = function(userField, passField)
     {
-        var username = document.getElementById(userField).value;
-        var password = document.getElementById(passField).value;
-
-        $.ajax();
+        this.loginLogic(document.getElementById(userField).value, document.getElementById(passField).value);
     };
 }
 
 var loginController = new LoginControllerLocal();
 
-function loginSubmit(){
+function loginSubmit() {
     loginController.login("username", "password");
 }
 
+function testLogin(username, password) {
+    var lc = new LoginControllerLocal();
+
+    var json = parsejsonstring(lc.loginLogic("admin@admin.com", "admin"));
+
+    if(json["usuario"]["apellido"] != "Maradona")
+    {
+        return "testLogin has ERRORS: loginLogic not returning the right value";
+    }
+
+    json = parsejsonstring(lc.logicLogic("riverkpo99@altorancho.com", "libertadores2015"));
+
+    if(json["error-code"] == "200")
+    {
+        return "testLogin has ERRORS: stating success when it should be failing";
+    }
+
+    return null;
+}
