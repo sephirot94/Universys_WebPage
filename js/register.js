@@ -22,17 +22,24 @@ function RegisterControllerLocal(RegisterControllerBase)
 }
 
 //Esta funcion envia los datos del formulario de registro al servidor para ser procesados.
-//Ante la respuesta del servidor, envia el codigo de respuesta a la clase utility para redireccionar, y el codigo de
-//Exito o error de la operacion
 
 function RegisterControllerRemote(RegisterControllerBase)
 {
     var register = function(json)
     {
-        var username = document.getElementById(userField).value;
-        var password = document.getElementById(passField).value;
 
-        $.ajax();
+        $.ajax({
+            url: "ACA VA LA URL DEL SERVIDOR",
+            type: 'POST',
+            data: json,
+            success : function(result) {
+                // limpiar el formulario
+                document.getElementsByClassName("empty").reset();
+            },
+            error: function(result) {
+                alert("Hubo un error: " + result.error-code);
+            } 
+        });
     };
 }
 
