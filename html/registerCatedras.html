@@ -5,7 +5,7 @@
     
       <title>Universys</title>
     
-      <link rel="stylesheet" href="../css/registerSubjects.css">
+      <link rel="stylesheet" href="../css/registerCatedras.css">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.js"></script>
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
@@ -34,7 +34,7 @@
         </div>
         <div class="centered"> 
            <h3>Registro Materias:</h3>  <!-- Titulo-->
-          <form id="registerSubjects" action="post"> <!--Formulario para poder registrarse -->
+          <form id="registerCatedras" action="post"> <!--Formulario para poder registrarse -->
               <div>
                   <label for="CodigoCatedra" id="codigoCatedra_lbl">Código de Cátedra:</label>
                   <input type="int" name="codigoCatedra" id="codigoCatedra" value="">
@@ -79,7 +79,7 @@
 
       <script>
     
-         $("#registerSubjects").validate({ //Codigo para testear el codigo para evitar diversos errores como superar el limite de caracteres
+         $("#registerCatedras").validate({ //Codigo para testear el codigo para evitar diversos errores como superar el limite de caracteres
           rules: {
             codigoCatedra: {
               required: true,
