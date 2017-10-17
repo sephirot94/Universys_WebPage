@@ -15,9 +15,38 @@ function RegisterControllerBase()
 
 function RegisterControllerLocal(RegisterControllerBase)
 {
-    var register = function(json)
+    var register = function(flag)
     {   
+        if (flag=="usuario") {
+            return '{ "api-version" : "1.0", "error-code" : "200",\ 
+            "usuario": "{\
+                “nombre” : “Gaston”,\
+                “apellido” : “Bodeman”,\
+                “fnac” : “20/09/1994”,\
+                “genero” : “masculino”,\
+                “domicilio” : “blanco encalada 4892”,\
+                “telefono” : “45228786”,\
+                “matrícula“ : “03140”,\
+                “mail” : ”pepito@gmail.com”\
+            }"\
+        }';
+        }
 
+        if (flag=="notas") {
+            return '{ "api-version" : "1.0", "error-code" : "200",\ 
+            "notas" : "{
+                "operacion" : "modificacion",\
+                "catedra" : "",\
+                "carrera" : "",\
+                "materia" : "", \
+                "horario" : "", \
+                "tipoDeClase" : "teorico", \
+                "claveDeClase" : "", \
+                "alumno" : "", \
+                "nota" : "", ''
+            }"\
+        }';
+        }
     };
 }
 
