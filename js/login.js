@@ -1,5 +1,6 @@
 //Este archivo implementa la funcionalidad del login en Javascript.
 
+//Llamada al metodo de submit
 document.getElementById("submit").onclick = function() { loginSubmit() };
 
 //Esta funcion muestra el error cuando la clase no esta implementada
@@ -69,12 +70,15 @@ function LoginControllerRemote(LoginControllerBase)
     };
 }
 
+//Instanciamos el Controlador
 var loginController = new LoginControllerLocal();
 
+//Metodo para submit de datos
 function loginSubmit() {
     loginController.login("username", "password");
 }
 
+//Metodo de test unitario de la clase Login
 function testLogin(username, password) {
     var lc = new LoginControllerLocal();
 
