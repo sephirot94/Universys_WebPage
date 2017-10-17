@@ -79,7 +79,7 @@ function loginSubmit() {
 }
 
 //Metodo de test unitario de la clase Login
-function testLogin(username, password) {
+function testLogin() {
     var lc = new LoginControllerLocal();
 
     var json = parsejsonstring(lc.loginLogic("admin@admin.com", "admin"));
