@@ -8,3 +8,9 @@ body {
     background-color: #FFFAE8;
 }
 
+#contenedor {
+    margin: auto;
+    margin-top: 5%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
