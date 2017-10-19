@@ -34,16 +34,34 @@ function RegisterControllerLocal(RegisterControllerBase)
 
         if (flag=="notas") {
             return '{ "api-version" : "1.0", "error-code" : "200",\ 
-            "notas" : "{
+            "notas" : "{\
                 "operacion" : "modificacion",\
                 "catedra" : "",\
                 "carrera" : "",\
                 "materia" : "", \
                 "horario" : "", \
                 "tipoDeClase" : "teorico", \
-                "claveDeClase" : "", \
-                "alumno" : "", \
-                "nota" : "", ''
+                "claveDeClase" : "",\
+                "alumno" : "",\
+                "nota" : ""\ 
+            }"\
+        }';
+        }
+
+        if (flag=="fichadas") {
+            return '{ "api-version" : "1.0", "error-code" : "200",\ 
+            "usuario": "{\
+                “operación” : “modificación”,\
+                “catedra” : “”,\
+                “carrera” : “”,\
+                “materia” : “”,\
+                “horario” : “”,\
+                “tipoDeClase” : “teorico”,\
+                “claveDeClase” : "",\
+                “alumnos” : [\
+                            {“nombre” : ””,\
+                            “presente” : “”}\
+                    ]\
             }"\
         }';
         }
