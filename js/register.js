@@ -77,6 +77,18 @@ function RegisterControllerLocal(RegisterControllerBase)
             }"\
         }';
         }
+
+        if (flag=="materias") {
+            return '{ "api-version" : "1.0", "error-code" : "200",\ 
+            "materia": "{\
+                “operación” : “”,\	
+                “catedra” : “”,\
+                “carrera” : "",\
+                “materia” : “”,\
+            }"\
+        }';
+        }
+        
     };
 }
 
