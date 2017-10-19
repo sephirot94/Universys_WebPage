@@ -65,6 +65,18 @@ function RegisterControllerLocal(RegisterControllerBase)
             }"\
         }';
         }
+
+        if (flag=="catedras") {
+            return '{ "api-version" : "1.0", "error-code" : "200",\ 
+            "catedra": "{\
+                “operación” : “”,\
+                “catedra” : “”,\
+                “nombre” : “”,\
+                “titularDeCatedra” :””,\
+                “ofertaHoraria” : “”,\
+            }"\
+        }';
+        }
     };
 }
 
