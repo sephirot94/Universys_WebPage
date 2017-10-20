@@ -98,6 +98,7 @@ function RegisterControllerRemote(RegisterControllerBase)
 {
     var register = function(json, flag)
     {
+        //mapa con el flag como clave y la variacion de la url como valor
         var mapa_url = {
             usuario : "ABMUsuarios",
             catedra : "ABMCatedra",
@@ -106,13 +107,15 @@ function RegisterControllerRemote(RegisterControllerBase)
             fichadas : "ABMFichadas",
             carrera : "ABMCarrera"
         };
-        
+
+        //recorro el mapa buscando la clave que sea igual al flag ingresado
         for(var key in mapa_url) {
             if(key==flag) {
                 var url = mapa_url[key];
             }
         }
 
+        //envio por ajax a la url armada por el valor traido del mapa
         $.ajax({
             url: "http://universys.site/" + url,
             type: 'POST',
@@ -134,5 +137,12 @@ var registerController = new registerControllerLocal();
 
 function registerSubmit(){
     registerController.register("{'nombre':'Juan'}");
+}
+
+//Metodo de testing unitario
+function testRegister() {
+    var rc = new RegisterControllerLocal();
+
+
 }
 
