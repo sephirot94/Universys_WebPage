@@ -8,9 +8,14 @@ body {
     background-color: #FFFAE8;
 }
 
+.contenedor {
+    display: flex;
+    overflow: hidden;
+}
+
 .listaCarreras {
-    width: 250px;
-    margin: 25px 25px;
+    margin-left: 5%;
+    flex: 0 0 20%;
 }
 
 .listaCarreras h1 {
@@ -21,4 +26,5 @@ body {
 .listaCarreras ul {
     list-style-type: none;
     padding: 0;
+    border-right: 1px solid black;
 }
