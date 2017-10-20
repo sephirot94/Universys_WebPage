@@ -143,6 +143,6 @@ function registerSubmit(){
 function testRegister() {
     var rc = new RegisterControllerLocal();
 
-
+    
 }
 
