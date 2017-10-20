@@ -98,97 +98,34 @@ function RegisterControllerRemote(RegisterControllerBase)
 {
     var register = function(json, flag)
     {
-
-        if(flag=="usuario") {
-            $.ajax({
-                url: "ACA VA LA URL DEL SERVIDOR para ABM usuarios",
-                type: 'POST',
-                data: json,
-                success : function(result) {
-                    // limpiar el formulario
-                    document.getElementsByClassName("empty").reset();
-                },
-                error: function(result) {
-                    alert("Hubo un error: " + result.error-code);
-                } 
-            });
+        var mapa_url = {
+            usuario : "ABMUsuarios",
+            catedra : "ABMCatedra",
+            materia : "ABMMateria",
+            notas : "ABMNotas",
+            fichadas : "ABMFichadas",
+            carrera : "ABMCarrera"
+        };
+        
+        for(var key in mapa_url) {
+            if(key==flag) {
+                var url = mapa_url[key];
+            }
         }
 
-        if(flag=="catedra") {
-            $.ajax({
-                url: "ACA VA LA URL DEL SERVIDOR para ABM catedra",
-                type: 'POST',
-                data: json,
-                success : function(result) {
-                    // limpiar el formulario
-                    document.getElementsByClassName("empty").reset();
-                },
-                error: function(result) {
-                    alert("Hubo un error: " + result.error-code);
-                } 
-            });
-        }
-
-        if(flag=="materia") {
-            $.ajax({
-                url: "ACA VA LA URL DEL SERVIDOR para ABM materias",
-                type: 'POST',
-                data: json,
-                success : function(result) {
-                    // limpiar el formulario
-                    document.getElementsByClassName("empty").reset();
-                },
-                error: function(result) {
-                    alert("Hubo un error: " + result.error-code);
-                } 
-            });
-        }
-
-        if(flag=="carrera") {
-            $.ajax({
-                url: "ACA VA LA URL DEL SERVIDOR para ABM usuarios",
-                type: 'POST',
-                data: json,
-                success : function(result) {
-                    // limpiar el formulario
-                    document.getElementsByClassName("empty").reset();
-                },
-                error: function(result) {
-                    alert("Hubo un error: " + result.error-code);
-                } 
-            });
-        }
-
-        if(flag=="notas") {
-            $.ajax({
-                url: "ACA VA LA URL DEL SERVIDOR para ABM notas",
-                type: 'POST',
-                data: json,
-                success : function(result) {
-                    // limpiar el formulario
-                    document.getElementsByClassName("empty").reset();
-                },
-                error: function(result) {
-                    alert("Hubo un error: " + result.error-code);
-                } 
-            });
-        }
-
-        if(flag=="fichadas") {
-            $.ajax({
-                url: "ACA VA LA URL DEL SERVIDOR para ABM fichadas",
-                type: 'POST',
-                data: json,
-                success : function(result) {
-                    // limpiar el formulario
-                    document.getElementsByClassName("empty").reset();
-                },
-                error: function(result) {
-                    alert("Hubo un error: " + result.error-code);
-                } 
-            });
-        }
-
+        $.ajax({
+            url: "http://universys.site/" + url,
+            type: 'POST',
+            data: json,
+            success : function(result) {
+                // limpiar el formulario
+                document.getElementsByClassName("empty").reset();
+            },
+            error: function(result) {
+                alert("Hubo un error: " + result.error-code);
+            } 
+        });
+        
     
     };
 }
