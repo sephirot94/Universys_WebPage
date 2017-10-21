@@ -84,7 +84,7 @@ function testLogin() {
 
     var json = parsejsonstring(lc.loginLogic("admin@admin.com", "admin"));
 
-    if(json["usuario"]["apellido"] != "Maradona" || json["usuario"]["nombre"] != "Diego" || json["usuario"]["fNac"] != "3/8/01" || json["usuario"]["tipo"] != "alumno" )
+    if(json.usuario.apellido != "Maradona" || json.usuario.nombre != "Diego" || json.usuario.fNac != "3/8/01" || json.usuario.tipo != "alumno" )
     {
         return "testLogin has ERRORS: loginLogic not returning the right value";
     }
@@ -93,21 +93,21 @@ function testLogin() {
 
     json = parsejsonstring(lc.logicLogic("riverkpo99@altorancho.com", "libertadores2015"));
 
-    if(json["error-code"] == "200")
+    if(json.error-code == "200")
     {
         return "testLogin has ERRORS: stating success when it should be failing";
     }
 
     json = parsejsonstring(lc.logicLogic("admin@admin.com", "libertadores2015"));
 
-    if(json["error-code"] != "777")
+    if(json.error-code != "777")
     {
         return "testLogin has ERRORS: receiving wrong error code";
     }
 
     json = parsejsonstring(lc.logicLogic("riverkpo99@altorancho.com", "admin"));
     
-    if(json["error-code"] != "680")
+    if(json.error-code != "680")
     {
         return "testLogin has ERRORS: receiving wrong error code";
     }
