@@ -35,15 +35,14 @@ function RegisterControllerLocal(RegisterControllerBase)
         if (flag=="notas") {
             return '{ "api-version" : "1.0", "error-code" : "200",\ 
             "notas" : "{\
-                "operacion" : "modificacion",\
-                "catedra" : "",\
-                "carrera" : "",\
-                "materia" : "", \
-                "horario" : "", \
+                "catedra" : "Didier",\
+                "carrera" : "Programacion",\
+                "materia" : "Proyecto", \
+                "horario" : "19:00hs", \
                 "tipoDeClase" : "teorico", \
-                "claveDeClase" : "",\
-                "alumno" : "",\
-                "nota" : ""\ 
+                "claveDeClase" : "30",\
+                "alumno" : "ivan",\
+                "nota" : "4"\ 
             }"\
         }';
         }
@@ -51,7 +50,6 @@ function RegisterControllerLocal(RegisterControllerBase)
         if (flag=="fichadas") {
             return '{ "api-version" : "1.0", "error-code" : "200",\ 
             "usuario": "{\
-                “operación” : “modificación”,\
                 “catedra” : “”,\
                 “carrera” : “”,\
                 “materia” : “”,\
@@ -69,7 +67,6 @@ function RegisterControllerLocal(RegisterControllerBase)
         if (flag=="catedras") {
             return '{ "api-version" : "1.0", "error-code" : "200",\ 
             "catedra": "{\
-                “operación” : “”,\
                 “catedra” : “”,\
                 “nombre” : “”,\
                 “titularDeCatedra” :””,\
@@ -81,7 +78,6 @@ function RegisterControllerLocal(RegisterControllerBase)
         if (flag=="materias") {
             return '{ "api-version" : "1.0", "error-code" : "200",\ 
             "materia": "{\
-                “operación” : “”,\	
                 “catedra” : “”,\
                 “carrera” : "",\
                 “materia” : “”,\
@@ -143,6 +139,14 @@ function registerSubmit(){
 function testRegister() {
     var rc = new RegisterControllerLocal();
 
-    
+    var json = parsejsonstring(rc.register("usuario"));
+
+    if(json.usuario.nombre != "Gaston" || json.usuario.apellido != "Bodeman" || json.usuario.fnac != "20/09/1994" || json.usuario.genero != "masculino" || json.usuario.domicilio != "blanco encalada 4892" || json.usuario.telefono != "45228786" || json.usuario.matricula != "03140" || json.usuario.mail != "pepito@gmail.com") {
+        return "testLogin has ERRORS: loginLogic not returning the right value. Register: Usuario";
+    }
+
+    if(json.notas.catedra != "Didier" || json.notas.carrera != "Programacion" || json.notas.materia != "Proyecto" || json.notas.horario != "19:00hs" || json.notas.tipoDeClase != "teorico" || json.notas.claveDeClase != "30" || json.notas.alumno != "ivan" || json.notas.nota != "4") {
+        return "testLogin has ERRORS: loginLogic not returning the right value. Register: Notas";
+    }
 }
 
