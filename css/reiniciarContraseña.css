@@ -1,0 +1,22 @@
+html {
+    font-family: 'Roboto', sans-serif;
+    height: 100%;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5em;
+    background-color: #FFFAE8;
+}
+
+h1, p{
+    margin: 0 auto;
+    text-align: center;
+    width: 30%;
+}
+
+form, #inputEmail {
+    margin: 0 auto;
+    text-align: center;
+    width: 50%;
+}
