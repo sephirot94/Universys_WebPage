@@ -17,6 +17,7 @@ function RegisterControllerLocal(RegisterControllerBase)
 {
     var register = function(flag)
     {   
+        //JSON de testeo: Usuario
         if (flag=="usuario") {
             return '{ "api-version" : "1.0", "error-code" : "200",\ 
             "usuario": "{\
@@ -32,6 +33,7 @@ function RegisterControllerLocal(RegisterControllerBase)
         }';
         }
 
+        //JSON de testeo: Notas
         if (flag=="notas") {
             return '{ "api-version" : "1.0", "error-code" : "200",\ 
             "notas" : "{\
@@ -47,6 +49,7 @@ function RegisterControllerLocal(RegisterControllerBase)
         }';
         }
 
+        //JSON de testeo: fichadas
         if (flag=="fichadas") {
             return '{ "api-version" : "1.0", "error-code" : "200",\ 
             "usuario": "{\
@@ -64,6 +67,7 @@ function RegisterControllerLocal(RegisterControllerBase)
         }';
         }
 
+        //JSON de testeo: Catedras
         if (flag=="catedras") {
             return '{ "api-version" : "1.0", "error-code" : "200",\ 
             "catedra": "{\
@@ -75,6 +79,7 @@ function RegisterControllerLocal(RegisterControllerBase)
         }';
         }
 
+        //JSON de testeo: Materias
         if (flag=="materias") {
             return '{ "api-version" : "1.0", "error-code" : "200",\ 
             "materia": "{\
