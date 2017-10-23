@@ -52,7 +52,7 @@ function RegisterControllerLocal(RegisterControllerBase)
         //JSON de testeo: fichadas
         if (flag=="fichadas") {
             return '{ "api-version" : "1.0", "error-code" : "200",\ 
-            "usuario": "{\
+            "fichada": "{\
                 “catedra” : “Didier”,\
                 “carrera” : “Programacion”,\
                 “materia” : “Proyecto”,\
