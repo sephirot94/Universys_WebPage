@@ -8,9 +8,29 @@ body {
     background-color: rgb(255, 250, 232);
 }
 
+#imagenUsuario {
+    width: 20px;
+    height: 20px;
+    margin: 0 auto;
+}
+
 .contenedor {
     display: flex;
     overflow: hidden;
+}
+
+.perfilUsuario {
+    background-color: rgb(0, 0, 0);
+    width: 80%;
+    height: 80%;
+    /* position: absolute; */
+    margin: auto;
+    border-radius: 10px;
+}
+
+.contenedor img {
+    width: 60%;
+    border: 1px solid rgb(0, 0, 0); 
 }
 
 .listaCarreras {
@@ -27,4 +47,10 @@ body {
     list-style-type: none;
     padding: 0;
     border-right: 1px solid rgb(0, 0, 0);
+}
+
+.carrera {
+    margin-left: 10%;
+    margin-top: auto;
+    flex: 1;
 }

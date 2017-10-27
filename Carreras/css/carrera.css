@@ -5,7 +5,7 @@ html {
 body {
     font-family: 'Roboto', 'Arial', 'Times New Roman', sans-serif;
     font-size: 1.5em;
-    background-color: #FFFAE8;
+    background-color: rgb(255, 250, 232);
 }
 
 .contenedor {
@@ -15,7 +15,7 @@ body {
 
 .contenedor img {
     width: 60%;
-    border: 1px solid black;
+    border: 1px solid rgb(0, 0, 0);
 }
 
 .listaCarreras {
@@ -31,7 +31,7 @@ body {
 .listaCarreras ul {
     list-style-type: none;
     padding: 0;
-    border-right: 1px solid black;
+    border-right: 1px solid rgb(0, 0, 0);
 }
 
 .carrera {
