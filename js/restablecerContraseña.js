@@ -15,9 +15,35 @@ function restablecerContraseñaControllerBase()
 
 function restablecerContraseñaControllerLocal(restablecerContraseñaControllerBase)
 {
-    var restablecerContraseña = function(new_pass,confirm_pass)
+    var restablecerContraseña = function(new_pass,confirm_pass, flag)
     {   
-        
+        if (flag=="mail") {
+            var json = 
+            {
+                "mail" : "pepito@gmail.com"
+            };
+        }
+        if(flag=="password") {
+            var json = 
+            {
+                "password" : "NuevaContrasena1234"
+            };
+        }
+
+        if(flag=="invalid_mail") {
+            var json = 
+            {
+                "mail" : "pepito"
+            };
+        }
+
+        if(flag=="invalid_password") {
+            var json = 
+            {
+                "password" : "pass1234"
+            };
+        }
+        return json;
     };
 }
 
@@ -28,10 +54,10 @@ function restablecerContraseñaControllerRemote(restablecerContraseñaController
     var restablecerContraseña = function(new_pass,confirm_pass)
     {
         //me fijo si el usuario ingresa mediante el link enviado por backend
-        var link_recuperacion = false; 
+        var link_recuperacion = true; 
         if(link_recuperacion) {
             var new_pass = Document.getElementById("#new_pass").value();
-            var confirm_pass = Document.getElementById("#confirm_pass").value();
+            var confirm_pass = Document.getElementById("confirm_pass").value();
             if(new_pass==confirm_pass) {
                 $.ajax({
                     url: "http://universys.site/RecuperarContraseña",
@@ -50,6 +76,24 @@ function restablecerContraseñaControllerRemote(restablecerContraseñaController
             else {
                 alert("Las contraseñas ingresadas no coinciden. Por favor, la confirmacion de contraseña debe ser igual a la nueva contraseña");
             }
+        }
+        // Si no se envio el mail al usuario, le envio la direccion de correo de este
+        // para que backend le mande el link de recuperacion de contrasena por mail.
+        else {
+            var mail = Document.getElementById("mail").value();
+            $.ajax({
+                url: "http://universys.site/RecuperarContraseña",
+                type: 'POST',
+                data: {
+                    "mail" : mail
+                },
+                success : function(result) {
+                    window.location.href = '../html/home.html';
+                },
+                error: function(result) {
+                    alert("Hubo un error: " + result.error-code);
+                } 
+            });
         }
     
     };
