@@ -12,6 +12,13 @@ body {
     width: 20px;
     height: 20px;
     margin: 0 auto;
+    float: left;
+}
+
+#fotoUsuario{
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
 }
 
 .contenedor {
@@ -20,37 +27,23 @@ body {
 }
 
 .perfilUsuario {
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(211, 211, 211);
     width: 80%;
-    height: 80%;
-    /* position: absolute; */
+    height: 500px;   
     margin: auto;
     border-radius: 10px;
+    padding: 15px;
+}
+
+.menuPerfil {
+   height: 80%;
+   width: 20%;
+   float: right;
+   background-color: rgb(173, 216, 230);
+   border-left: 1px solid rgb(0, 0, 0);
 }
 
 .contenedor img {
     width: 60%;
     border: 1px solid rgb(0, 0, 0); 
-}
-
-.listaCarreras {
-    margin-left: 5%;
-    flex: 0 0 20%;
-}
-
-.listaCarreras h1 {
-    font-weight: bold;
-    text-decoration: underline;
-}
-
-.listaCarreras ul {
-    list-style-type: none;
-    padding: 0;
-    border-right: 1px solid rgb(0, 0, 0);
-}
-
-.carrera {
-    margin-left: 10%;
-    margin-top: auto;
-    flex: 1;
 }
