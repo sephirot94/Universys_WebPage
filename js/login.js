@@ -91,7 +91,7 @@ function testLogin() {
 
     var json = parsejsonstring(lc.loginLogic("admin@admin.com", "admin"));
 
-    json = parsejsonstring(lc.logicLogic("riverkpo99@altorancho.com", "libertadores2015"));
+    json = parsejsonstring(lc.loginLogic("riverkpo99@altorancho.com", "libertadores2015"));
 
     if(json.error-code == "200")
     {
