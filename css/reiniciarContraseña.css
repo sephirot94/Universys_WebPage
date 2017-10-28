@@ -4,9 +4,9 @@ html {
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto', 'Arial', 'Times New Roman', sans-serif;
     font-size: 1.5em;
-    background-color: #FFFAE8;
+    background-color: rgb(255, 250, 232);
 }
 
 h1, p{
