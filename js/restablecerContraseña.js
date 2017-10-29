@@ -38,11 +38,12 @@ function restablecerContraseñaControllerLocal(restablecerContraseñaControllerB
 
 function restablecerContraseñaControllerRemote(restablecerContraseñaControllerBase)
 {
-    var restablecerContraseña = function(new_pass,confirm_pass, mail, link_recuperacion)
+    var restablecerContraseña = function(link_recuperacion)
     {
         //me fijo si el usuario ingresa mediante el link enviado por backend
-        var link_recuperacion = true; 
         if(link_recuperacion) {
+            var new_pass = Document.getElementById("#new_pass").value();
+            var confirm_pass = Document.getElementById("confirm_pass").value();
             if(new_pass==confirm_pass) {
                 $.ajax({
                     url: "http://universys.site/RecuperarContraseña",
@@ -65,6 +66,7 @@ function restablecerContraseñaControllerRemote(restablecerContraseñaController
         // Si no se envio el mail al usuario, le envio la direccion de correo de este
         // para que backend le mande el link de recuperacion de contrasena por mail.
         else {
+            var mail = Document.getElementById("mail").value();
             $.ajax({
                 url: "http://universys.site/RecuperarContraseña",
                 type: 'POST',
@@ -86,10 +88,8 @@ function restablecerContraseñaControllerRemote(restablecerContraseñaController
 var restablecerContraseñaController = new restablecerContraseñaControllerLocal();
 
 function restablecerContraseñaSubmit(){
-    var new_pass = Document.getElementById("#new_pass").value();
-    var confirm_pass = Document.getElementById("confirm_pass").value();
-    var mail = Document.getElementById("mail").value();
-    restablecerContraseñaController.restablecerContraseña();
+    var link_recuperacion = true;//Discutir con BACKEND
+    restablecerContraseñaController.restablecerContraseña(link_recuperacion);
 }
 
 //Metodo de testing unitario
