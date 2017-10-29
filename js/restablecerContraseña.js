@@ -5,9 +5,9 @@ document.getElementById("submit").onclick = function() { restablecerContraseñaS
 //Esta funcion muestra el error cuando la clase no esta implementada
 function restablecerContraseñaControllerBase()
 {
-    var restablecerContraseña = function(new_pass,confirm_pass)
+    var restablecerContraseña = function(link_recuperacion)
     {
-        alert("restablecerContraseñaControllerBase::restablecerContraseña(new_pass,confirm_pass) ERROR: Base class, not implemented");
+        alert("restablecerContraseñaControllerBase::restablecerContraseña(link_recuperacion) ERROR: Base class, not implemented");
     };
 }
 
@@ -85,7 +85,7 @@ function restablecerContraseñaControllerRemote(restablecerContraseñaController
     };
 }
 
-var restablecerContraseñaController = new restablecerContraseñaControllerLocal();
+var restablecerContraseñaController = new restablecerContraseñaControllerRemote();
 
 function restablecerContraseñaSubmit(){
     var link_recuperacion = true;//Discutir con BACKEND
@@ -94,5 +94,17 @@ function restablecerContraseñaSubmit(){
 
 //Metodo de testing unitario
 function testRestablecerContraseña() {
-   
+   var instance = new restablecerContraseñaControllerLocal();
+
+   var json = instance.restablecerContraseña("mail");
+
+   if (json.mail!="pepito@gmail.com") {
+     return "testRestablecerContraseña has ERRORS: restablecerContraseña not sending the right value: mail";
+   }
+
+   if (json.password!="NuevaContrasena1234") {
+    return "testRestablecerContraseña has ERRORS: restablecerContraseña not returning the right value: password";
+  }
+
+  return null;
 }
