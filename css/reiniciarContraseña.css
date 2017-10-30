@@ -20,3 +20,8 @@ form, #inputEmail {
     text-align: center;
     width: 50%;
 }
+
+input {
+    width: 300px;
+    text-align: center;
+}
