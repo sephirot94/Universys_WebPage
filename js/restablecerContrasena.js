@@ -41,37 +41,18 @@ function restablecerContrasenaControllerRemote(restablecerContrasenaControllerBa
     var restablecerContrasena = function(link_recuperacion)
     {
         //me fijo si el usuario ingresa mediante el link enviado por backend
-        if(link_recuperacion) {
-            var new_pass = Document.getElementById("#new_pass").value();
-            var confirm_pass = Document.getElementById("confirm_pass").value();
-            if(new_pass==confirm_pass) {
-                $.ajax({
-                    url: "http://universys.site/RecuperarContrasena",
-                    type: 'POST',
-                    data: {
-                        "password" : new_pass
-                    },
-                    success : function(result) {
-                        window.location.href = '../html/home.html';
-                    },
-                    error: function(result) {
-                        alert("Hubo un error: " + result.error-code);
-                    } 
-                });
-            }
-            else {
-                alert("Las contraseñas ingresadas no coinciden. Por favor, la confirmacion de contraseña debe ser igual a la nueva contraseña");
-            }
-        }
-        // Si no se envio el mail al usuario, le envio la direccion de correo de este
-        // para que backend le mande el link de recuperacion de contrasena por mail.
-        else {
-            var mail = Document.getElementById("mail").value();
+        var pregunta = Document.getElementById("#pregunta").value();
+        var respuesta = Document.getElementById("#respuesta").value();
+        var new_pass = Document.getElementById("#new_pass").value();
+        var confirm_pass = Document.getElementById("confirm_pass").value();
+        if(new_pass==confirm_pass) {
             $.ajax({
                 url: "http://universys.site/RecuperarContrasena",
                 type: 'POST',
                 data: {
-                    "mail" : mail
+                    "pregunta" : pregunta
+                    "respuesta" : respuesta
+                    "password" : new_pass
                 },
                 success : function(result) {
                     window.location.href = '../html/home.html';
@@ -81,8 +62,35 @@ function restablecerContrasenaControllerRemote(restablecerContrasenaControllerBa
                 } 
             });
         }
-    
+        else {
+            alert("Las contraseñas ingresadas no coinciden. Por favor, la confirmacion de contraseña debe ser igual a la nueva contraseña");
+        }   
     };
+
+    var restablecerRespuesta = function() {
+        var respuesta = Document.getElementById("#respuesta").value();
+        var new_pass = Document.getElementById("#new_pass").value();
+        var confirm_pass = Document.getElementById("confirm_pass").value();
+        if(new_pass==confirm_pass) {
+            $.ajax({
+                url: "http://universys.site/RecuperarContrasena",
+                type: 'POST',
+                data: {
+                    "respuesta" : respuesta
+                    "password" : new_pass
+                },
+                success : function(result) {
+                    window.location.href = '../html/home.html';
+                },
+                error: function(result) {
+                    alert("Hubo un error: " + result.error-code);
+                } 
+            });
+        }
+        else {
+            alert("Las contraseñas ingresadas no coinciden. Por favor, la confirmacion de contraseña debe ser igual a la nueva contraseña");
+        }   
+    }
 }
 
 var restablecerContrasenaController = new restablecerContrasenaControllerRemote();
