@@ -1,21 +1,21 @@
 //Esta clase implementa la funcionalidad del reseteo de contraseña en Javascript. 
 
-document.getElementById("submit").onclick = function() { restablecerContraseñaSubmit() };
+document.getElementById("submit").onclick = function() { restablecerContrasenaSubmit() };
 
 //Esta funcion muestra el error cuando la clase no esta implementada
-function restablecerContraseñaControllerBase()
+function restablecerContrasenaControllerBase()
 {
-    var restablecerContraseña = function(link_recuperacion)
+    var restablecerContrasena = function(link_recuperacion)
     {
-        alert("restablecerContraseñaControllerBase::restablecerContraseña(link_recuperacion) ERROR: Base class, not implemented");
+        alert("restablecerContrasenaControllerBase::restablecerContrasena(link_recuperacion) ERROR: Base class, not implemented");
     };
 }
 
 //Esta funcion es de uso de testeo solamente. No debe ser implementada en ambiente de produccion
 
-function restablecerContraseñaControllerLocal(restablecerContraseñaControllerBase)
+function restablecerContrasenaControllerLocal(restablecerContrasenaControllerBase)
 {
-    var restablecerContraseña = function(flag)
+    var restablecerContrasena = function(flag)
     {   
         if (flag=="mail") {
             var json = 
@@ -23,10 +23,10 @@ function restablecerContraseñaControllerLocal(restablecerContraseñaControllerB
                 "mail" : "pepito@gmail.com"
             };
         }
-        if(flag=="password") {
+        if(flag=="pregunta") {
             var json = 
             {
-                "password" : "NuevaContrasena1234"
+                "pregunta" : "Cual es la mejor banda de la historia?"
             };
         }
 
@@ -36,9 +36,9 @@ function restablecerContraseñaControllerLocal(restablecerContraseñaControllerB
 
 //Esta funcion envia los datos del formulario de registro al servidor para ser procesados.
 
-function restablecerContraseñaControllerRemote(restablecerContraseñaControllerBase)
+function restablecerContrasenaControllerRemote(restablecerContrasenaControllerBase)
 {
-    var restablecerContraseña = function(link_recuperacion)
+    var restablecerContrasena = function(link_recuperacion)
     {
         //me fijo si el usuario ingresa mediante el link enviado por backend
         if(link_recuperacion) {
@@ -46,7 +46,7 @@ function restablecerContraseñaControllerRemote(restablecerContraseñaController
             var confirm_pass = Document.getElementById("confirm_pass").value();
             if(new_pass==confirm_pass) {
                 $.ajax({
-                    url: "http://universys.site/RecuperarContraseña",
+                    url: "http://universys.site/RecuperarContrasena",
                     type: 'POST',
                     data: {
                         "password" : new_pass
@@ -68,7 +68,7 @@ function restablecerContraseñaControllerRemote(restablecerContraseñaController
         else {
             var mail = Document.getElementById("mail").value();
             $.ajax({
-                url: "http://universys.site/RecuperarContraseña",
+                url: "http://universys.site/RecuperarContrasena",
                 type: 'POST',
                 data: {
                     "mail" : mail
@@ -85,18 +85,18 @@ function restablecerContraseñaControllerRemote(restablecerContraseñaController
     };
 }
 
-var restablecerContraseñaController = new restablecerContraseñaControllerRemote();
+var restablecerContrasenaController = new restablecerContrasenaControllerRemote();
 
-function restablecerContraseñaSubmit(){
+function restablecerContrasenaSubmit(){
     var link_recuperacion = true;//Discutir con BACKEND
-    restablecerContraseñaController.restablecerContraseña(link_recuperacion);
+    restablecerContrasenaController.restablecerContrasena(link_recuperacion);
 }
 
 //Metodo de testing unitario
-function testRestablecerContraseña() {
-   var instance = new restablecerContraseñaControllerLocal();
+function testRestablecerContrasena() {
+   var instance = new restablecerContrasenaControllerLocal();
 
-   var json = instance.restablecerContraseña("mail");
+   var json = instance.restablecerContrasena("mail");
 
    if (json.mail!="pepito@gmail.com") {
      return "testRestablecerContraseña has ERRORS: restablecerContraseña not sending the right value: mail";
