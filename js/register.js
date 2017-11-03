@@ -74,7 +74,7 @@ function RegisterControllerLocal(RegisterControllerBase)
                 “catedra” : “Didier”,\
                 “nombre” : “Proyecto”,\
                 “titularDeCatedra” :”Didier”,\
-                “ofertaHoraria” : “Lun-Vie, 19:00 a 23:00”,\
+                “ofertaHoraria” : “2AB”,\
             }"\
         }';
         }
