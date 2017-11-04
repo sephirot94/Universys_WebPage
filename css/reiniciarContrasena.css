@@ -21,7 +21,9 @@ form, #inputEmail {
     width: 50%;
 }
 
-input {
+input, select {
     width: 300px;
     text-align: center;
 }
+
+

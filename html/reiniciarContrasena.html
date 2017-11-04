@@ -37,23 +37,62 @@
             </div>
         </div>
     </nav>
-
+    
     <h1>Reiniciar Contrase&ntilde;a</h1>
     <br>
     <p>Para reiniciar su contrase&ntilde;a, ingrese su direcci&oacute;n de correo debajo, si existe en nuestros registros, le enviaremos un
         email con un link para reiniciar su contrase&ntilde;a.</p>
-    <br>
-    <div>
-        <form method="POST">
-            <input id="inputEmail" type="email" name="" value="" placeholder="Ingrese su direccion de correo aqui">
-            <br>
-            <br>
-            <button id="submit">Enviar</button>
-        </form>
-    </div>
+        <br>
+        <div>
+            <form method="POST">
+                <input id="inputEmail" type="email" name="" value="" placeholder="Ingrese su direccion de correo aqui">
+                <br>
+                <br>
+                <button id="submit">Enviar</button>
+            </form>
+        </div>
 
+    <script src="../js/login.js"></script>
+  <script>
+    jQuery.validator.addMethod("passwordCheck",
+        function(value, element, param) {
+            if (this.optional(element)) {
+                return true;
+            } else if (!/[A-Z]/.test(value)) {
+                return false;
+            } else if (!/[a-z]/.test(value)) {
+                return false;
+            } else if (!/[0-9]/.test(value)) {
+                return false;
+            }
 
+            return true;
+        },
+        "La contrase&ntilde;a debe contener al menos una mayuscula, una minuscula y un numero");
 
-    <script src="../js/home.js"></script>
+    $("#login").validate({
+      rules: {
+        username: {
+          required: true,
+          email: true
+        },
+        password: {
+          required: true,
+          minlength: 8,
+          maxlength: 16
+        }
+      },
+      messages: {
+        username: {
+          required: "Este campo es obligatorio",
+          email : "Este campo debe contener una direccion de correo electronico valida"
+        },
+        password: {
+          required: "Este campo es obligatorio",
+          minlength: "Este campo debe contener al menos 8 caracteres",
+          maxlength: "Este campo debe contener maximo 16 caracteres"
+        }
+    }});
+  </script>
 </body>
 </html>
