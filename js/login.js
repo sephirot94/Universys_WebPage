@@ -46,18 +46,20 @@ function LoginControllerLocal(LoginControllerBase)
 //Ante la respuesta del servidor, envia el codigo de respuesta a la clase utility para redireccionar.
 function LoginControllerRemote(LoginControllerBase)
 {
+    //logica del login. Este metodo realiza el request a la API y maneja la respuesta
     var loginLogic = function(username, password)
     {
         $.ajax({
-            url: "ACA VA LA URL DEL SERVIDOR",
+            url: "http://universys.site/login",
             type: 'POST',
             data: {
+                "apiVer" : "1.0",
                 "mail" : username,
                 "password" : password
             },
             success : function(result) {
                 var rol = result.rol;
-                Document.cookie= result.idSesion;
+                setCookie("idSesion", result.idSesion)
                 if (rol=="administrador") {
                     window.location.href = '../html/perfilAdministrador.html';   
                 }
@@ -74,6 +76,7 @@ function LoginControllerRemote(LoginControllerBase)
         });
     };
 
+    //Este metodo llama al metodo anterior, efectuando la request a la API.
     var login = function(userField, passField)
     {
         this.loginLogic(document.getElementById(userField).value, document.getElementById(passField).value);
@@ -122,5 +125,5 @@ function testLogin() {
         return "testLogin has ERRORS: receiving wrong error code";
     }
 
-    return null;
+    return true;
 }
