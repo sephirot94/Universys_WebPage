@@ -5,7 +5,7 @@ document.getElementById("submit").onclick = function() { restablecerContrasenaSu
 //Esta funcion muestra el error cuando la clase no esta implementada
 function restablecerContrasenaControllerBase()
 {
-    var restablecerContrasena = function(link_recuperacion)
+    var restablecerContrasena = function()
     {
         alert("restablecerContrasenaControllerBase::restablecerContrasena(link_recuperacion) ERROR: Base class, not implemented");
     };
@@ -32,6 +32,23 @@ function restablecerContrasenaControllerLocal(restablecerContrasenaControllerBas
 
         return json;
     };
+
+    var restablecerRespuesta = function (flag) {
+        if (flag=="respuesta") {
+            var json = 
+            {
+                "respuesta" : "Rush"
+            };
+        }
+        if(flag=="password") {
+            var json = 
+            {
+                "new_password" : "NewPassword1234"
+            };
+        }
+
+        return json;
+    }
 }
 
 //Esta funcion envia los datos del formulario de registro al servidor para ser procesados.
@@ -93,10 +110,10 @@ function restablecerContrasenaControllerRemote(restablecerContrasenaControllerBa
     }
 }
 
-var restablecerContrasenaController = new restablecerContrasenaControllerRemote();
+var restablecerContrasenaController = new restablecerContrasenaControllerRemote(restablecerContrasenaControllerBase);
 
 function restablecerContrasenaSubmit(){
-    var link_recuperacion = true;//Discutir con BACKEND
+    
     restablecerContrasenaController.restablecerContrasena(link_recuperacion);
 }
 
