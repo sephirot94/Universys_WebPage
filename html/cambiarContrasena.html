@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Reiniciar Contrase&ntilde;a | Universys</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <script src="http://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <link href="../css/reiniciarContrasena.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                    aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="./home.html">
+                    <strong>Universys</strong> Home</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="./historia.html">Historia</a></li>
+                    <li><a href="./carreras.html">Carreras</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="./login.html">Iniciar Sesi&oacute;n</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <h1>Cambiar Contrase&ntilde;a</h1>
+    <br>
+    <p>Para cambiar su contrase&ntilde;a, seleccione su pregunta secreta e ingrese la respuesta debajo.</p>
+    <br>
+    <div>
+        <form id="preguntaRespuesta" method="POST">
+            <select id="pregunta">
+
+            </select>
+            <br>
+            <input id="respuesta" type="text" name="" value="" placeholder="Ingrese su respuesta aqui">
+            <br>
+            <input id="new_pass" type="password" name="" value="" placeholder="Ingrese su nueva contrase&ntilde;a aqui">
+            <br>
+            <input id="confirm_pass" type="password" name="" value="" placeholder="Confirme su nueva contrase&ntilde;a aqui">
+            <br>
+            <br>
+            <br>
+            <button id="submit">Enviar</button>
+        </form>
+    </div>
+
+    <script src="../js/login.js"></script>
+    <script>
+        jQuery.validator.addMethod("passwordCheck",
+            function (value, element, param) {
+                if (this.optional(element)) {
+                    return true;
+                } else if (!/[A-Z]/.test(value)) {
+                    return false;
+                } else if (!/[a-z]/.test(value)) {
+                    return false;
+                } else if (!/[0-9]/.test(value)) {
+                    return false;
+                }
+
+                return true;
+            },
+            "La contrase&ntilde;a debe contener al menos una mayuscula, una minuscula y un numero");
+
+        $("#preguntaRespuesta").validate({
+            rules: {
+                respuesta: {
+                    required: true
+                },
+                new_pass: {
+                    required: true,
+                    minlength: 8,
+                    maxlength: 16
+                },
+                confirm_pass: {
+                    equalTo: "#new_pass"
+                }
+            },
+            messages: {
+                respuesta: {
+                    required: "Este campo es obligatorio"
+                },
+                new_pass: {
+                    required: "Este campo es obligatorio",
+                    minlength: "Este campo debe contener al menos 8 caracteres",
+                    maxlength: "Este campo debe contener maximo 16 caracteres"
+                },
+                confirm_pass: {
+                    equalTo: "No coinciden las contrase&ntilde;a"
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>
