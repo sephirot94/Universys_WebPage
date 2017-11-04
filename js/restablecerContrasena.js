@@ -110,7 +110,7 @@ function restablecerContrasenaControllerRemote(restablecerContrasenaControllerBa
     }
 }
 
-var restablecerContrasenaController = new restablecerContrasenaControllerRemote(restablecerContrasenaControllerBase);
+var restablecerContrasenaController = new restablecerContrasenaControllerRemote();
 
 function restablecerContrasenaSubmit(){
     
