@@ -56,7 +56,17 @@ function LoginControllerRemote(LoginControllerBase)
                 "password" : password
             },
             success : function(result) {
-                window.location.href = '../html/home.html';
+                var rol = result.rol;
+                Document.cookie= result.idSesion;
+                if (rol=="administrador") {
+                    window.location.href = '../html/perfilAdministrador.html';   
+                }
+                if (rol=="alumno") {
+                    window.location.href = '../html/perfilAlumno.html';   
+                }
+                if (rol=="profesor") {
+                    window.location.href = '../html/perfilProfesor.html';   
+                }               
             },
             error: function(result) {
                 alert("Hubo un error: " + result.error-code);
