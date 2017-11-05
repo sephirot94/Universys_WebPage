@@ -129,7 +129,105 @@ function RegisterControllerLocal(RegisterControllerBase)
 
 function RegisterControllerRemote(RegisterControllerBase)
 {
-    var register = function(json, flag)
+    //Este metodo arma el json para enviar a backend dependiendo del tipo de dato que se quiere enviar
+    var armarJson = function (flag, operacion) {
+        var json;
+        switch (flag) {
+            case "usuario":
+                json = {
+                    "apiVer" : "1.0",
+                    "idSesion" : getCookie("idSesion"),
+                    "operacion" : operacion,
+                    "nombre" : Document.getElementById("nombre").value,
+                    "apellido" : Document.getElementById("apellido").value,
+                    "fnac" : Document.getElementById("fnac").value,
+                    "genero" : Document.getElementById("genero").value,
+                    "domicilio" : Document.getElementById("domicilio").value,
+                    "telefono" : Document.getElementById("telefono").value,
+                    "matricula" : Document.getElementById("matricula").value,
+                    "mail" : Document.getElementById("mail").value,
+                    "contrasena" : Document.getElementById("pass").value
+                };
+                break;
+
+            case "notas":
+                json = {
+                    "apiVer" : "1.0",
+                    "idSesion" : getCookie("idSesion"),
+                    "operacion" : operacion,
+                    "catedra" : Document.getElementById("catedra").value,
+                    "carrera" : Document.getElementById("carrera").value,
+                    "materia" : Document.getElementById("materia").value,
+                    "horario" : Document.getElementById("horario").value,
+                    "tipoDeClase" : Document.getElementById("tipoDeClase").value,
+                    "claveDeClase" : Document.getElementById("claveDeClase").value,
+                    "alumno" : Document.getElementById("alumno").value,
+                    "nota" : Document.getElementById("nota").value,
+                };
+                break;
+            
+            case "fichadas":
+                json = {
+                    "apiVer" : "1.0",
+                    "idSesion" : getCookie("idSesion"),
+                    "operacion" : operacion,
+                    "catedra" : Document.getElementById("catedra").value,
+                    "carrera" : Document.getElementById("carrera").value,
+                    "materia" : Document.getElementById("materia").value,
+                    "horario" : Document.getElementById("horario").value,
+                    "tipoDeClase" : Document.getElementById("tipoDeClase").value,
+                    "claveDeClase" : Document.getElementById("claveDeClase").value,
+                    "alumnos" : [
+                                    {
+                                        "nombre" : Document.getElementById("nombre").value,
+                                        "presente" : Document.getElementById("presente").value,
+                                    }
+                                ]
+                }
+                break;
+            
+            case "catedras":
+                json = {
+                    "apiVer" : "1.0",
+                    "idSesion" : getCookie("idSesion"),
+                    "operacion" : operacion,
+                    "materia" : Document.getElementById("materia").value,
+                    "catedra" : Document.getElementById("catedra").value,
+                    "nombre" : Document.getElementById("nombre").value,
+                    "titularDeCatedra" : Document.getElementById("titularDeCatedra").value,
+                    "ofertaHoraria": Document.getElementById("ofertaHoraria").value
+                    
+                }
+                break;
+
+            case "materias" :
+                json = {
+                    "apiVer" : "1.0",
+                    "idSesion" : getCookie("idSesion"),
+                    "operacion" : operacion,
+                    "catedra": Document.getElementById("catedra").value,
+                    "carrera" : Document.getElementById("carrera").value,
+                    "materia" : Document.getElementById("materia").value,
+                }
+                break;
+                
+            case "carreras" :
+                json = {
+                    "apiVer" : "1.0",
+                    "idSesion" : getCookie("idSesion"),
+                    "operacion" : operacion,		
+                    // "id_carrera" : revisar dato con backend URGENTE 
+                    "carrera" : Document.getElementById("carrera").value
+                }
+                break;
+
+            default:
+                alert("Error: invalid parameter. Please check value of parameter in call RegisterControllerRemote.armarJson");
+                break;
+        }
+        return json;
+    }
+    var alta = function(json, flag)
     {
         //mapa con el flag como clave y la variacion de la url como valor
         var mapa_url = {
