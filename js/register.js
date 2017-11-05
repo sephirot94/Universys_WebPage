@@ -253,6 +253,7 @@ function RegisterControllerRemote(RegisterControllerBase)
             data: json,
             success : function(result) {
                 // limpiar el formulario
+                alert("Los datos fueron exitosamente enviados al servidor");
                 document.getElementsByClassName("empty").reset();
             },
             error: function(result) {
