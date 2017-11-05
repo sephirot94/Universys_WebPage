@@ -61,6 +61,8 @@ function restablecerContrasenaControllerRemote(restablecerContrasenaControllerBa
             url: "http://universys.site/RecuperarContrasena",
             type: 'POST',
             data: {
+                "apiVer" : "1.0",
+                "idSesion" : getCookie("idSesion"),
                 "mail" : mail
             },
             success : function(result) {
@@ -95,6 +97,8 @@ function restablecerContrasenaControllerRemote(restablecerContrasenaControllerBa
                 url: "http://universys.site/RecuperarContrasena",
                 type: 'POST',
                 data: {
+                    "apiVer" : "1.0",
+                    "idSesion" : getCookie("idSesion"),
                     "pregunta" : pregunta
                     "respuesta" : respuesta
                     "password" : new_pass
