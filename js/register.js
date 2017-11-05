@@ -210,7 +210,7 @@ function RegisterControllerRemote(RegisterControllerBase)
                     "materia" : Document.getElementById("materia").value,
                 }
                 break;
-                
+
             case "carreras" :
                 json = {
                     "apiVer" : "1.0",
@@ -227,7 +227,7 @@ function RegisterControllerRemote(RegisterControllerBase)
         }
         return json;
     }
-    var alta = function(json, flag)
+    var register = function(json, flag)
     {
         //mapa con el flag como clave y la variacion de la url como valor
         var mapa_url = {
