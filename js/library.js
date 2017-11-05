@@ -28,3 +28,7 @@ function getCookie(name) {
 function dropCookie(name) {
 	createCookie(name,"",-1);
 }
+
+function testLibrary() {
+    
+}

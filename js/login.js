@@ -150,5 +150,5 @@ function testLogin() {
         return "testLogin has ERRORS: receiving wrong error code";
     }
 
-    return true;
+    return null;
 }
