@@ -55,7 +55,7 @@ function restablecerContrasenaControllerLocal(restablecerContrasenaControllerBas
 
 function restablecerContrasenaControllerRemote(restablecerContrasenaControllerBase)
 {
-    var restablecerContrasena = function(link_recuperacion)
+    var restablecerContrasena = function()
     {
         //me fijo si el usuario ingresa mediante el link enviado por backend
         var pregunta = Document.getElementById("#pregunta").value();
@@ -84,7 +84,10 @@ function restablecerContrasenaControllerRemote(restablecerContrasenaControllerBa
         }   
     };
 
-    var restablecerRespuesta = function() {
+    //Este metodo permite cambiar la contraseña o la respuesta secreta una vez ya logueado.
+    var cambiarContrasena = function() {
+        var pregunta = Document.getElementById("#pregunta");
+        var pregunta_elegida = pregunta.options[ pregunta.selectedIndex ].value();
         var respuesta = Document.getElementById("#respuesta").value();
         var new_pass = Document.getElementById("#new_pass").value();
         var confirm_pass = Document.getElementById("confirm_pass").value();
@@ -93,7 +96,8 @@ function restablecerContrasenaControllerRemote(restablecerContrasenaControllerBa
                 url: "http://universys.site/RecuperarContrasena",
                 type: 'POST',
                 data: {
-                    "respuesta" : respuesta
+                    "pregunta" : pregunta_elegida,
+                    "respuesta" : respuesta,
                     "password" : new_pass
                 },
                 success : function(result) {
