@@ -40,6 +40,10 @@ function LoginControllerLocal(LoginControllerBase)
     {
         return this.loginLogic(document.getElementById(userField).value, document.getElementById(passField).value);
     };
+
+    var logout = function () {
+        
+    }
 }
 
 //Esta funcion envia los datos del formulario de login al servidor para ser procesados.
@@ -81,6 +85,27 @@ function LoginControllerRemote(LoginControllerBase)
     {
         this.loginLogic(document.getElementById(userField).value, document.getElementById(passField).value);
     };
+
+    //Este metodo se usa para cerrar sesion
+    var logout = function() {
+        var idSesion = getCookie("idSesion");
+        $.ajax({
+            url: "http://universys.site/logout",
+            type: 'POST',
+            data: {
+                "apiVer" : "1.0",
+                "idSesion" : idSesion
+            },
+            success : function(result) {
+                dropCookie("idSesion");
+                window.location.href = '../html/home.html';              
+            },
+            error: function(result) {
+                alert("Hubo un error: " + result.error-code);
+            } 
+        });
+
+    }
 }
 
 //Instanciamos el Controlador
