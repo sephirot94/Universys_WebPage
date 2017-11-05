@@ -98,7 +98,7 @@ function LoginControllerRemote(LoginControllerBase)
             },
             success : function(result) {
                 dropCookie("idSesion");
-                window.location.href = '../html/home.html';              
+                window.location.href = '../html/home.html';
             },
             error: function(result) {
                 alert("Hubo un error: " + result.error-code);
