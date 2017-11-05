@@ -64,7 +64,7 @@ function restablecerContrasenaControllerRemote(restablecerContrasenaControllerBa
                 "mail" : mail
             },
             success : function(result) {
-                poblarDatos(parsejsonstring(result));
+                poblarPreguntas(parsejsonstring(result));
             },
             error: function(result) {
                 alert("Hubo un error: " + result.error-code);
@@ -73,9 +73,14 @@ function restablecerContrasenaControllerRemote(restablecerContrasenaControllerBa
 
     }
 
-    var poblarDatos = function (json) {
-        var pregunta = Document.getElementById("pregunta").value;
-        pregunta = json.pregunta;
+    var poblarPreguntas = function (json) {
+        var pregunta = Document.getElementById("pregunta");
+        for (var i = 0; i<json.preguntas.length; i++){
+            var opt = document.createElement('option');
+            opt.value = i;
+            opt.innerHTML = json.preguntas[i];
+            pregunta.appendChild(opt);
+        }
     }
 
     var restablecerContrasena = function()
@@ -120,6 +125,8 @@ function restablecerContrasenaControllerRemote(restablecerContrasenaControllerBa
                 url: "http://universys.site/RecuperarContrasena",
                 type: 'POST',
                 data: {
+                    "apiVer" : "1.0",
+                    "idSesion" : getCookie("idSesion")
                     "pregunta" : pregunta_elegida,
                     "respuesta" : respuesta,
                     "password" : new_pass
@@ -135,6 +142,20 @@ function restablecerContrasenaControllerRemote(restablecerContrasenaControllerBa
         else {
             alert("Las contraseñas ingresadas no coinciden. Por favor, la confirmacion de contraseña debe ser igual a la nueva contraseña");
         }   
+    }
+
+    //Este metodo se usa para traer las preguntas secretas posibles y desplegarlas en un select
+    var getPreguntas = function() {
+        $.ajax({
+            url: "http://universys.site/RecuperarContrasena",
+            type: 'GET',
+            success : function(result) {
+                poblarPreguntas(parsejsonstring(result));
+            },
+            error: function(result) {
+                alert("Hubo un error: " + result.error-code);
+            } 
+        });
     }
 }
 
