@@ -44,8 +44,16 @@
         email con un link para reiniciar su contrase&ntilde;a.</p>
         <br>
         <div>
-            <form method="POST">
+            <form id="preguntaRespuesta" method="POST">
                 <input id="inputEmail" type="email" name="" value="" placeholder="Ingrese su direccion de correo aqui">
+                <br>
+                <input id="pregunta" type="text" name="" value="" placeholder="Ingrese su pregunta secreta aqui">
+                <br>
+                <input id="respuesta" type="text" name="" value="" placeholder="Ingrese su respuesta aqui">
+                <br>
+                <input id="new_pass" type="password" name="" value="" placeholder="Ingrese su nueva contrase&ntilde;a aqui">
+                <br>
+                <input id="confirm_pass" type="password" name="" value="" placeholder="Confirme su nueva contrase&ntilde;a aqui">
                 <br>
                 <br>
                 <button id="submit">Enviar</button>
@@ -70,29 +78,46 @@
         },
         "La contrase&ntilde;a debe contener al menos una mayuscula, una minuscula y un numero");
 
-    $("#login").validate({
+    $("#preguntaRespuesta").validate({
       rules: {
-        username: {
-          required: true,
-          email: true
+            inputEmail: {
+                required: true
+            },
+            pregunta: {
+                required: true
+            },
+            respuesta: {
+                required: true
+            },
+            new_pass: {
+                required: true,
+                minlength: 8,
+                maxlength: 16
+            },
+            confirm_pass: {
+                equalTo: "#new_pass"
+            }
         },
-        password: {
-          required: true,
-          minlength: 8,
-          maxlength: 16
+        messages: {
+            inputEmail: {
+                required: "Este campo es obligatorio"
+            },
+            pregunta: {
+                required: "Este campo es obligatorio"
+            },
+            respuesta: {
+                required: "Este campo es obligatorio"
+            },
+            new_pass: {
+                required: "Este campo es obligatorio",
+                minlength: "Este campo debe contener al menos 8 caracteres",
+                maxlength: "Este campo debe contener maximo 16 caracteres"
+            },
+            confirm_pass: {
+                equalTo: "No coinciden las contrase&ntilde;a"
+            }
         }
-      },
-      messages: {
-        username: {
-          required: "Este campo es obligatorio",
-          email : "Este campo debe contener una direccion de correo electronico valida"
-        },
-        password: {
-          required: "Este campo es obligatorio",
-          minlength: "Este campo debe contener al menos 8 caracteres",
-          maxlength: "Este campo debe contener maximo 16 caracteres"
-        }
-    }});
+    });
   </script>
 </body>
 </html>
