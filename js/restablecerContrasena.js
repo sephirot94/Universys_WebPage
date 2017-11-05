@@ -87,6 +87,7 @@ function restablecerContrasenaControllerRemote(restablecerContrasenaControllerBa
     //Este metodo permite cambiar la contraseña o la respuesta secreta una vez ya logueado.
     var cambiarContrasena = function() {
         var pregunta = Document.getElementById("#pregunta");
+        //Busco la option del select elegida
         var pregunta_elegida = pregunta.options[ pregunta.selectedIndex ].value();
         var respuesta = Document.getElementById("#respuesta").value();
         var new_pass = Document.getElementById("#new_pass").value();
