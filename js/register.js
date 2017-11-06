@@ -227,6 +227,12 @@ function RegisterControllerRemote(RegisterControllerBase)
         }
         return json;
     }
+
+    // Metodo para parsear la oferta horaria al codigo hexadecimal usado. Los parametros tienen que ser los valores hexadecimales de cada parametro (dia, hora de inicio, hora de fin)
+    var parseOfertaHoraria = function(dia, hora_inicio, hora_fin) {
+        return "" + dia + hora_inicio + hora_fin + "";
+    }
+
     var register = function(json, flag)
     {
         //mapa con el flag como clave y la variacion de la url como valor
