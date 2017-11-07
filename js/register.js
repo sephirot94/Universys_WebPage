@@ -279,6 +279,7 @@ function registerSubmit(){
 
 //Metodo de testing unitario
 function testRegister() {
+    var rcr = new RegisterControllerRemote();
     var rc = new RegisterControllerLocal();
 
     var json = parsejsonstring(rc.register("usuario"));
@@ -320,13 +321,22 @@ function testRegister() {
     
     //Chequeo JSON valores vacios
     if(json.usuario.nombre != "Gaston" || json.usuario.apellido == "" || json.usuario.matricula != "") {
-        alert("testRegister has ERRORS: RegisterController not returning the right value. RegisterController::: Empty fields: Lastname");
+        return "testRegister has ERRORS: RegisterController not returning the right value. RegisterController::: Empty fields: Lastname";
     }
 
     json = parsejsonstring(rc.register("invalid"));
     
     //Chequeo JSON valores invalidos
     if(json.usuario.matricula == "03134") {
-        alert("testRegister has ERRORS: RegisterController not returning the right value. RegisterController::: invalid ID");
+        return "testRegister has ERRORS: RegisterController not returning the right value. RegisterController::: invalid ID";
     }
+
+    //Chequeo el metodo parseOfertaHoraria
+    var ofertaHoraria = rcr.parseOfertaHoraria(3, 7, 9);
+
+    if (ofertaHoraria != '379') {
+        return "testRegister has ERRORS: RegisterControllerRemote.parseOfertaHoraria not returning the right value. RegisterController :: parseOfertaHoraria(dias, hora_inicio, hora_fin)";
+    }
+
+    return null;
 }
