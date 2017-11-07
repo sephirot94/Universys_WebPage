@@ -187,6 +187,9 @@ function RegisterControllerRemote(RegisterControllerBase)
                 break;
             
             case "catedras":
+                var dia = Document.getElementById("dia");
+                var hora_inicio = Document.getElementById("hora_inicio");
+                var hora_fin = Document.getElementById("hora_fin");
                 json = {
                     "apiVer" : "1.0",
                     "idSesion" : getCookie("idSesion"),
@@ -195,7 +198,7 @@ function RegisterControllerRemote(RegisterControllerBase)
                     "catedra" : Document.getElementById("catedra").value,
                     "nombre" : Document.getElementById("nombre").value,
                     "titularDeCatedra" : Document.getElementById("titularDeCatedra").value,
-                    "ofertaHoraria": Document.getElementById("ofertaHoraria").value
+                    "ofertaHoraria": parseOfertaHoraria(dia.options[dia.selectedIndex].value, hora_inicio.options[hora_inicio.selectedIndex].value, hora_fin.options[hora_fin.selectedIndex].value);
                     
                 }
                 break;
