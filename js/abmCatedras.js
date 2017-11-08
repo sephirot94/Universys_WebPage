@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    //NACHO COMENTA EL CODIGO!!!!
     $(".alta").hide();
     $(".baja").hide();
     $(".modificacion").hide();
