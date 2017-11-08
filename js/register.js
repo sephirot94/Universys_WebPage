@@ -218,8 +218,7 @@ function RegisterControllerRemote(RegisterControllerBase)
                 json = {
                     "apiVer" : "1.0",
                     "idSesion" : getCookie("idSesion"),
-                    "operacion" : operacion,		
-                    // "id_carrera" : revisar dato con backend URGENTE 
+                    "operacion" : operacion,
                     "carrera" : Document.getElementById("carrera").value
                 }
                 break;
