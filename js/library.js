@@ -29,7 +29,7 @@ function getCookie(name) {
 
 //Metodo para borrar cookie.
 function dropCookie(name) {
-	createCookie(name,"",-1);
+	setCookie(name,"",-1);
 }
 
 //Metodo de testing unitario de parseJsonString
@@ -45,10 +45,10 @@ var testSetCookie = function(name, value) {
     var cookie_name = cookie[0];
     var cookie_value = cookie[1];
     if (!cookie_name.includes(name) || !cookie_value.includes(value)) {
-        createCookie(name,"",-1);
+        setCookie(name,"",-1);
         return "setCookie function returning errors."
     }
-    createCookie(name,"",-1);
+    setCookie(name,"",-1);
     return null;
     
 }
