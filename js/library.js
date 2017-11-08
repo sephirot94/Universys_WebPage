@@ -73,12 +73,24 @@ var testDropCookie = function() {
 //Metodo de testing unitario de la Libreria
 function testLibrary() {
     var testParseJsonStringResults = testParseJsonString();
-    var testSetCookiegResults = testSetCookie();
+    var testSetCookieResults = testSetCookie();
     var testGetCookieResults = testGetCookie();
     var testDropCookieResults = testDropCookie();
 
-    if (testParseJsonStringResults!==null || testSetCookiegResults!==null || testGetCookieResults!==null || testDropCookieResults!==null) {
-        return "Error encountered in function parsejsonstring: " + testParseJsonStringResults + "\n Error encountered in function setCookie: " + testSetCookiegResults + "\n Error encountered in function getCookie: " + testGetCookiegResults + "\n Error encountered in function dropCookie: " + testDropCookiegResults;
+    if (testSetCookieResults!==null) {
+        return "Error encountered in function setCookie: " + testSetCookieResults;
+    }
+
+    if (testGetCookieResults!==null) {
+        return "Error encountered in function getCookie: " + testGetCookiegResults;
+    }
+
+    if(testDropCookieResults!==null) {
+        return "Error encountered in function dropCookie: " + testDropCookiegResults;
+    }
+    
+    if (testParseJsonStringResults!==null) {
+        return "Error encountered in function parsejsonstring: " + testParseJsonStringResults;
     }
     return null;
 }
