@@ -8,7 +8,6 @@ function parsejsonstring(json) {
 
 //Metodo para setear cookies. Principalmente usado para guardar el idSesion que backend envia en el login.
 function setCookie(name,value) {
-    var expires = "";
     document.cookie = name + "=" + value + ";" ;
 }
 
@@ -29,7 +28,7 @@ function getCookie(name) {
 
 //Metodo para borrar cookie.
 function dropCookie(name) {
-	setCookie(name,"",-1);
+	document.cookie = name + "=;" ;
 }
 
 //Metodo de testing unitario de parseJsonString
