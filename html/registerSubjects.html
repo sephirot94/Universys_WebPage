@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- registerSubject.html sirve para el registro de las materias con sus respectivos profesores -->
+<!-- registerSubject.html sirve para el registro de las materias -->
 <html lang="en">
     <head>
       <meta charset="utf-8">
@@ -18,7 +18,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
       crossorigin="anonymous"></script>
 
-      <!-- codigo para que funcione boosstrap y  Jquery-->
+      <!-- codigo para que funcione boosstrap y Jquery-->
     
      
     
@@ -31,26 +31,22 @@
       
       <div class="container-fluid">
         <div class="centered">
-           <h1>Bienvenido a Universys</h1> <!-- Titulo     -->
+           <h1>Bienvenido a Universys</h1> <!-- Titulo -->
         </div>
         <div class="centered"> 
-           <h3>Registro Materias:</h3>  <!-- Titulo-->
-          <form id="registerSubjects" method="post"> <!--Formulario para poder registrarse -->
+           <h3>Registro Materias:</h3>  <!-- Titulo -->
+          <form id="registerSubjects" method="post"> <!--Formulario donde se ingresan los inputs -->
               <div>
-                  <label for="Codigo" id="codigo_lbl">C&oacute;digo:</label>
-                  <input class="empty" type="int" name="codigo" id="codigo" value="">
+                  <label for="catedra" id="catedra_lbl">Nombre de Catedra:</label>
+                  <input class="empty" type="string" name="catedra" id="catedra" value=""> <!--input para ingresar datos -->
               </div>
               <div>
-                  <label for="nombre" id="nombre_lbl">Nombre de la Materia:</label>
-                  <input class="empty" type="string" name="nombre" id="nombre" value="">
+                  <label for="carrera" id="carrera_lbl">Nombre de la Carrera:</label>
+                  <input class="empty" type="string" name="carrera" id="carrera" value=""> <!--input para ingresar datos -->
               </div>
               <div>
-                  <label for="IdProfesor" id="id_lbl">ID Profesor:</label>
-                  <input class="empty" type="int" name="idProfesor" id="idProfesor" value="">
-              </div>
-              <div>
-                  <label for="NombreProfesor" id="nombreProfesor_lbl">Nombre del profesor asignado:</label>
-                  <input class="empty" type="string" name="nombreProfesor" id="nombreProfesor" value="">
+                  <label for="materia" id="materia_lbl">Nombre de la Materia:</label>
+                  <input class="empty" type="string" name="materia" id="materias" value=""> <!--input para ingresar datos -->
               </div>
               <br>
                <button id="submit">Enviar</button> <!--Boton para enviar el formulario -->
@@ -61,49 +57,41 @@
       <script>
     
          $("#registerSubjects").validate({ //Codigo para testear el codigo para evitar diversos errores como superar el limite de caracteres
-          rules: {
-            codigo: {
+          rules: { //condiciones a seguir para evitar errores
+            catedra: {
               required: true,
               minlength: 4,
               maxlength: 8
             },
-            nombre: {
+            carrera: {
               required: true,
               minlength: 1,
               maxlength: 16
             },
-            idProfesor: {
+            carrera: {
               required: true,
               minlength: 1,
               maxlength: 16
             },
-            nombreProfesor: {
-              required: true,
-              minlength: 1,
-              maxlength: 16
-            }
+            
           },
-          messages: {
-            codigo: {
+          messages: { //Mensaje a mostrar cuado surga un error
+            catedra: {
               required: "Este campo es obligatorio",
               minlength: "Este campo debe contener al menos 4 caracteres",
               maxlength: "Este campo debe contener maximo 8 caracteres"
             },
-            nombre: {
+            carrera: {
               required: "Este campo es obligatorio",
               minlength: "Este campo debe contener al menos 1 caracter",
               maxlength: "Este campo debe contener maximo 16 caracteres"
             },
-            idProfesor: {
+            materia: {
               required: "Este campo es obligatorio",
               minlength: "Este campo debe contener al menos 1 caracter",
               maxlength: "Este campo debe contener maximo 16 caracteres"
             },
-            nombreProfesor: {
-              required: "Este campo es obligatorio",
-              minlength: "Este campo debe contener al menos 1 caracter",
-              maxlength: "Este campo debe contener maximo 16 caracteres"
-            }
+            
         }});
       </script>
       
