@@ -226,6 +226,10 @@ function RegisterControllerRemote(RegisterControllerBase)
 
             default:
                 alert("Error: invalid parameter. Please check value of parameter in call RegisterControllerRemote.armarJson");
+                json = {
+                    "error-code" : "703",
+                    "error-description" : "Invalid parameter passed to armarJson method: flag. RegisterControllerRemote::armarJson(flag,operacion)"
+                };
                 break;
         }
         return json;
