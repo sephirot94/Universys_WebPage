@@ -15,7 +15,7 @@ function setCookie(name,value) {
 function getCookie(name) {
     var nameEQ = name + "=";
     var cookie_arr = document.cookie.split(';');
-    for(var i=0;i < ca.length;i++) {
+    for(var i=0;i < cookie_arr.length;i++) {
         var cookie = cookie_arr[i];
         if(cookie.includes(name)) {
             var cookie_substring = cookie.split("=");
@@ -39,15 +39,15 @@ var testParseJsonString = function () {
 //Metodo de testing unitario de setCookie
 var testSetCookie = function(name, value) {
     setCookie(name, value);
-    var ca = document.cookie.split(";");
-    var cookie = ca[0].split("=");
+    var cookie_array = document.cookie.split(";");
+    var cookie = cookie_array[0].split("=");
     var cookie_name = cookie[0];
     var cookie_value = cookie[1];
     if (!cookie_name.includes(name) || !cookie_value.includes(value)) {
-        setCookie(name,"",-1);
+        setCookie(name,"");
         return "setCookie function returning errors."
     }
-    setCookie(name,"",-1);
+    setCookie(name,"");
     return null;
     
 }
