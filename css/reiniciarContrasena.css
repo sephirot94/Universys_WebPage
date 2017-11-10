@@ -3,24 +3,28 @@ html {
     height: 100%;
 }
 
+/* Standard del website */
 body {
     font-family: 'Roboto', 'Arial', 'Times New Roman', sans-serif;
     font-size: 1.5em;
     background-color: rgb(255, 250, 232);
 }
 
+/* Estilo de titulo de "Reiniciar contraseña" y descripcion para Reiniciar Contraseña */
 h1, p{
     margin: 0 auto;
     text-align: center;
     width: 30%;
 }
 
+/* Estilo de formulario para Reiniciar Contraseña */
 form {
     margin: 0 auto;
     text-align: center;
     width: 50%;
 }
 
+/* Estilo para inputs y select de Reiniciar Contraseña */
 input, select {
     width: 300px;
     text-align: center;
