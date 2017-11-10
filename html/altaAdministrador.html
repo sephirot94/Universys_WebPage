@@ -2,68 +2,75 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-
     <title>Universys</title>
-    <!-- <meta name="description" content="The HTML5 Herald">
-  <meta name="author" content="SitePoint"> -->
-
-    <link rel="stylesheet" href="../css/register.css">
+    <link rel="stylesheet" href="../css/altaAdministrador.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.js"></script>
-    <!--[if lt IE 9]>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
-  <![endif]-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
 </head>
 
 <body>
     <div class="container-fluid">
         <div class="centered">
+            <!-- Titulo -->
             <h1>Bienvenido a Universys</h1>
         </div>
         <div class="centered">
-            <h3>Register Administrador</h3>
+            <!-- Titulo -->
+            <h3>Registrar Administrador</h3>
             <form id="administrador" method="post">
                 <div>
+                    <!-- Input para Nombre -->
                     <label for="Nombre" id="firstname_lbl">Nombre</label>
                     <input class="empty" type="string" name="firstname" id="firstname" value="">
                 </div>
                 <div>
+                    <!-- Input para Apellido -->
                     <label for="lastname" id="lastname_lbl">Apellido</label>
                     <input class="empty" type="string" name="lastname" id="lastname" value="">
                 </div>
                 <div>
+                    <!-- Input para Matricula -->
                     <label for="matricula" id="matricula_lbl">Matricula</label>
                     <input class="empty" type="string" name="matricula" id="matricula" value="">
                 </div>
                 <div>
+                    <!-- Input para Fecha de Nacimiento -->
                     <label for="fnac" id="username_lbl">Fecha de Nacimiento</label>
                     <input class="empty" type="date" name="fnac" id="fnac" value="">
                 </div>
                 <div>
+                    <!-- Input para Password -->
                     <label for="password">Contrase&ntilde;a</label>
                     <input class="empty" type="password" name="password" id="password" value="">
                 </div>
                 <div>
+                    <!-- Input para Confirmacion de Password -->
                     <label for="confirm_password">Confirmar contrase&ntilde;a</label>
                     <input class="empty" type="password" name="confirm_password" id="confirm_password" value="">
                 </div>
                 <div>
+                    <!-- Input para Genero -->
                     <label for="genero">Genero</label>
                     <input class="empty" type="string" name="genero" id="genero" value="">
                 </div>
                 <div>
+                    <!-- Input para Mail -->
                     <label for="mail">Mail</label>
                     <input class="empty" type="email" name="mail" id="mail" value="">
                 </div>
                 <div>
+                    <!-- Input para Telefono -->
                     <label for="telefono">Telefono</label>
                     <input class="empty" type="number" name="mail" id="telefono" value="">
                 </div>
                 <div>
+                    <!-- Input para Domicilio -->
                     <label for="domicilio">Domicilio</label>
                     <input class="empty" type="string" name="domicilio" id="domicilio" value="">
                 </div>
                 <br>
+                <!-- Boton de Submit para guardar los datos -->
                 <button id="submit">Enviar</button>
             </form>
         </div>
