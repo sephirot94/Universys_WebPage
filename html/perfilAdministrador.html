@@ -1,12 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>Home | Universys</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <script src="http://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <link href="../css/perfilAlumno.css" rel="stylesheet">
 </head>
 <body>
-    
+    <!-- Navbar -->
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                    aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="./home.html">
+                    <strong>Universys</strong> Home</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="./historia.html">Historia</a></li>
+                    <li><a href="./carreras.html">Carreras</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><img id="imagenUsuario" src="http://coyotechronicle.net/wp-content/uploads/2015/02/facebook-logo.jpeg"> <u>Pepito123</u></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <img id="fotoUsuario" src="http://coyotechronicle.net/wp-content/uploads/2015/02/facebook-logo.jpeg">
+                <h1>Administrador123</h1>
+            </div>
+            <div class="col-md-6">
+                <ul class="menuPerfil">
+                    <li><button type="button">Plan de Estudio</button></li>
+                    <li><button type="button">Materias</button></li>
+                    <li><button type="button">Ver mis notas</button></li>
+                    <li><button type="button">Inscribir a materias</button></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script src="../js/home.js"></script>
 </body>
 </html>
