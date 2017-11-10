@@ -25,43 +25,55 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="./home.html">
+                    <!-- Titulo -->
                     <strong>Universys</strong> Home</a>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
+                    <!-- Link a pestaña de Historia -->
                     <li><a href="./historia.html">Historia</a></li>
+                    <!-- Link a pestaña de Carreras -->
                     <li><a href="./carreras.html">Carreras</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
+                    <!-- Link para Iniciar Sesion -->
                     <li><a href="./login.html">Iniciar Sesi&oacute;n</a></li>
                 </ul>
             </div>
         </div>
     </nav>
-
+    <!-- Titulo -->
     <h1>Cambiar Contrase&ntilde;a</h1>
     <br>
+    <!-- Descripcion para cambiar contraseña -->
     <p>Para cambiar su contrase&ntilde;a, seleccione su pregunta secreta e ingrese la respuesta debajo.</p>
     <br>
     <div>
+        <!-- Formulario para cambiar contraseña -->
         <form id="preguntaRespuesta" method="POST">
+            <!-- Select para elegir pregunta secreta -->
             <select id="pregunta">
 
             </select>
             <br>
+            <!-- Input para respuesta -->
             <input id="respuesta" type="text" name="" value="" placeholder="Ingrese su respuesta aqui">
             <br>
+            <!-- Input para password -->
             <input id="new_pass" type="password" name="" value="" placeholder="Ingrese su nueva contrase&ntilde;a aqui">
             <br>
+            <!-- Input para confirmar password -->
             <input id="confirm_pass" type="password" name="" value="" placeholder="Confirme su nueva contrase&ntilde;a aqui">
             <br>
             <br>
             <br>
+            <!-- Input para guardar datos -->
             <button id="submit">Enviar</button>
         </form>
     </div>
 
     <script src="../js/login.js"></script>
+    <!-- Plugin de jQuery para validar datos -->
     <script>
         jQuery.validator.addMethod("passwordCheck",
             function (value, element, param) {
