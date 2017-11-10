@@ -2,6 +2,7 @@ html {
     height: 100%;
 }
 
+/* Standard del website */
 body {
     font-family: 'Roboto', 'Arial', 'Times New Roman', sans-serif;
     font-size: 1.5em;
@@ -13,11 +14,13 @@ body {
     overflow: hidden;
 }
 
+/* Estilo de imagen */
 .contenedor img {
     width: 60%;
     border: 1px solid rgb(0, 0, 0);
 }
 
+/* Estilos de lista de carreras */
 .listaCarreras {
     margin-left: 5%;
     flex: 0 0 20%;
