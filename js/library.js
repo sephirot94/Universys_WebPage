@@ -51,17 +51,26 @@ var testSetCookie = function(name, value) {
 var testGetCookie = function(name) {
     document.cookie = name + "= 1 ;" ;
     var cookie = getCookie(name);
-    if(cookie===null) {
-        return "getCookie function not finding value of cookie when name is passed"
-    }
    if(cookie.includes(1)) {
-
+       dropCookie(name);
+        return null;
     }
+    dropCookie(name);
+    return "getCookie() returning error. Library method getCookie() not returning correct cookie value";
 }
 
 //Metodo de testing unitario de dropCookie
-var testDropCookie = function() {
-    
+var testDropCookie = function(name) {
+    document.cookie = name + "=1;";
+    var cookie = getCookie(name);
+    if (cookie.includes("1")) {
+        dropCookie(name);
+        cookie = getCookie(name);
+        if (cookie=="") {
+            return null;
+        }
+    }
+    return "dropCookie() returning error. Library method dropCookie() not returning correct cookie value";
 }
 
 //Metodo de testing unitario de la Libreria
