@@ -8,7 +8,6 @@ function parsejsonstring(json) {
 
 //Metodo para setear cookies. Principalmente usado para guardar el idSesion que backend envia en el login.
 function setCookie(name,value) {
-    var expires = "";
     document.cookie = name + "=" + value + ";" ;
 }
 
@@ -16,7 +15,7 @@ function setCookie(name,value) {
 function getCookie(name) {
     var nameEQ = name + "=";
     var cookie_arr = document.cookie.split(';');
-    for(var i=0;i < ca.length;i++) {
+    for(var i=0;i < cookie_arr.length;i++) {
         var cookie = cookie_arr[i];
         if(cookie.includes(name)) {
             var cookie_substring = cookie.split("=");
@@ -29,7 +28,7 @@ function getCookie(name) {
 
 //Metodo para borrar cookie.
 function dropCookie(name) {
-	createCookie(name,"",-1);
+	document.cookie = name + "=;" ;
 }
 
 //Metodo de testing unitario de parseJsonString
@@ -40,15 +39,15 @@ var testParseJsonString = function () {
 //Metodo de testing unitario de setCookie
 var testSetCookie = function(name, value) {
     setCookie(name, value);
-    var ca = document.cookie.split(";");
-    var cookie = ca[0].split("=");
+    var cookie_array = document.cookie.split(";");
+    var cookie = cookie_array[0].split("=");
     var cookie_name = cookie[0];
     var cookie_value = cookie[1];
     if (!cookie_name.includes(name) || !cookie_value.includes(value)) {
-        createCookie(name,"",-1);
+        setCookie(name,"");
         return "setCookie function returning errors."
     }
-    createCookie(name,"",-1);
+    setCookie(name,"");
     return null;
     
 }
@@ -73,12 +72,24 @@ var testDropCookie = function() {
 //Metodo de testing unitario de la Libreria
 function testLibrary() {
     var testParseJsonStringResults = testParseJsonString();
-    var testSetCookiegResults = testSetCookie();
+    var testSetCookieResults = testSetCookie();
     var testGetCookieResults = testGetCookie();
     var testDropCookieResults = testDropCookie();
 
-    if (testParseJsonStringResults!==null || testSetCookiegResults!==null || testGetCookieResults!==null || testDropCookieResults!==null) {
-        return "Error encountered in function parsejsonstring: " + testParseJsonStringResults + "\n Error encountered in function setCookie: " + testSetCookiegResults + "\n Error encountered in function getCookie: " + testGetCookiegResults + "\n Error encountered in function dropCookie: " + testDropCookiegResults;
+    if (testSetCookieResults!==null) {
+        return "Error encountered in function setCookie: " + testSetCookieResults;
+    }
+
+    if (testGetCookieResults!==null) {
+        return "Error encountered in function getCookie: " + testGetCookiegResults;
+    }
+
+    if(testDropCookieResults!==null) {
+        return "Error encountered in function dropCookie: " + testDropCookiegResults;
+    }
+    
+    if (testParseJsonStringResults!==null) {
+        return "Error encountered in function parsejsonstring: " + testParseJsonStringResults;
     }
     return null;
 }

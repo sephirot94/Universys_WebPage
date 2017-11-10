@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<!-- abmFichadas.html sirve para el registro de las fichadas con sus respectivos alumnos -->
+<html lang="en">
+    <head>
+      <meta charset="utf-8">
+    
+      <title>Universys</title>
+    
+      <link rel="stylesheet" href="../css/abmFichadas.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.js"></script>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
+      crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+      crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
+      crossorigin="anonymous"></script>
+
+      <!-- codigo para que funcione boosstrap y  Jquery-->
+    
+     
+    
+      <!--[if lt IE 9]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+      <![endif]-->
+    </head>
+    
+    <body>
+      
+      <div class="container-fluid">
+        <div class="centered">
+           <h1>Bienvenido a Universys</h1> <!-- Titulo     -->
+        </div>
+        <div class="centered"> 
+           <h3>Fichadas:</h3>  <!-- Titulo-->
+          <form id="abmFichadas" method="post"> <!--Formulario para ingresar los correspondientes inputs -->
+              <div>
+                  <label for="catedras" id="catedras_lbl">Catedra:</label>
+                  <input class="empty" type="string" name="catedra" id="catedra" value="">
+              </div>
+              <div>
+                  <label for="carrera" id="carrera_lbl">Carrera:</label>
+                  <input class="empty" type="string" name="carrera" id="carrera" value="">
+              </div>
+              <div>
+                  <label for="materia" id="materia_lbl">Materia:</label>
+                  <input class="empty" type="string" name="materia" id="materia" value="">
+              </div>
+              <div>
+                  <label for="horario" id="horario_lbl">Horario:</label>
+                  <input class="empty" type="time" name="horario" id="horario" value="">
+              </div>
+              <div>
+                <label for="tipoDeClase" id="tipoDeClase_lbl">Tipo de clase:</label>
+                <input class="empty" type="string" name="tipoDeClase" id="tipoDeClase" value="">
+            </div>
+            <div>
+                <label for="claveDeClase" id="claveDeClase_lbl">Clave de Clase:</label>
+                <input class="empty" type="int" name="claveDeClase" id="claveDeClase" value="">
+            </div>
+            <br>
+            <h4>Alumno:</h4>
+            <div>
+                <label for="nombreAlumno" id="nombreAlumno_lbl">Nombre del alumno:</label>
+                <input class="empty" type="string" name="nombreAlumno" id="nombreAlumno" value="">
+            </div>
+            <div>
+                <label for="presente" id="presente_lbl">Presente:</label>
+                <input class="empty" type="string" name="presente" id="presente" value="">
+            </div>
+              <br>
+               <button id="submit">Enviar</button> <!--Boton para enviar el formulario -->
+          </form>
+        </div>
+      </div>
+
+      <script>
+    
+         $("#registerCatedras").validate({ //Condiciones para testear el codigo y asi evitar diversos errores como superar el limite de caracteres
+          rules: {
+            catedras: {
+              required: true,
+              minlength: 4,
+              maxlength: 8
+            },
+            carrera: {
+              required: true,
+              minlength: 4,
+              maxlength: 8
+            },
+            materia: {
+              required: true,
+              minlength: 4,
+              maxlength: 16
+            },
+            horario: {
+              required: true,
+              minlength: 4,
+              maxlength: 4
+            },
+            tipoDeClase: {
+              required: true,
+              minlength: 1,
+              maxlength: 16
+            },
+            claveDeClase: {
+              required: true,
+              minlength: 1,
+              maxlength: 16
+            },
+            nombre: {
+              required: true,
+              minlength: 3,
+              maxlength: 16
+            },
+            presente: {
+              required: true,
+              minlength: 1,
+              maxlength: 16
+            }
+            
+          },
+          messages: { //mensajes que surgen al cometer un error en el formulario
+            catedras: {
+              required: "Este campo es obligatorio",
+              minlength: "Este campo debe contener al menos 4 caracteres",
+              maxlength: "Este campo debe contener maximo 8 caracteres"
+            },
+            carrera: {
+              required: "Este campo es obligatorio",
+              minlength: "Este campo debe contener al menos 4 caracteres",
+              maxlength: "Este campo debe contener maximo 16 caracteres"
+            },
+            materia: {
+              required: "Este campo es obligatorio",
+              minlength: "Este campo debe contener al menos 4 caracter",
+              maxlength: "Este campo debe contener maximo 16 caracteres"
+            },
+            horario: {
+              required: "Este campo es obligatorio",
+              minlength: "Este campo debe contener al menos 4 caracteres",
+              maxlength: "Este campo debe contener maximo 4 caracteres"
+            },
+            tipoDeClase: {
+              required: "Este campo es obligatorio",
+              minlength: "Este campo debe contener al menos 1 caracter",
+              maxlength: "Este campo debe contener maximo 16 caracteres"
+            },
+            claveDeClase: {
+              required: "Este campo es obligatorio",
+              minlength: "Este campo debe contener al menos 1 caracter",
+              maxlength: "Este campo debe contener maximo 16 caracteres"
+            },
+            nombre: {
+              required: "Este campo es obligatorio",
+              minlength: "Este campo debe contener al menos 3 caracter",
+              maxlength: "Este campo debe contener maximo 16 caracteres"
+            },
+            presente: {
+              required: "Este campo es obligatorio",
+              minlength: "Este campo debe contener al menos 1 caracter",
+              maxlength: "Este campo debe contener maximo 16 caracteres"
+            }
+        }});
+      </script>
+      
+    
+  
+      
+    </body>
+    </html>

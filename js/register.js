@@ -187,6 +187,9 @@ function RegisterControllerRemote(RegisterControllerBase)
                 break;
             
             case "catedras":
+                var dia = Document.getElementById("dia");
+                var hora_inicio = Document.getElementById("hora_inicio");
+                var hora_fin = Document.getElementById("hora_fin");
                 json = {
                     "apiVer" : "1.0",
                     "idSesion" : getCookie("idSesion"),
@@ -195,7 +198,7 @@ function RegisterControllerRemote(RegisterControllerBase)
                     "catedra" : Document.getElementById("catedra").value,
                     "nombre" : Document.getElementById("nombre").value,
                     "titularDeCatedra" : Document.getElementById("titularDeCatedra").value,
-                    "ofertaHoraria": Document.getElementById("ofertaHoraria").value
+                    "ofertaHoraria": parseOfertaHoraria(dia.options[dia.selectedIndex].value, hora_inicio.options[hora_inicio.selectedIndex].value, hora_fin.options[hora_fin.selectedIndex].value);
                     
                 }
                 break;
@@ -215,18 +218,27 @@ function RegisterControllerRemote(RegisterControllerBase)
                 json = {
                     "apiVer" : "1.0",
                     "idSesion" : getCookie("idSesion"),
-                    "operacion" : operacion,		
-                    // "id_carrera" : revisar dato con backend URGENTE 
+                    "operacion" : operacion,
                     "carrera" : Document.getElementById("carrera").value
                 }
                 break;
 
             default:
                 alert("Error: invalid parameter. Please check value of parameter in call RegisterControllerRemote.armarJson");
+                json = {
+                    "error-code" : "703",
+                    "error-description" : "Invalid parameter passed to armarJson method: flag. RegisterControllerRemote::armarJson(flag,operacion)"
+                };
                 break;
         }
         return json;
     }
+
+    // Metodo para parsear la oferta horaria al codigo hexadecimal usado. Los parametros tienen que ser los valores hexadecimales de cada parametro (dia, hora de inicio, hora de fin)
+    var parseOfertaHoraria = function(dia, hora_inicio, hora_fin) {
+        return "" + dia + hora_inicio + hora_fin + "";
+    }
+
     var register = function(json, flag)
     {
         //mapa con el flag como clave y la variacion de la url como valor
@@ -273,6 +285,7 @@ function registerSubmit(){
 
 //Metodo de testing unitario
 function testRegister() {
+    var rcr = new RegisterControllerRemote();
     var rc = new RegisterControllerLocal();
 
     var json = parsejsonstring(rc.register("usuario"));
@@ -314,13 +327,22 @@ function testRegister() {
     
     //Chequeo JSON valores vacios
     if(json.usuario.nombre != "Gaston" || json.usuario.apellido == "" || json.usuario.matricula != "") {
-        alert("testRegister has ERRORS: RegisterController not returning the right value. RegisterController::: Empty fields: Lastname");
+        return "testRegister has ERRORS: RegisterController not returning the right value. RegisterController::: Empty fields: Lastname";
     }
 
     json = parsejsonstring(rc.register("invalid"));
     
     //Chequeo JSON valores invalidos
     if(json.usuario.matricula == "03134") {
-        alert("testRegister has ERRORS: RegisterController not returning the right value. RegisterController::: invalid ID");
+        return "testRegister has ERRORS: RegisterController not returning the right value. RegisterController::: invalid ID";
     }
+
+    //Chequeo el metodo parseOfertaHoraria
+    var ofertaHoraria = rcr.parseOfertaHoraria(3, 7, 9);
+
+    if (ofertaHoraria != '379') {
+        return "testRegister has ERRORS: RegisterControllerRemote.parseOfertaHoraria not returning the right value. RegisterController :: parseOfertaHoraria(dias, hora_inicio, hora_fin)";
+    }
+
+    return null;
 }
