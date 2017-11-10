@@ -15,6 +15,34 @@ function RegisterControllerBase()
 
 function RegisterControllerLocal(RegisterControllerBase)
 {
+    //JSON de mails mock 
+    var jsonMail = {
+        "mails" : [
+            "ivan.jinkus@comunidad.ub.edu.ar",
+            "pepito@gmail.com",
+            "masoneriacubana@gmail.com"
+        ]
+    };
+
+    //JSON de Catedras mock
+    var jsonCatedras = {
+        "catedras" : [
+            "Didier",
+            "Greiner",
+            "Aldegani"
+        ]
+    };
+
+     //JSON de Materias mock
+     var jsonMaterias = {
+        "materias" : [
+            "Proyecto de Construccion de Software",
+            "Seguridad Informatica",
+            "Base de Datos"
+        ]
+    };
+
+    //Metodo para amrar los JSON mock que se necesitan para demostrar el funcionamiento del sitio y para testing unitario
     var armarJson = function(flag)
     {   
         //JSON de testeo: Usuario
