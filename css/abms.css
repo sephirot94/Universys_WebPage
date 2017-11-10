@@ -23,7 +23,6 @@ h1 {
 
 /* Anchos de los label para que esten todos alineados */
 label {
-    float: left;
     width: 250px;
 }
 

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Universys</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/abms.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <script src="../js/abms.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                    aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="./home.html">
+                    <!-- Titulo -->
+                    <strong>Universys</strong> Home</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <!-- Link a pestaña de Historia -->
+                    <li><a href="./historia.html">Historia</a></li>
+                    <!-- Link a pestaña de Carreras -->
+                    <li><a href="./carreras.html">Carreras</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <!-- Link para Iniciar Sesion -->
+                    <li><a href="./login.html">Iniciar Sesi&oacute;n</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Botón para dar de alta un usuario -->
+    <button id="btnAlta" type="button">Alta Usuario</button>
+    <!-- Botón para dar de baja una usuario -->
+    <button id="btnBaja" type="button">Baja Usuario</button>
+    <!-- Botón para modificar una usuario -->
+    <button id="btnModificacion" type="button">Modificacion Usuario</button>
+    <br>
+    <!-- Dar de alta una usuario -->
+    <div class="alta">
+        <!-- Titulo -->
+        <h1>Alta de usuario</h1>
+        <br>
+        <div class="container">
+            <div class="row">
+                <div>
+                    <!-- Seleccion de Rol -->
+                    <label>Rol</label>
+                    <select id="rol">
+                        <option value="administrador">Administrador</option>
+                        <option value="alumno">Alumno</option>
+                        <option value="profesor">Profesor</option>
+                    </select>
+                </div>
+                <div>
+                    <!-- Input de Nombre -->
+                    <label>Nombre</label>
+                    <input type="text" id="nombre">
+                </div>
+                <div>
+                    <!-- Input de Apellido -->
+                    <label>Apellido</label>
+                    <input type="text" id="apellido">
+                </div>
+                <div>
+                    <!-- Input de Documento -->
+                    <label>Documento</label>
+                    <input type="number" id="documento">
+                </div>
+                <div>
+                    <!-- Input de Fecha de Nacimiento -->
+                    <label>Fecha de Nacimiento</label>
+                    <input type="date" id="fnac">
+                </div>
+                <div>
+                    <!-- Seleccion de Documento -->
+                    <label>Genero</label>
+                    <select id="genero">
+                        <option value="masculino">Masculino</option>
+                        <option value="femenino">Femenino</option>
+                    </select>
+                </div>
+                <div>
+                    <!-- Input de Domicilio -->
+                    <label>Domicilio</label>
+                    <input type="text" id="domicilio">
+                </div>
+                <div>
+                    <!-- Input de Telefono -->
+                    <label>Telefono</label>
+                    <input type="number" id="telefono">
+                </div>
+                <div>
+                    <!-- Input de Matricula -->
+                    <label>Matricula</label>
+                    <input type="number" id="matricula">
+                </div>
+                <div>
+                    <!-- Input de Mail -->
+                    <label>Mail</label>
+                    <input type="text" id="mail">
+                </div>
+                <div>
+                    <!-- Input de Contraseña -->
+                    <label>Contraseña</label>
+                    <input type="password" id="pass">
+                </div>
+            </div>
+            <script>
+                var operacion = "alta";
+            </script>
+        </div>
+    </div>
+    <div class="baja">
+        <!-- Titulo -->
+        <h1>Baja de usuario</h1>
+        <br>
+        <div class="container">
+            <div class="row">
+                <div>
+                    <!-- Input de Matricula -->
+                    <label>Matricula</label>
+                    <input type="number" id="matricula">
+                </div>
+                <div>
+                    <!-- Input de Mail -->
+                    <label>Mail</label>
+                    <input type="text" id="mail">
+                </div>
+            </div>
+            <script>
+                var operacion = "baja";
+            </script>
+        </div>
+    </div>
+    <div class="modificacion">
+        <!-- Titulo -->
+        <h1>Modificacion de usuario</h1>
+        <br>
+        <div class="container">
+            <div class="row">
+                <div>
+                    <!-- Seleccion de Rol -->
+                    <label>Rol</label>
+                    <select id="rol">
+                        <option value="administrador">Administrador</option>
+                        <option value="alumno">Alumno</option>
+                        <option value="profesor">Profesor</option>
+                    </select>
+                </div>
+                <div>
+                    <!-- Input de Nombre -->
+                    <label>Nombre</label>
+                    <input type="text" id="nombre">
+                </div>
+                <div>
+                    <!-- Input de Apellido -->
+                    <label>Apellido</label>
+                    <input type="text" id="apellido">
+                </div>
+                <div>
+                    <!-- Input de Documento -->
+                    <label>Documento</label>
+                    <input type="number" id="documento">
+                </div>
+                <div>
+                    <!-- Input de Fecha de Nacimiento -->
+                    <label>Fecha de Nacimiento</label>
+                    <input type="date" id="fnac">
+                </div>
+                <div>
+                    <!-- Seleccion de Documento -->
+                    <label>Genero</label>
+                    <select id="genero">
+                        <option value="masculino">Masculino</option>
+                        <option value="femenino">Femenino</option>
+                    </select>
+                </div>
+                <div>
+                    <!-- Input de Domicilio -->
+                    <label>Domicilio</label>
+                    <input type="text" id="domicilio">
+                </div>
+                <div>
+                    <!-- Input de Telefono -->
+                    <label>Telefono</label>
+                    <input type="number" id="telefono">
+                </div>
+                <div>
+                    <!-- Input de Matricula -->
+                    <label>Matricula</label>
+                    <input type="number" id="matricula">
+                </div>
+                <div>
+                    <!-- Input de Mail -->
+                    <label>Mail</label>
+                    <input type="text" id="mail">
+                </div>
+                <div>
+                    <!-- Input de Contraseña -->
+                    <label>Contraseña</label>
+                    <input type="password" id="pass">
+                </div>
+            </div>
+            <script>
+                var operacion = "modificacion";
+            </script>
+        </div>
+    </div>
+    <!-- Botoon para guardar datos -->
+    <button id="submit" type="submit">Guardar</button>
+
+
+    <script src="../js/register.js"></script>
+
+</body>
+</html>
