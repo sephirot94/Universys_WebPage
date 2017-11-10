@@ -55,26 +55,6 @@ function restablecerContrasenaControllerLocal(restablecerContrasenaControllerBas
 
 function restablecerContrasenaControllerRemote(restablecerContrasenaControllerBase)
 {
-    //Este metodo envia el mail del usuario a backend para que pueda recuperar su contrasena y puebla los datos obtenidos. Metodo auxiliar para la recuperacion de contrasena
-    var enviarMail = function(mail) {
-        $.ajax({
-            url: "http://universys.site/RecuperarContrasena",
-            type: 'POST',
-            data: {
-                "apiVer" : "1.0",
-                "idSesion" : getCookie("idSesion"),
-                "mail" : mail
-            },
-            success : function(result) {
-                poblarPreguntas(parsejsonstring(result));
-            },
-            error: function(result) {
-                alert("Hubo un error: " + result.error-code);
-            } 
-        });
-
-    }
-
     var poblarPreguntas = function (json) {
         var pregunta = Document.getElementById("pregunta");
         for (var i = 0; i<json.preguntas.length; i++){
