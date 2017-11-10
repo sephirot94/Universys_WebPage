@@ -15,7 +15,7 @@ function RegisterControllerBase()
 
 function RegisterControllerLocal(RegisterControllerBase)
 {
-    var register = function(flag)
+    var armarJson = function(flag)
     {   
         //JSON de testeo: Usuario
         if (flag=="usuario") {
@@ -147,7 +147,7 @@ function RegisterControllerRemote(RegisterControllerBase)
                     "telefono" : Document.getElementById("telefono").value,
                     "identificador" : Document.getElementById("matricula").value,
                     "mail" : Document.getElementById("mail").value,
-                    "rol" : Document.getElementById("rol");
+                    "rol" : Document.getElementById("rol"),
                     "contrasena" : Document.getElementById("pass").value
                 };
                 break;
@@ -164,7 +164,7 @@ function RegisterControllerRemote(RegisterControllerBase)
                     "tipoDeClase" : Document.getElementById("tipoDeClase").value,
                     "claveDeClase" : Document.getElementById("claveDeClase").value,
                     "alumno" : Document.getElementById("alumno").value,
-                    "nota" : Document.getElementById("nota").value,
+                    "nota" : Document.getElementById("nota").value
                 };
                 break;
             
@@ -182,7 +182,7 @@ function RegisterControllerRemote(RegisterControllerBase)
                     "alumnos" : [
                                     {
                                         "nombre" : Document.getElementById("nombre").value,
-                                        "presente" : Document.getElementById("presente").value,
+                                        "presente" : Document.getElementById("presente").value
                                     }
                                 ]
                 }
@@ -200,8 +200,7 @@ function RegisterControllerRemote(RegisterControllerBase)
                     "catedra" : Document.getElementById("catedra").value,
                     "nombre" : Document.getElementById("nombre").value,
                     "titularDeCatedra" : Document.getElementById("titularDeCatedra").value,
-                    "ofertaHoraria": parseOfertaHoraria(dia.options[dia.selectedIndex].value, hora_inicio.options[hora_inicio.selectedIndex].value, hora_fin.options[hora_fin.selectedIndex].value);
-                    
+                    "ofertaHoraria": parseOfertaHoraria(dia.options[dia.selectedIndex].value, hora_inicio.options[hora_inicio.selectedIndex].value, hora_fin.options[hora_fin.selectedIndex].value) 
                 }
                 break;
 
@@ -212,7 +211,7 @@ function RegisterControllerRemote(RegisterControllerBase)
                     "operacion" : operacion,
                     "catedra": Document.getElementById("catedra").value,
                     "carrera" : Document.getElementById("carrera").value,
-                    "materia" : Document.getElementById("materia").value,
+                    "materia" : Document.getElementById("materia").value
                 }
                 break;
 
@@ -291,49 +290,49 @@ function testRegister() {
     var rcr = new RegisterControllerRemote();
     var rc = new RegisterControllerLocal();
 
-    var json = parsejsonstring(rc.register("usuario"));
+    var json = parsejsonstring(rc.armarJson("usuario"));
 
     //Chequeo JSON Usuario
     if(json.usuario.nombre != "Gaston" || json.usuario.apellido != "Bodeman" || json.usuario.fnac != "20/09/1994" || json.usuario.genero != "masculino" || json.usuario.domicilio != "blanco encalada 4892" || json.usuario.telefono != "45228786" || json.usuario.matricula != "03140" || json.usuario.mail != "pepito@gmail.com") {
         return "testRegister has ERRORS: RegisterController not returning the right value RegisterController::Controller:: Usuario";
     }
 
-    json = parsejsonstring(rc.register("notas"));
+    json = parsejsonstring(rc.armarJson("notas"));
 
     //Chequeo JSON Notas
     if(json.notas.catedra != "Didier" || json.notas.carrera != "Programacion" || json.notas.materia != "Proyecto" || json.notas.horario != "19:00hs" || json.notas.tipoDeClase != "teorico" || json.notas.claveDeClase != "30" || json.notas.alumno != "ivan" || json.notas.nota != "4") {
         return "testRegister has ERRORS: RegisterController not returning the right value. RegisterController::: Notas";
     }
 
-    json = parsejsonstring(rc.register("fichadas"));
+    json = parsejsonstring(rc.armarJson("fichadas"));
 
     //Chequeo JSON Fichadas
     if(json.fichadas.catedra != "Didier" || json.fichadas.carrera != "Programacion" || json.fichadas.materia != "Proyecto" || json.fichadas.horario != "19:00hs" || json.fichadas.tipoDeClase != "teorico" || json.fichadas.claveDeClase != "30" || json.fichadas.alumnos[0].nombre != "ivan" || !json.fichadas.alumnos[0].presente) {
         return "testRegister has ERRORS: RegisterController not returning the right value. RegisterController::: Fichadas";
     }
 
-    json = parsejsonstring(rc.register("catedras"));
+    json = parsejsonstring(rc.armarJson("catedras"));
 
     //Chequeo JSON Catedra
     if(json.catedra.catedra != "Didier" || json.catedra.nombre != "Proyecto" || json.catedra.titularDeCatedra != "Didier" || json.catedra.ofertaHoraria != "Lun-Vie, 19:00 a 23:00" ) {
         return "testRegister has ERRORS: RegisterController not returning the right value. RegisterController::: catedra";
     }
 
-    json = parsejsonstring(rc.register("materias"));
+    json = parsejsonstring(rc.armarJson("materias"));
 
     //Chequeo JSON Materia
     if(json.materia.catedra != "Didier" || json.materia.materia != "Proyecto" || json.materia.carrera != "Programacion") {
         return "testRegister has ERRORS: RegisterController not returning the right value. RegisterController::: materia";
     }
 
-    json = parsejsonstring(rc.register("vacio"));
+    json = parsejsonstring(rc.armarJson("vacio"));
     
     //Chequeo JSON valores vacios
     if(json.usuario.nombre != "Gaston" || json.usuario.apellido == "" || json.usuario.matricula != "") {
         return "testRegister has ERRORS: RegisterController not returning the right value. RegisterController::: Empty fields: Lastname";
     }
 
-    json = parsejsonstring(rc.register("invalid"));
+    json = parsejsonstring(rc.armarJson("invalid"));
     
     //Chequeo JSON valores invalidos
     if(json.usuario.matricula == "03134") {
