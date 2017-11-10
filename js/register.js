@@ -140,12 +140,14 @@ function RegisterControllerRemote(RegisterControllerBase)
                     "operacion" : operacion,
                     "nombre" : Document.getElementById("nombre").value,
                     "apellido" : Document.getElementById("apellido").value,
+                    "documento" : Document.getElementById("documento").value,
                     "fnac" : Document.getElementById("fnac").value,
                     "genero" : Document.getElementById("genero").value,
                     "domicilio" : Document.getElementById("domicilio").value,
                     "telefono" : Document.getElementById("telefono").value,
-                    "matricula" : Document.getElementById("matricula").value,
+                    "identificador" : Document.getElementById("matricula").value,
                     "mail" : Document.getElementById("mail").value,
+                    "rol" : Document.getElementById("rol");
                     "contrasena" : Document.getElementById("pass").value
                 };
                 break;
@@ -219,6 +221,7 @@ function RegisterControllerRemote(RegisterControllerBase)
                     "apiVer" : "1.0",
                     "idSesion" : getCookie("idSesion"),
                     "operacion" : operacion,
+                    "id_carrera" : Document.getElementById("id").value,
                     "carrera" : Document.getElementById("carrera").value
                 }
                 break;
