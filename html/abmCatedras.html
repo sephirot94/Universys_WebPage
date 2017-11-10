@@ -27,29 +27,39 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="./home.html">
+                    <!-- Titulo -->
                     <strong>Universys</strong> Home</a>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
+                    <!-- Link a pestaña de Historia -->
                     <li><a href="./historia.html">Historia</a></li>
+                    <!-- Link a pestaña de Carreras -->
                     <li><a href="./carreras.html">Carreras</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
+                    <!-- Link para Iniciar Sesion -->
                     <li><a href="./login.html">Iniciar Sesi&oacute;n</a></li>
                 </ul>
             </div>
         </div>
     </nav>
+    <!-- Botón para dar de alta una catedra -->
     <button id="btnAlta" type="button">Alta Catedra</button>
+    <!-- Botón para dar de baja una catedra -->
     <button id="btnBaja" type="button">Baja Catedra</button>
+    <!-- Botón para modificar una catedra -->
     <button id="btnModificacion" type="button">Modificacion Catedra</button>
     <br>
+    <!-- Dar de alta una catedra -->
     <div class="alta">
+        <!-- Titulo -->
         <h1>Alta de Catedra</h1>
         <br>
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
+                    <!-- Seleccion de dias -->
                     <label>Dias</label>
                     <select id="dia">
                         <option value="0">Lunes</option>
@@ -61,6 +71,7 @@
                     </select>
                 </div>
                 <div class="col-md-4">
+                    <!-- Seleccion de inicio de horario -->
                     <label>Inicio</label>
                     <select id="hora_inicio">
                         <option value="0">7:00hs</option>
@@ -83,6 +94,7 @@
                 </div>
                 <div class="col-md-4">
                     <label>Fin</label>
+                    <!-- Seleccion de fin de horario -->
                     <select id="hora_fin">
                         <option value="0">7:00hs</option>
                         <option value="1">8:00hs</option>
@@ -108,12 +120,15 @@
             </script>
         </div>
     </div>
+    <!-- Dar de baja una catedra -->
     <div class="baja">
+        <!-- Titulo -->
         <h1>Baja de Catedra</h1>
         <br>
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
+                    <!-- Seleccion de Catedras -->
                     <label>Catedras</label><select>
                         <option value="">A</option>
                         <option value="">B</option>
@@ -122,19 +137,21 @@
                         <option value="">E</option>
                     </select>
                 </div>
-
+                
             </div>
         </div>
         <script>
             var operacion = "baja";
         </script>
     </div>
+    <!-- Modificar una catedra -->
     <div class="modificacion">
         <h1>Modificacion de Catedra</h1>
         <br>
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
+                    <!-- Seleccion de dias -->
                     <label>Dias</label>
                     <select id="dia">
                         <option value="0">Lunes</option>
@@ -146,6 +163,7 @@
                     </select>
                 </div>
                 <div class="col-md-4">
+                    <!-- Seleccion de inicio de horario -->
                     <label>Inicio</label>
                     <select id="hora_inicio">
                         <option value="0">7:00hs</option>
@@ -167,6 +185,7 @@
                     </select>
                 </div>
                 <div class="col-md-4">
+                    <!-- Seleccion de fin de horario -->
                     <label>Fin</label>
                     <select id="hora_fin">
                         <option value="0">7:00hs</option>
@@ -193,6 +212,7 @@
             var operacion = "modificacion";
         </script>
     </div>
+    <!-- Botoon para guardar datos -->
     <button id="submit" type="submit">Guardar</button>
 </body>
 </html>
