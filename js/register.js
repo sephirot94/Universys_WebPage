@@ -156,6 +156,16 @@ function RegisterControllerLocal(RegisterControllerBase)
         }';
         }
 
+        //JSON de testeo : Carreras
+        if (flag=="carreras") {
+            return '{ "api-version" : "1.0", "error-code" : "200",\ 
+            "carreras": "{\		
+                "id_carrera" : "1",
+                "carrera" : "Programacion"
+            }"\
+        }';
+        }
+
         //JSON de testeo: Materias
         if (flag=="materias") {
             return '{ "api-version" : "1.0", "error-code" : "200",\ 
