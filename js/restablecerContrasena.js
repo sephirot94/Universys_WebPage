@@ -52,16 +52,16 @@ function restablecerContrasenaControllerLocal(restablecerContrasenaControllerBas
 
     //Metodo de uso para testeo local, devuelve el JSON con las preguntas secretas que hay en servidor
     var getPreguntas = function() {
-        var json = {
+        var preguntas = {
             "preguntas" : [
-                "pregunta1" : "Cual es tu color favorito?",
-                "pregunta2" : "Como se llama tu hermano?",
-                "pregunta3" : "Cual es el mejor equipo de futbol?",
-                "pregunta4" : "Cual es tu banda favorita?",
-                "pregunta5" : "Cual es tu comida favorita?"
+                "Cual es tu color favorito?",
+                "Como se llama tu hermano?",
+                "Cual es el mejor equipo de futbol?",
+                "Cual es tu banda favorita?",
+                "Cual es tu comida favorita?"
             ]
         };
-        return json;
+        return preguntas;
     }
 }
 
