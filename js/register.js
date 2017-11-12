@@ -91,6 +91,27 @@ function RegisterControllerLocal(RegisterControllerBase)
         ]
     };
 
+    //JSON de Alumnos mock
+    var jsonAlumnos = {
+        "alumnos" : 
+        [
+            {
+                "id" : 1,
+                "nombre" : "Ivan Jinkus"
+            } ,
+            {
+                "id":2,
+                "nombre" : "Ignacio Tarallo"
+            },
+            {
+                "id" : 3 ,
+                "nombre" : "Andres Blanco"
+            }
+        ]
+    };
+
+
+
     //Metodo para amrar los JSON mock que se necesitan para demostrar el funcionamiento del sitio y para testing unitario
     var armarJson = function(flag)
     {   
