@@ -17,28 +17,77 @@ function RegisterControllerLocal(RegisterControllerBase)
 {
     //JSON de mails mock 
     var jsonMail = {
-        "mails" : [
-            "ivan.jinkus@comunidad.ub.edu.ar",
-            "pepito@gmail.com",
-            "masoneriacubana@gmail.com"
+        "mails" : 
+        [
+            {
+                "id" : 1,
+                "mail" : "ivan.jinkus@comunidad.ub.edu.ar"
+            },
+            {
+                "id" : 2,
+                "mail" : "pepito@gmail.com"
+            },
+            {
+                "id" : 3,
+                "mail" : "masoneriacubana@gmail.com"
+            }
         ]
     };
 
     //JSON de Catedras mock
     var jsonCatedras = {
-        "catedras" : [
-            "Didier",
-            "Greiner",
-            "Aldegani"
+        "catedras" : 
+        [
+            {
+                "id" : 1,
+                "catedra" :  "Didier"
+            },
+            {
+                "id" : 2,
+                "catedra" :  "Greiner"
+            },
+            {
+                "id" : 3,
+                "catedra" : "Aldegani"
+            }
         ]
     };
 
      //JSON de Materias mock
      var jsonMaterias = {
-        "materias" : [
-            "Proyecto de Construccion de Software",
-            "Seguridad Informatica",
-            "Base de Datos"
+        "materias" : 
+        [
+            {
+                "id" : 1,
+                "nombre" : "Proyecto de Construccion de Software"
+            } ,
+            {
+                "id":2,
+                "nombre" : "Seguridad Informatica"
+            },
+            {
+                "id" : 3 ,
+                "nombre" : "Base de Datos"
+            }
+        ]
+    };
+
+     //JSON de Carreras mock
+     var jsonCarreras = {
+        "carreras" : 
+        [
+            {
+                "id" : 1,
+                "carrera" : "Programacion"
+            } ,
+            {
+                "id":2,
+                "carrera" : "Ingenieria en Robotica"
+            },
+            {
+                "id" : 3 ,
+                "carrera" : "Abogacia"
+            }
         ]
     };
 
