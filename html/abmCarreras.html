@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<!-- registerCareers.html sirve para el registro a las carreras -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>ABM Catedras</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
+  <script src="http://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+  <link rel="stylesheet" href="../css/abms.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
+  <script src="../js/abms.js"></script>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+          aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="./home.html">
+          <!-- Titulo -->
+          <strong>Universys</strong> Home</a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <!-- Link a pestaña de Historia -->
+          <li><a href="./historia.html">Historia</a></li>
+          <!-- Link a pestaña de Carreras -->
+          <li><a href="./carreras.html">Carreras</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <!-- Link para Iniciar Sesion -->
+          <li><a href="./login.html">Iniciar Sesi&oacute;n</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Botón para dar de alta una carrera -->
+  <button id="btnAlta" type="button">Alta Carrera</button>
+  <!-- Botón para dar de baja una carrera -->
+  <button id="btnBaja" type="button">Baja Carrera</button>
+  <!-- Botón para modificar una carrera -->
+  <button id="btnModificacion" type="button">Modificacion Carrera</button>
+  <br>
+  <!-- Dar de alta una carrera -->
+  <div class="alta">
+    <!-- Titulo -->
+    <h1>Alta de carrera</h1>
+    <br>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2">
+          <!-- Input de Carrera -->
+          <label>Nombre de la Carrera</label>
+          <input type="text" name="" value="">
+        </div>
+      </div>
+      <script>
+        var operacion = "alta";
+      </script>
+    </div>
+  </div>
+  <!-- Dar de baja una carrera -->
+  <div class="baja">
+    <!-- Titulo -->
+    <h1>Baja de carrera</h1>
+    <br>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2">
+          <!-- Input de Carrera -->
+          <label>Nombre de la Carrera</label>
+          <input type="text" name="" value="">
+        </div>
+      </div>
+      <script>
+        var operacion = "baja";
+      </script>
+    </div>
+  </div>
+  <!-- Modificar una catedra -->
+  <div class="modificacion">
+    <!-- Titulo -->
+    <h1>Modificacion de carrera</h1>
+    <br>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2">
+          <!-- Input de Carrera -->
+          <label>Nombre de la Carrera</label>
+          <input type="text" name="" value="">
+        </div>
+      </div>
+      <script>
+            var operacion = "modificacion";
+      </script>
+    </div>
+  </div>
+  <!-- Botoon para guardar datos -->
+  <button id="submit" type="submit">Guardar</button>
+
+</body>
+</html>
