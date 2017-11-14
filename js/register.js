@@ -13,8 +13,8 @@ function RegisterControllerBase()
 
 //Esta funcion es de uso de testeo solamente. No debe ser implementada en ambiente de produccion
 
-function RegisterControllerLocal(RegisterControllerBase)
-{
+// function RegisterControllerLocal(RegisterControllerBase)
+// {
     //JSON de mails mock 
     var jsonMail = {
         "mails" : 
@@ -74,22 +74,22 @@ function RegisterControllerLocal(RegisterControllerBase)
 
      //JSON de Carreras mock
      var jsonCarreras = {
-        "carreras" : 
-        [
-            {
-                "id" : 1,
-                "carrera" : "Programacion"
-            } ,
-            {
-                "id":2,
-                "carrera" : "Ingenieria en Robotica"
-            },
-            {
-                "id" : 3 ,
-                "carrera" : "Abogacia"
-            }
-        ]
-    };
+            "carreras" : 
+            [
+                {
+                    "id" : 1,
+                    "carrera" : "Programacion"
+                } ,
+                {
+                    "id":2,
+                    "carrera" : "Ingenieria en Robotica"
+                },
+                {
+                    "id" : 3 ,
+                    "carrera" : "Abogacia"
+                }
+            ]
+        };
 
     //JSON de Alumnos mock
     var jsonAlumnos = {
@@ -113,125 +113,125 @@ function RegisterControllerLocal(RegisterControllerBase)
 
 
     //Metodo para amrar los JSON mock que se necesitan para demostrar el funcionamiento del sitio y para testing unitario
-    var armarJson = function(flag)
-    {   
-        //JSON de testeo: Usuario
-        if (flag=="usuario") {
-            return '{ "api-version" : "1.0", "error-code" : "200",\ 
-            "usuario": "{\
-                “nombre” : “Gaston”,\
-                “apellido” : “Bodeman”,\
-                “fnac” : “20/09/1994”,\
-                “genero” : “masculino”,\
-                “domicilio” : “blanco encalada 4892”,\
-                “telefono” : “45228786”,\
-                “matrícula“ : “03140”,\
-                “mail” : ”pepito@gmail.com”\
-            }"\
-        }';
-        }
+//     var armarJson = function(flag)
+//     {   
+//         //JSON de testeo: Usuario
+//         if (flag=="usuario") {
+//             return '{ "api-version" : "1.0", "error-code" : "200",\ 
+//             "usuario": "{\
+//                 “nombre” : “Gaston”,\
+//                 “apellido” : “Bodeman”,\
+//                 “fnac” : “20/09/1994”,\
+//                 “genero” : “masculino”,\
+//                 “domicilio” : “blanco encalada 4892”,\
+//                 “telefono” : “45228786”,\
+//                 “matrícula“ : “03140”,\
+//                 “mail” : ”pepito@gmail.com”\
+//             }"\
+//         }';
+//         }
 
-        //JSON de testeo: Notas
-        if (flag=="notas") {
-            return '{ "api-version" : "1.0", "error-code" : "200",\ 
-            "notas" : "{\
-                "catedra" : "Didier",\
-                "carrera" : "Programacion",\
-                "materia" : "Proyecto", \
-                "horario" : "19:00hs", \
-                "tipoDeClase" : "teorico", \
-                "claveDeClase" : "30",\
-                "alumno" : "ivan",\
-                "nota" : "4"\ 
-            }"\
-        }';
-        }
+//         //JSON de testeo: Notas
+//         if (flag=="notas") {
+//             return '{ "api-version" : "1.0", "error-code" : "200",\ 
+//             "notas" : "{\
+//                 "catedra" : "Didier",\
+//                 "carrera" : "Programacion",\
+//                 "materia" : "Proyecto", \
+//                 "horario" : "19:00hs", \
+//                 "tipoDeClase" : "teorico", \
+//                 "claveDeClase" : "30",\
+//                 "alumno" : "ivan",\
+//                 "nota" : "4"\ 
+//             }"\
+//         }';
+//         }
 
-        //JSON de testeo: fichadas
-        if (flag=="fichadas") {
-            return '{ "api-version" : "1.0", "error-code" : "200",\ 
-            "fichada": "{\
-                “catedra” : “Didier”,\
-                “carrera” : “Programacion”,\
-                “materia” : “Proyecto”,\
-                “horario” : “19:00hs”,\
-                “tipoDeClase” : “teorico”,\
-                “claveDeClase” : "30",\
-                “alumnos” : [\
-                            {“nombre” : ”ivan”,\
-                            “presente” : true}\
-                    ]\
-            }"\
-        }';
-        }
+//         //JSON de testeo: fichadas
+//         if (flag=="fichadas") {
+//             return '{ "api-version" : "1.0", "error-code" : "200",\ 
+//             "fichada": "{\
+//                 “catedra” : “Didier”,\
+//                 “carrera” : “Programacion”,\
+//                 “materia” : “Proyecto”,\
+//                 “horario” : “19:00hs”,\
+//                 “tipoDeClase” : “teorico”,\
+//                 “claveDeClase” : "30",\
+//                 “alumnos” : [\
+//                             {“nombre” : ”ivan”,\
+//                             “presente” : true}\
+//                     ]\
+//             }"\
+//         }';
+//         }
 
-        //JSON de testeo: Catedras
-        if (flag=="catedras") {
-            return '{ "api-version" : "1.0", "error-code" : "200",\ 
-            "catedra": "{\
-                “catedra” : “Didier”,\
-                “nombre” : “Proyecto”,\
-                “titularDeCatedra” :”Didier”,\
-                “ofertaHoraria” : “2AB”,\
-            }"\
-        }';
-        }
+//         //JSON de testeo: Catedras
+//         if (flag=="catedras") {
+//             return '{ "api-version" : "1.0", "error-code" : "200",\ 
+//             "catedra": "{\
+//                 “catedra” : “Didier”,\
+//                 “nombre” : “Proyecto”,\
+//                 “titularDeCatedra” :”Didier”,\
+//                 “ofertaHoraria” : “2AB”,\
+//             }"\
+//         }';
+//         }
 
-        //JSON de testeo : Carreras
-        if (flag=="carreras") {
-            return '{ "api-version" : "1.0", "error-code" : "200",\ 
-            "carreras": "{\		
-                "id_carrera" : "1",
-                "carrera" : "Programacion"
-            }"\
-        }';
-        }
+//         //JSON de testeo : Carreras
+//         if (flag=="carreras") {
+//             return '{ "api-version" : "1.0", "error-code" : "200",\ 
+//             "carreras": "{\		
+//                 "id_carrera" : "1",
+//                 "carrera" : "Programacion"
+//             }"\
+//         }';
+//         }
 
-        //JSON de testeo: Materias
-        if (flag=="materias") {
-            return '{ "api-version" : "1.0", "error-code" : "200",\ 
-            "materia": "{\
-                “catedra” : “Didier”,\
-                “carrera” : "Programacion",\
-                “materia” : “Proyecto”,\
-            }"\
-        }';
-        }
+//         //JSON de testeo: Materias
+//         if (flag=="materias") {
+//             return '{ "api-version" : "1.0", "error-code" : "200",\ 
+//             "materia": "{\
+//                 “catedra” : “Didier”,\
+//                 “carrera” : "Programacion",\
+//                 “materia” : “Proyecto”,\
+//             }"\
+//         }';
+//         }
 
-        //JSON de testeo: Usuario valores vacios
-        if (flag=="vacio") {
-            return '{ "api-version" : "1.0", "error-code" : "200",\ 
-            "usuario": "{\
-                “nombre” : “Gaston”,\
-                “apellido” : "",\
-                “fnac” : “20/09/1994”,\
-                “genero” : “masculino”,\
-                “domicilio” : “blanco encalada 4892”,\
-                “telefono” : “45228786”,\
-                “matrícula“ : "",\
-                “mail” : ”pepito@gmail.com”\
-            }"\
-        }';
-        }
+//         //JSON de testeo: Usuario valores vacios
+//         if (flag=="vacio") {
+//             return '{ "api-version" : "1.0", "error-code" : "200",\ 
+//             "usuario": "{\
+//                 “nombre” : “Gaston”,\
+//                 “apellido” : "",\
+//                 “fnac” : “20/09/1994”,\
+//                 “genero” : “masculino”,\
+//                 “domicilio” : “blanco encalada 4892”,\
+//                 “telefono” : “45228786”,\
+//                 “matrícula“ : "",\
+//                 “mail” : ”pepito@gmail.com”\
+//             }"\
+//         }';
+//         }
 
-        //JSON de testeo: Usuario valores invalidos
-        if (flag=="invalid") {
-            return '{ "api-version" : "1.0", "error-code" : "200",\ 
-            "usuario": "{\
-                “nombre” : “Gaston”,\
-                “apellido” : "",\
-                “fnac” : “20/09/1994”,\
-                “genero” : “masculino”,\
-                “domicilio” : “blanco encalada 4892”,\
-                “telefono” : “45228786”,\
-                “matrícula“ : "03134",\
-                “mail” : ”pepito@gmail.com”\
-            }"\
-        }';
-        }
+//         //JSON de testeo: Usuario valores invalidos
+//         if (flag=="invalid") {
+//             return '{ "api-version" : "1.0", "error-code" : "200",\ 
+//             "usuario": "{\
+//                 “nombre” : “Gaston”,\
+//                 “apellido” : "",\
+//                 “fnac” : “20/09/1994”,\
+//                 “genero” : “masculino”,\
+//                 “domicilio” : “blanco encalada 4892”,\
+//                 “telefono” : “45228786”,\
+//                 “matrícula“ : "03134",\
+//                 “mail” : ”pepito@gmail.com”\
+//             }"\
+//         }';
+//         }
         
-    };
-}
+//     };
+// }
 
 //Esta funcion envia los datos del formulario de registro al servidor para ser procesados.
 
@@ -285,8 +285,8 @@ function RegisterControllerRemote(RegisterControllerBase)
                     "carrera" : Document.getElementById("carrera").value,
                     "materia" : Document.getElementById("materia").value,
                     "horario" : Document.getElementById("horario").value,
-                    "tipoDeClase" : Document.getElementById("tipoDeClase").value,
-                    "claveDeClase" : Document.getElementById("claveDeClase").value,
+                    // "tipoDeClase" : Document.getElementById("tipoDeClase").value,
+                    // "claveDeClase" : Document.getElementById("claveDeClase").value,
                     "alumnos" : [
                                     {
                                         "nombre" : Document.getElementById("nombre").value,
@@ -387,7 +387,7 @@ function RegisterControllerRemote(RegisterControllerBase)
     };
 }
 
-var registerController = new registerControllerLocal();
+// var registerController = registerControllerLocal();
 
 function registerSubmit(){
     registerController.register("{'nombre':'Juan'}");
