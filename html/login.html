@@ -52,7 +52,7 @@
             <input class="centered" type="password" name="password" id="password" value="" passwordcheck="passwordCheck" placeholder="Ingrese su contrase&ntilde;a">
           </div>
         </div>
-        <a href="./reiniciarContrasena;a.html">Me olvide mi contrase&ntilde;a</a>
+        <a href="./reiniciarContrasena.html">Me olvide mi contrase&ntilde;a</a>
         <div>
           <button type="submit" id="submit" name="submit">Ingresar</button>
         </div>
@@ -61,10 +61,11 @@
   </div>
 
   <script src="../js/login.js"></script>
+  <script src="../js/library.js"></script>
   <script>
     $(document).ready(function() {
       var lc = new LoginControllerLocal;
-      $("#submit").click(lc.login());
+      $("#submit").click(function() {lc.login("username", "password")});
     })
   </script>
   <script>

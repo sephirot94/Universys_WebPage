@@ -1,7 +1,7 @@
 //Libreria para funciones comunes a todas las clases
 
 //Metodo para parsear a JSON la respuesta de la API
-function parsejsonstring(json) {
+function parseJsonString(json) {
     var result = JSON.parse(json);
     return result;
 }

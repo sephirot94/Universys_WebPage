@@ -1,8 +1,5 @@
 //Este archivo implementa la funcionalidad del login en Javascript.
 
-//Llamada al metodo de submit
-document.getElementById("submit").onclick = function() { loginSubmit() };
-
 //Esta funcion muestra el error cuando la clase no esta implementada
 // function LoginControllerBase()
 // {
@@ -15,34 +12,49 @@ document.getElementById("submit").onclick = function() { loginSubmit() };
 //Esta funcion es de uso de testeo solamente. No debe ser implementada en ambiente de produccion
 class LoginControllerLocal
 {
-    loginLogic = function(username, password)
+    constructor() {}
+    loginLogic (username, pass)
     {
-        if(username=="admin@admin.com" && pass=="admin") {
+        alert(username);
+        alert(pass);
+        if(username=="admin@admin.com" && pass=="Admin1234") {
             return '{ "api-version" : "1.0", "error-code" : "200", “usuario” : { \
-                “nombre” : ”Diego”,\
-                “apellido” : “Maradona”,\
-                “fNac” : “3/8/01”\
-                “tipo” : “alumno”\
+                "nombre" : "Diego",\
+                "apellido" : "Maradona",\
+                "idSesion" : 1234,\
+                "rol" : "administrador"\
                 }\
         }';
         }
-        if(pass=="admin" && username!="admin@admin.com") {
+        if(pass=="Admin1234" && username!="admin@admin.com") {
             return '{ "api-version" : "1.0", "error-code" : "680" }';
         }
-        if(pass!="admin" && username=="admin@admin.com") {
+        if(pass!="Admin1234" && username=="admin@admin.com") {
             return '{ "api-version" : "1.0", "error-code" : "777" }';
         }
         
         return '{ "api-version" : "1.0", "error-code" : "800" }';
     }
 
-    login = function(userField, passField)
+    login (userField, passField)
     {
-        return this.loginLogic(document.getElementById(userField).value, document.getElementById(passField).value);
+        var login = parseJsonString(this.loginLogic(document.getElementById(userField).value, document.getElementById(passField).value));
+        console.log(login);
+        setCookie("idSesion", login.usuario.idSesion);
+        if (login.usuario.rol=="administrador") {
+            window.location.href = '../html/perfilAdministrador.html';
+        }
+        if (login.usuario.rol=="alumno") {
+            window.location.href = '../html/perfilAlumno.html';
+        }
+        if (login.usuario.rol=="profesor") {
+            window.location.href = '../html/perfilProfesor.html';
+        }
     };
 
-    logout = function () {
-        
+    logout () {
+        dropCookie("idSesion");
+        window.location.href = '../html/login.html';
     }
 }
 
@@ -51,7 +63,7 @@ class LoginControllerLocal
 class LoginControllerRemote
 {
     //logica del login. Este metodo realiza el request a la API y maneja la respuesta
-    loginLogic = function(username, password)
+    loginLogic (username, password)
     {
         $.ajax({
             url: "http://universys.site/login",
@@ -81,13 +93,13 @@ class LoginControllerRemote
     };
 
     //Este metodo llama al metodo anterior, efectuando la request a la API.
-    login = function(userField, passField)
+    login (userField, passField)
     {
         this.loginLogic(document.getElementById(userField).value, document.getElementById(passField).value);
     };
 
     //Este metodo se usa para cerrar sesion
-    logout = function() {
+    logout () {
         var idSesion = getCookie("idSesion");
         $.ajax({
             url: "http://universys.site/logout",
