@@ -13,9 +13,9 @@ function restablecerContrasenaControllerBase()
 
 //Esta funcion es de uso de testeo solamente. No debe ser implementada en ambiente de produccion
 
-function restablecerContrasenaControllerLocal(restablecerContrasenaControllerBase)
+class restablecerContrasenaControllerLocal
 {
-    var restablecerContrasena = function(flag)
+    restablecerContrasena (flag)
     {   
         if (flag=="mail") {
             var json = 
@@ -33,7 +33,7 @@ function restablecerContrasenaControllerLocal(restablecerContrasenaControllerBas
         return json;
     };
 
-    var restablecerRespuesta = function (flag) {
+    restablecerRespuesta (flag) {
         if (flag=="respuesta") {
             var json = 
             {
@@ -51,7 +51,7 @@ function restablecerContrasenaControllerLocal(restablecerContrasenaControllerBas
     }
 
     //Metodo de uso para testeo local, devuelve el JSON con las preguntas secretas que hay en servidor
-    var getPreguntas = function() {
+    getPreguntas () {
         var preguntas = {
             "preguntas" : [
                 "Cual es tu color favorito?",
@@ -67,9 +67,9 @@ function restablecerContrasenaControllerLocal(restablecerContrasenaControllerBas
 
 //Esta funcion envia los datos del formulario de registro al servidor para ser procesados.
 
-function restablecerContrasenaControllerRemote(restablecerContrasenaControllerBase)
+class restablecerContrasenaControllerRemote
 {
-    var poblarPreguntas = function (json) {
+    poblarPreguntas (json) {
         var pregunta = Document.getElementById("pregunta");
         for (var i = 0; i<json.preguntas.length; i++){
             var opt = document.createElement('option');
@@ -79,7 +79,7 @@ function restablecerContrasenaControllerRemote(restablecerContrasenaControllerBa
         }
     }
 
-    var restablecerContrasena = function()
+    restablecerContrasena ()
     {
         //me fijo si el usuario ingresa mediante el link enviado por backend
         var pregunta = Document.getElementById("#pregunta").value();
@@ -111,7 +111,7 @@ function restablecerContrasenaControllerRemote(restablecerContrasenaControllerBa
     };
 
     //Este metodo permite cambiar la contraseña o la respuesta secreta una vez ya logueado.
-    var cambiarContrasena = function() {
+    cambiarContrasena () {
         var pregunta = Document.getElementById("#pregunta");
         //Busco la option del select elegida
         var pregunta_elegida = pregunta.options[ pregunta.selectedIndex ].value();
@@ -143,7 +143,7 @@ function restablecerContrasenaControllerRemote(restablecerContrasenaControllerBa
     }
 
     //Este metodo se usa para traer las preguntas secretas posibles y desplegarlas en un select
-    var getPreguntas = function() {
+    getPreguntas () {
         $.ajax({
             url: "http://universys.site/RecuperarContrasena",
             type: 'GET',
@@ -157,16 +157,9 @@ function restablecerContrasenaControllerRemote(restablecerContrasenaControllerBa
     }
 }
 
-var restablecerContrasenaController = new restablecerContrasenaControllerRemote();
-
-function restablecerContrasenaSubmit(){
-    
-    restablecerContrasenaController.restablecerContrasena(link_recuperacion);
-}
-
 //Metodo de testing unitario
 function testRestablecerContrasena() {
-   var instance = new restablecerContrasenaControllerLocal();
+   var instance = new restablecerContrasenaControllerLocal;
 
    var json = instance.restablecerContrasena("mail");
 
