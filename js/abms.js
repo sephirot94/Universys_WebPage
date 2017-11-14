@@ -1,11 +1,11 @@
 $(document).ready(function () {
-    //acciones para esconder los botones
+    //Acciones para esconder los botones
     $(".alta").hide();
     $(".baja").hide();
     $(".modificacion").hide();
     $("#submit").hide();
 
-    //funcion para mostrar el panel de alta y esconder todos los otros paneles
+    //Funcion para mostrar el panel de alta y esconder todos los otros paneles
     $("#btnAlta").click(function () {
         $(".baja").hide();
         $(".modificacion").hide();
@@ -13,7 +13,7 @@ $(document).ready(function () {
         $("#submit").show();
     });
 
-    //funcion para mostrar el panel de baja y esconder todos los otros paneles
+    //Funcion para mostrar el panel de baja y esconder todos los otros paneles
     $("#btnBaja").click(function () {
         $(".alta").hide();
         $(".modificacion").hide();
@@ -21,7 +21,7 @@ $(document).ready(function () {
         $("#submit").show();
     });
 
-    //funcion para mostrar el panel de modificacion y esconder todos los otros paneles
+    //Funcion para mostrar el panel de modificacion y esconder todos los otros paneles
     $("#btnModificacion").click(function () {
         $(".alta").hide();
         $(".baja").hide();
