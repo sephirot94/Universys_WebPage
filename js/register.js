@@ -61,15 +61,15 @@ class RegisterControllerLocal
             [
                 {
                     "id" : 1,
-                    "nombre" : "Proyecto de Construccion de Software"
+                    "materia" : "Proyecto de Construccion de Software"
                 } ,
                 {
                     "id":2,
-                    "nombre" : "Seguridad Informatica"
+                    "materia" : "Seguridad Informatica"
                 },
                 {
                     "id" : 3 ,
-                    "nombre" : "Base de Datos"
+                    "materia" : "Base de Datos"
                 }
             ]
         };
@@ -114,7 +114,7 @@ class RegisterControllerLocal
 
     }
 
-    //Metodo para amrar los JSON mock que se necesitan para demostrar el funcionamiento del sitio y para testing unitario
+    //Metodo para armar los JSON mock que se necesitan para demostrar el funcionamiento del sitio y para testing unitario
     armarJson (flag)
     {   
         //JSON de testeo: Usuario
