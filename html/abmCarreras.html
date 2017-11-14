@@ -120,7 +120,8 @@
   <!-- Poblar select para modificacion y baja de datos -->
 <script>
   $(document).ready(function() {
-    jsonCarreras.carreras.forEach(function(element) {
+    var rc = new RegisterControllerLocal();
+    rc.jsonCarreras.carreras.forEach(function (element) {
       var objOption = document.createElement("option");
       objOption.setAttribute("value", element.id);
       objOption.innerHTML = element.carrera;
