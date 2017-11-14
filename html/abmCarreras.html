@@ -120,15 +120,13 @@
   <!-- Poblar select para modificacion y baja de datos -->
 <script>
   $(document).ready(function() {
-    var instance = new RegisterControllerLocal();
-    var jsonCarreras = JSON.parse(instance.jsonCarreras);
-    $(jsonCarreras.carreras).each(function(elem) {
+    jsonCarreras.carreras.forEach(function(element) {
       var objOption = document.createElement("option");
-      objOption.setAttribute("value", elem.id);
-      objOption.innerHTML = elem.carrera;
-      ("#carrera").appendChild(objOption);
-    })
-  })
+      objOption.setAttribute("value", element.id);
+      objOption.innerHTML = element.carrera;
+      $("#carrera").append(objOption);
+    }, this);
+  });
 </script>
 </body>
 </html>
