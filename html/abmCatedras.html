@@ -130,12 +130,8 @@
                 <div class="col-md-4">
                     <!-- Seleccion de Catedras -->
                     <label>Catedras</label>
-                    <select>
-                        <option value="">A</option>
-                        <option value="">B</option>
-                        <option value="">C</option>
-                        <option value="">D</option>
-                        <option value="">E</option>
+                    <select class="catedra">
+                        <option></option>
                     </select>
                 </div>
 
@@ -215,5 +211,15 @@
     </div>
     <!-- Botoon para guardar datos -->
     <button id="submit" type="submit">Guardar</button>
+    <script>
+            $(document).ready(function () {
+                jsonCatedras.catedras.forEach(function (element) {
+                    var objOption = document.createElement("option");
+                    objOption.setAttribute("value", element.id);
+                    objOption.innerHTML = element.catedra;
+                    $(".catedra").append(objOption);
+                }, this);
+            });
+    </script>
 </body>
 </html>

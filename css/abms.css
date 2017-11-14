@@ -22,9 +22,9 @@ h1 {
 }
 
 /* Anchos de los label para que esten todos alineados */
-label {
+/* label {
     width: 250px;
-}
+} */
 
 /* Anchos de los input para que esten todos alineados */
 input {
