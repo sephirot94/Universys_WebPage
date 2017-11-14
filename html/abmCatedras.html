@@ -209,14 +209,15 @@
             var operacion = "modificacion";
         </script>
     </div>
-    <!-- Botoon para guardar datos -->
+    <!-- Boton para guardar datos -->
     <button id="submit" type="submit">Guardar</button>
     <script src="../js/register.js">
         
     </script>
     <script>
             $(document).ready(function () {
-                jsonCatedras.catedras.forEach(function (element) {
+                var rc = new RegisterControllerLocal();
+                rc.jsonCatedras.catedras.forEach(function (element) {
                     var objOption = document.createElement("option");
                     objOption.setAttribute("value", element.id);
                     objOption.innerHTML = element.catedra;
