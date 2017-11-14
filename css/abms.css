@@ -30,3 +30,12 @@ label {
 input {
     width: 250px;
 }
+
+.radioPresente {
+    display: inline;
+}
+
+#radioPresente {
+    display: inline;
+    margin-left: 0;
+}
