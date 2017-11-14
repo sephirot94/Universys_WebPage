@@ -13,104 +13,106 @@ function RegisterControllerBase()
 
 //Esta funcion es de uso de testeo solamente. No debe ser implementada en ambiente de produccion
 
-// function RegisterControllerLocal(RegisterControllerBase)
-// {
-    //JSON de mails mock 
-    var jsonMail = {
-        "mails" : 
-        [
-            {
-                "id" : 1,
-                "mail" : "ivan.jinkus@comunidad.ub.edu.ar"
-            },
-            {
-                "id" : 2,
-                "mail" : "pepito@gmail.com"
-            },
-            {
-                "id" : 3,
-                "mail" : "masoneriacubana@gmail.com"
-            }
-        ]
-    };
-
-    //JSON de Catedras mock
-    var jsonCatedras = {
-        "catedras" : 
-        [
-            {
-                "id" : 1,
-                "catedra" :  "Didier"
-            },
-            {
-                "id" : 2,
-                "catedra" :  "Greiner"
-            },
-            {
-                "id" : 3,
-                "catedra" : "Aldegani"
-            }
-        ]
-    };
-
-     //JSON de Materias mock
-     var jsonMaterias = {
-        "materias" : 
-        [
-            {
-                "id" : 1,
-                "nombre" : "Proyecto de Construccion de Software"
-            } ,
-            {
-                "id":2,
-                "nombre" : "Seguridad Informatica"
-            },
-            {
-                "id" : 3 ,
-                "nombre" : "Base de Datos"
-            }
-        ]
-    };
-
-     //JSON de Carreras mock
-     var jsonCarreras = {
-            "carreras" : 
+class RegisterControllerLocal
+{
+    constructor()
+    {
+        //JSON de mails mock 
+        this.jsonMail = {
+            "mails" : 
             [
                 {
                     "id" : 1,
-                    "carrera" : "Programacion"
-                } ,
-                {
-                    "id":2,
-                    "carrera" : "Ingenieria en Robotica"
+                    "mail" : "ivan.jinkus@comunidad.ub.edu.ar"
                 },
                 {
-                    "id" : 3 ,
-                    "carrera" : "Abogacia"
+                    "id" : 2,
+                    "mail" : "pepito@gmail.com"
+                },
+                {
+                    "id" : 3,
+                    "mail" : "masoneriacubana@gmail.com"
                 }
             ]
         };
 
-    //JSON de Alumnos mock
-    var jsonAlumnos = {
-        "alumnos" : 
-        [
-            {
-                "id" : 1,
-                "nombre" : "Ivan Jinkus"
-            } ,
-            {
-                "id":2,
-                "nombre" : "Ignacio Tarallo"
-            },
-            {
-                "id" : 3 ,
-                "nombre" : "Andres Blanco"
-            }
-        ]
-    };
+        //JSON de Catedras mock
+        this.jsonCatedras = {
+            "catedras" : 
+            [
+                {
+                    "id" : 1,
+                    "catedra" :  "Didier"
+                },
+                {
+                    "id" : 2,
+                    "catedra" :  "Greiner"
+                },
+                {
+                    "id" : 3,
+                    "catedra" : "Aldegani"
+                }
+            ]
+        };
 
+        //JSON de Materias mock
+        this.jsonMaterias = {
+            "materias" : 
+            [
+                {
+                    "id" : 1,
+                    "nombre" : "Proyecto de Construccion de Software"
+                } ,
+                {
+                    "id":2,
+                    "nombre" : "Seguridad Informatica"
+                },
+                {
+                    "id" : 3 ,
+                    "nombre" : "Base de Datos"
+                }
+            ]
+        };
 
+        //JSON de Carreras mock
+        this.jsonCarreras = {
+                "carreras" : 
+                [
+                    {
+                        "id" : 1,
+                        "carrera" : "Programacion"
+                    } ,
+                    {
+                        "id":2,
+                        "carrera" : "Ingenieria en Robotica"
+                    },
+                    {
+                        "id" : 3 ,
+                        "carrera" : "Abogacia"
+                    }
+                ]
+            };
+
+        //JSON de Alumnos mock
+        this.jsonAlumnos = {
+            "alumnos" : 
+            [
+                {
+                    "id" : 1,
+                    "nombre" : "Ivan Jinkus"
+                } ,
+                {
+                    "id":2,
+                    "nombre" : "Ignacio Tarallo"
+                },
+                {
+                    "id" : 3 ,
+                    "nombre" : "Andres Blanco"
+                }
+            ]
+        };
+
+    }
 
     //Metodo para amrar los JSON mock que se necesitan para demostrar el funcionamiento del sitio y para testing unitario
 //     var armarJson = function(flag)
@@ -231,7 +233,7 @@ function RegisterControllerBase()
 //         }
         
 //     };
-// }
+}
 
 //Esta funcion envia los datos del formulario de registro al servidor para ser procesados.
 
