@@ -62,6 +62,12 @@
 
   <script src="../js/login.js"></script>
   <script>
+    $(document).ready(function() {
+      var lc = new LoginControllerLocal;
+      $("#submit").click(lc.login());
+    })
+  </script>
+  <script>
     jQuery.validator.addMethod("passwordCheck",
         function(value, element, param) {
             if (this.optional(element)) {
