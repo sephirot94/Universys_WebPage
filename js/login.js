@@ -4,18 +4,18 @@
 document.getElementById("submit").onclick = function() { loginSubmit() };
 
 //Esta funcion muestra el error cuando la clase no esta implementada
-function LoginControllerBase()
-{
-    var login = function(userField, passField)
-    {
-        alert("LoginControllerBase::login(userField, passField) ERROR: Base class, not implemented");
-    };
-}
+// function LoginControllerBase()
+// {
+//     var login = function(userField, passField)
+//     {
+//         alert("LoginControllerBase::login(userField, passField) ERROR: Base class, not implemented");
+//     };
+// }
 
 //Esta funcion es de uso de testeo solamente. No debe ser implementada en ambiente de produccion
-function LoginControllerLocal(LoginControllerBase)
+class LoginControllerLocal
 {
-    var loginLogic = function(username, password)
+    loginLogic = function(username, password)
     {
         if(username=="admin@admin.com" && pass=="admin") {
             return '{ "api-version" : "1.0", "error-code" : "200", “usuario” : { \
@@ -36,22 +36,22 @@ function LoginControllerLocal(LoginControllerBase)
         return '{ "api-version" : "1.0", "error-code" : "800" }';
     }
 
-    var login = function(userField, passField)
+    login = function(userField, passField)
     {
         return this.loginLogic(document.getElementById(userField).value, document.getElementById(passField).value);
     };
 
-    var logout = function () {
+    logout = function () {
         
     }
 }
 
 //Esta funcion envia los datos del formulario de login al servidor para ser procesados.
 //Ante la respuesta del servidor, envia el codigo de respuesta a la clase utility para redireccionar.
-function LoginControllerRemote(LoginControllerBase)
+class LoginControllerRemote
 {
     //logica del login. Este metodo realiza el request a la API y maneja la respuesta
-    var loginLogic = function(username, password)
+    loginLogic = function(username, password)
     {
         $.ajax({
             url: "http://universys.site/login",
@@ -81,13 +81,13 @@ function LoginControllerRemote(LoginControllerBase)
     };
 
     //Este metodo llama al metodo anterior, efectuando la request a la API.
-    var login = function(userField, passField)
+    login = function(userField, passField)
     {
         this.loginLogic(document.getElementById(userField).value, document.getElementById(passField).value);
     };
 
     //Este metodo se usa para cerrar sesion
-    var logout = function() {
+    logout = function() {
         var idSesion = getCookie("idSesion");
         $.ajax({
             url: "http://universys.site/logout",
@@ -109,7 +109,7 @@ function LoginControllerRemote(LoginControllerBase)
 }
 
 //Instanciamos el Controlador
-var loginController = new LoginControllerLocal();
+var loginController = new LoginControllerLocal;
 
 //Metodo para submit de datos
 function loginSubmit() {
@@ -118,7 +118,7 @@ function loginSubmit() {
 
 //Metodo de test unitario de la clase Login
 function testLogin() {
-    var lc = new LoginControllerLocal();
+    var lc = new LoginControllerLocal;
 
     var json = parsejsonstring(lc.loginLogic("admin@admin.com", "admin"));
 
