@@ -60,6 +60,10 @@ class LoginControllerLocal
         dropCookie("idSesion");
         window.location.href = '../html/login.html';
     }
+
+    redirectAdmin() {
+        window.location.href = 'perfilAdministrador.html';
+    }
 }
 
 //Esta funcion envia los datos del formulario de login al servidor para ser procesados.
