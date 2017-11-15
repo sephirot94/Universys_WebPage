@@ -93,8 +93,8 @@ class restablecerContrasenaControllerRemote
                 data: {
                     "apiVer" : "1.0",
                     "idSesion" : getCookie("idSesion"),
-                    "pregunta" : pregunta
-                    "respuesta" : respuesta
+                    "pregunta" : pregunta,
+                    "respuesta" : respuesta,
                     "password" : new_pass
                 },
                 success : function(result) {
@@ -124,7 +124,7 @@ class restablecerContrasenaControllerRemote
                 type: 'POST',
                 data: {
                     "apiVer" : "1.0",
-                    "idSesion" : getCookie("idSesion")
+                    "idSesion" : getCookie("idSesion"),
                     "pregunta" : pregunta_elegida,
                     "respuesta" : respuesta,
                     "password" : new_pass
