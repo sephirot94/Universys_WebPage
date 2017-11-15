@@ -3,14 +3,12 @@
 
 <head>
   <meta charset="utf-8">
-
   <title>Universys</title>
   <!-- <meta name="description" content="The HTML5 Herald">
     <meta name="author" content="SitePoint"> -->
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
     crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/login.css">
+  <link rel="stylesheet" href="../css/login.css">
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
     crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
@@ -63,27 +61,27 @@
   <script src="../js/login.js"></script>
   <script src="../js/library.js"></script>
   <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
       var lc = new LoginControllerLocal;
-      $("#submit").click(function() {lc.login("username", "password")});
+      $("#submit").click(function () { lc.login("username", "password") });
     })
   </script>
   <script>
     jQuery.validator.addMethod("passwordCheck",
-        function(value, element, param) {
-            if (this.optional(element)) {
-                return true;
-            } else if (!/[A-Z]/.test(value)) {
-                return false;
-            } else if (!/[a-z]/.test(value)) {
-                return false;
-            } else if (!/[0-9]/.test(value)) {
-                return false;
-            }
+      function (value, element, param) {
+        if (this.optional(element)) {
+          return true;
+        } else if (!/[A-Z]/.test(value)) {
+          return false;
+        } else if (!/[a-z]/.test(value)) {
+          return false;
+        } else if (!/[0-9]/.test(value)) {
+          return false;
+        }
 
-            return true;
-        },
-        "La contrase&ntilde;a debe contener al menos una mayuscula, una minuscula y un numero");
+        return true;
+      },
+      "La contrase&ntilde;a debe contener al menos una mayuscula, una minuscula y un numero");
 
     $("#login").validate({
       rules: {
@@ -100,14 +98,15 @@
       messages: {
         username: {
           required: "Este campo es obligatorio",
-          email : "Este campo debe contener una direccion de correo electronico valida"
+          email: "Este campo debe contener una direccion de correo electronico valida"
         },
         password: {
           required: "Este campo es obligatorio",
           minlength: "Este campo debe contener al menos 8 caracteres",
           maxlength: "Este campo debe contener maximo 16 caracteres"
         }
-    }});
+      }
+    });
   </script>
 </body>
 

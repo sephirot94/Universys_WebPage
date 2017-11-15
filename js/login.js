@@ -42,13 +42,13 @@ class LoginControllerLocal
         console.log(login);
         setCookie("idSesion", login.usuario.idSesion);
         if (login.usuario.rol=="administrador") {
-            window.location.href = '../html/perfilAdministrador.html';
+            window.location.href = 'perfilAdministrador.html';
         }
         if (login.usuario.rol=="alumno") {
-            window.location.href = '../html/perfilAlumno.html';
+            window.location.href = 'perfilAlumno.html';
         }
         if (login.usuario.rol=="profesor") {
-            window.location.href = '../html/perfilProfesor.html';
+            window.location.href = 'perfilProfesor.html';
         }
     };
 
