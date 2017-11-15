@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>ABM Notas</title>
-    <link rel="stylesheet" href="../css/abms.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-        crossorigin="anonymous">
+    crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/abms.css">
     <script src="http://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
@@ -61,42 +61,28 @@
         <br>
         <div class="container">
             <div class="row">
-                <div class="col-md-2">
+                <div class="col-md-3">
                     <!-- Seleccion de Catedra -->
                     <label>Catedra</label>
                     <select class="catedra">
                         <option></option>
                     </select>
                 </div>
-                <div class="col-md-2">
-                    <!-- Seleccion de Carrera -->
-                    <label>Carrera</label>
-                    <select class="carrera">
-                        <option></option>
-                    </select>
-                </div>
-                <div class="col-md-2">
+                <div class="col-md-3">
                     <label>Materia</label>
                     <!-- Seleccion de Materia -->
                     <select class="materia">
                         <option></option>
                     </select>
                 </div>
-                <div class="col-md-2">
-                    <label>Horario</label>
-                    <!-- Seleccion de Horario -->
-                    <select class="horario">
-                        <option></option>
-                    </select>
-                </div>
-                <div class="col-md-2">
+                <div class="col-md-3">
                     <label>Alumno</label>
                     <!-- Seleccion de Alumno -->
-                    <select class="alumno">
+                    <select class="alumnos">
                         <option></option>
                     </select>
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-3">
                     <label>Nota</label>
                     <!-- Seleccion de Nota -->
                     <select class="nota">
@@ -125,38 +111,24 @@
         <br>
         <div class="container">
             <div class="row">
-                <div class="col-md-2">
+                <div class="col-md-4">
                     <!-- Seleccion de Catedra -->
                     <label>Catedra</label>
                     <select class="catedra">
                         <option></option>
                     </select>
                 </div>
-                <div class="col-md-2">
-                    <!-- Seleccion de Carrera -->
-                    <label>Carrera</label>
-                    <select class="carrera">
-                        <option></option>
-                    </select>
-                </div>
-                <div class="col-md-2">
+                <div class="col-md-4">
                     <label>Materia</label>
                     <!-- Seleccion de Materia -->
                     <select class="materia">
                         <option></option>
                     </select>
                 </div>
-                <div class="col-md-2">
-                    <label>Horario</label>
-                    <!-- Seleccion de Horario -->
-                    <select class="horario">
-                        <option></option>
-                    </select>
-                </div>
-                <div class="col-md-2">
+                <div class="col-md-4">
                     <label>Alumno</label>
                     <!-- Seleccion de Alumno -->
-                    <select class="alumno">
+                    <select class="alumnos">
                         <option></option>
                     </select>
                 </div>
@@ -173,42 +145,28 @@
         <br>
         <div class="container">
             <div class="row">
-                <div class="col-md-2">
+                <div class="col-md-3">
                     <!-- Seleccion de Catedra -->
                     <label>Catedra</label>
                     <select class="catedra">
                         <option></option>
                     </select>
                 </div>
-                <div class="col-md-2">
-                    <!-- Seleccion de Carrera -->
-                    <label>Carrera</label>
-                    <select class="carrera">
-                        <option></option>
-                    </select>
-                </div>
-                <div class="col-md-2">
+                <div class="col-md-3">
                     <label>Materia</label>
                     <!-- Seleccion de Materia -->
                     <select class="materia">
                         <option></option>
                     </select>
                 </div>
-                <div class="col-md-2">
-                    <label>Horario</label>
-                    <!-- Seleccion de Horario -->
-                    <select class="horario">
-                        <option></option>
-                    </select>
-                </div>
-                <div class="col-md-2">
+                <div class="col-md-3">
                     <label>Alumno</label>
                     <!-- Seleccion de Alumno -->
-                    <select class="alumno">
+                    <select class="alumnos">
                         <option></option>
                     </select>
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-3">
                     <label>Nota</label>
                     <!-- Seleccion de Nota -->
                     <select class="nota">
@@ -232,6 +190,39 @@
     </div>
     <!-- Botoon para guardar datos -->
     <button id="submit" type="submit">Guardar</button>
+    <script src="../js/register.js"></script>
+    <script src="../js/library.js"></script>
+    
+    
+    <!-- Poblar select para modificacion y baja de datos -->
+    <script>
+        $(document).ready(function () {
+            var rc = new RegisterControllerLocal();
+            rc.jsonCatedras.catedras.forEach(function (element) {
+                var objOption = document.createElement("option");
+                objOption.setAttribute("value", element.id);
+                objOption.innerHTML = element.catedra;
+                $(".catedra").append(objOption);
+            }, this);
+            rc.jsonMaterias.materias.forEach(function (element) {
+                var objOption = document.createElement("option");
+                objOption.setAttribute("value", element.id);
+                objOption.innerHTML = element.materia;
+                $(".materia").append(objOption);
+            }, this);
+            rc.jsonAlumnos.alumnos.forEach(function (element) {
+                var objOption = document.createElement("option");
+                objOption.setAttribute("value", element.id);
+                objOption.innerHTML = element.nombre;
+                $(".alumnos").append(objOption);
+            }, this);
+
+            $('input:radio[name="postage"]').change(function () {
+                $("#presente").val($(this).val());
+            });
+
+        });
+    </script>
 </body>
 
 </html>
