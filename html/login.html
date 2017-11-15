@@ -54,7 +54,7 @@
         </div>
         <a href="./reiniciarContrasena.html">Me olvide mi contrase&ntilde;a</a>
         <div>
-          <button type="submit" onclick="myfunction()">Ingresar</button>
+          <button type="button" onclick="myfunction()">Ingresar</button>
         </div>
       </form>
     </div>
@@ -66,6 +66,7 @@
     // $(document).ready(function() {
     //   window.location = 'perfilAdministrador.html';
     // });
+    //Metodo para ejecutar el llamado del login
     function myfunction() {
       var lc = new LoginControllerLocal;  
       lc.login("username", "password");
