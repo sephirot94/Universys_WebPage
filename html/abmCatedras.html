@@ -59,6 +59,32 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
+                    <!-- Seleccion de catedra -->
+                    <label>Catedra</label>
+                    <input type="text">
+                </div>
+                <div class="col-md-4">
+                    <!-- Seleccion de materia -->
+                    <label>Materia</label>
+                    <select class="materia">
+                        <option></option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <!-- Seleccion de nombre -->
+                    <label>Nombre</label>
+                    <input type="text">
+                </div>
+                <div class="col-md-5">
+                    <!-- Seleccion de titular de catedra -->
+                    <label>Titular de Catedra</label>
+                    <input type="text">
+                </div>
+                <br>
+                <br>
+                <br>
+                <br>
+                <div class="col-md-12">
                     <!-- Seleccion de dias -->
                     <label>Dias</label>
                     <select class="dia">
@@ -134,7 +160,13 @@
                         <option></option>
                     </select>
                 </div>
-
+                <div class="col-md-4">
+                    <!-- Seleccion de materia -->
+                    <label>Materia</label>
+                    <select class="materia">
+                        <option></option>
+                    </select>
+                </div>
             </div>
         </div>
         <script>
@@ -147,6 +179,34 @@
         <br>
         <div class="container">
             <div class="row">
+                <div class="col-md-4">
+                    <!-- Seleccion de Catedras -->
+                    <label>Catedras</label>
+                    <select class="catedra">
+                        <option></option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <!-- Seleccion de materia -->
+                    <label>Materia</label>
+                    <select class="materia">
+                        <option></option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <!-- Seleccion de nombre -->
+                    <label>Nombre</label>
+                    <input type="text">
+                </div>
+                <div class="col-md-5">
+                    <!-- Seleccion de titular de catedra -->
+                    <label>Titular de Catedra</label>
+                    <input type="text">
+                </div>
+                <br>
+                <br>
+                <br>
+                <br>
                 <div class="col-md-4">
                     <!-- Seleccion de dias -->
                     <label>Dias</label>
@@ -211,9 +271,8 @@
     </div>
     <!-- Boton para guardar datos -->
     <button id="submit" type="submit">Guardar</button>
-    <script src="../js/register.js">
-        
-    </script>
+    <script src="../js/register.js"></script>
+    <script src="../js/library.js"></script>
     <script>
             $(document).ready(function () {
                 var rc = new RegisterControllerLocal();
@@ -222,6 +281,18 @@
                     objOption.setAttribute("value", element.id);
                     objOption.innerHTML = element.catedra;
                     $(".catedra").append(objOption);
+                }, this);
+                rc.jsonCarreras.carreras.forEach(function (element) {
+                    var objOption = document.createElement("option");
+                    objOption.setAttribute("value", element.id);
+                    objOption.innerHTML = element.carrera;
+                    $(".carrera").append(objOption);
+                }, this);
+                rc.jsonMaterias.materias.forEach(function (element) {
+                    var objOption = document.createElement("option");
+                    objOption.setAttribute("value", element.id);
+                    objOption.innerHTML = element.materia;
+                    $(".materia").append(objOption);
                 }, this);
             });
     </script>

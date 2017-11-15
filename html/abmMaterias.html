@@ -1,102 +1,174 @@
 <!DOCTYPE html>
 <!-- registerSubject.html sirve para el registro de las materias -->
 <html lang="en">
-    <head>
-      <meta charset="utf-8">
-    
-      <title>Universys</title>
-    
-      <link rel="stylesheet" href="../css/registerSubjects.css">
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.js"></script>
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
-      crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-      crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
-      crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
-      crossorigin="anonymous"></script>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>ABM Fichadas</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
+  <script src="http://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+  <link rel="stylesheet" href="../css/abms.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
+  <script src="../js/abms.js"></script>
+</head>
 
-      <!-- codigo para que funcione boosstrap y Jquery-->
-    
-     
-    
-      <!--[if lt IE 9]>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
-      <![endif]-->
-    </head>
-    
-    <body>
-      
-      <div class="container-fluid">
-        <div class="centered">
-           <h1>Bienvenido a Universys</h1> <!-- Titulo -->
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+          aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="./home.html">
+          <!-- Titulo -->
+          <strong>Universys</strong> Home</a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <!-- Link a pestaña de Historia -->
+          <li><a href="./historia.html">Historia</a></li>
+          <!-- Link a pestaña de Carreras -->
+          <li><a href="./carreras.html">Carreras</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <!-- Link para Iniciar Sesion -->
+          <li><a href="./login.html">Iniciar Sesi&oacute;n</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Botón para dar de alta una materia -->
+  <button id="btnAlta" type="button">Alta Materia</button>
+  <!-- Botón para dar de baja una materia -->
+  <button id="btnBaja" type="button">Baja Materia</button>
+  <!-- Botón para modificar una materia -->
+  <button id="btnModificacion" type="button">Modificacion Materia</button>
+  <br>
+  <!-- Dar de alta una materia -->
+  <div class="alta">
+    <!-- Titulo -->
+    <h1>Alta de materia</h1>
+    <br>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <!-- Seleccion de Catedras -->
+          <label>Catedra</label>
+          <select class="catedra">
+            <option></option>
+          </select>
         </div>
-        <div class="centered"> 
-           <h3>Registro Materias:</h3>  <!-- Titulo -->
-          <form id="registerSubjects" method="post"> <!--Formulario donde se ingresan los inputs -->
-              <div>
-                  <label for="catedra" id="catedra_lbl">Nombre de Catedra:</label>
-                  <input class="empty" type="string" name="catedra" id="catedra" value=""> <!--input para ingresar datos -->
-              </div>
-              <div>
-                  <label for="carrera" id="carrera_lbl">Nombre de la Carrera:</label>
-                  <input class="empty" type="string" name="carrera" id="carrera" value=""> <!--input para ingresar datos -->
-              </div>
-              <div>
-                  <label for="materia" id="materia_lbl">Nombre de la Materia:</label>
-                  <input class="empty" type="string" name="materia" id="materias" value=""> <!--input para ingresar datos -->
-              </div>
-              <br>
-               <button id="submit">Enviar</button> <!--Boton para enviar el formulario -->
-          </form>
+        <div class="col-md-4">
+          <!-- Seleccion de Carrera -->
+          <label>Carrera</label>
+          <select class="carrera">
+            <option></option>
+          </select>
+        </div>
+        <div class="col-md-4">
+          <!-- Input de Materia -->
+          <label>Materia</label>
+          <input type="text">
+        </div>
+        <script>
+          var operacion = "alta";
+        </script>
+      </div>
+    </div>
+  </div>
+  <!-- Dar de baja una materia -->
+  <div class="baja">
+    <!-- Titulo -->
+    <h1>Baja de materia</h1>
+    <br>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <!-- Input de Materia -->
+          <label>Materia</label>
+          <select class="materia">
+            <option></option>
+          </select>
+        </div>
+        <script>
+          var operacion = "alta";
+        </script>
+      </div>
+    </div>
+  </div>
+  <!-- Modificar una materia -->
+  <div class="modificacion">
+    <!-- Titulo -->
+    <h1>Modificacion de materia</h1>
+    <br>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <!-- Select de Materia -->
+          <label>Materia</label>
+          <select class="materia">
+            <option></option>
+          </select>
+        </div>
+        <div class="col-md-6">
+          <!-- Input de Materia -->
+          <label>Nuevo Nombre Materia <input type="text"></label>
         </div>
       </div>
-
       <script>
-    
-         $("#registerSubjects").validate({ //Codigo para testear el codigo para evitar diversos errores como superar el limite de caracteres
-          rules: { //condiciones a seguir para evitar errores
-            catedra: {
-              required: true,
-              minlength: 4,
-              maxlength: 8
-            },
-            carrera: {
-              required: true,
-              minlength: 1,
-              maxlength: 16
-            },
-            carrera: {
-              required: true,
-              minlength: 1,
-              maxlength: 16
-            },
-            
-          },
-          messages: { //Mensaje a mostrar cuado surga un error
-            catedra: {
-              required: "Este campo es obligatorio",
-              minlength: "Este campo debe contener al menos 4 caracteres",
-              maxlength: "Este campo debe contener maximo 8 caracteres"
-            },
-            carrera: {
-              required: "Este campo es obligatorio",
-              minlength: "Este campo debe contener al menos 1 caracter",
-              maxlength: "Este campo debe contener maximo 16 caracteres"
-            },
-            materia: {
-              required: "Este campo es obligatorio",
-              minlength: "Este campo debe contener al menos 1 caracter",
-              maxlength: "Este campo debe contener maximo 16 caracteres"
-            },
-            
-        }});
+        var operacion = "modificacion";
       </script>
-      
-    
-  
-      
-    </body>
-    </html>
+    </div>
+  </div>
+  <!-- Boton para guardar datos -->
+  <button id="submit" type="submit">Guardar</button>
+  <script src="../js/register.js"></script>
+  <script src="../js/library.js"></script>
+
+
+  <!-- Poblar select para modificacion y baja de datos -->
+  <script>
+    $(document).ready(function () {
+      var rc = new RegisterControllerLocal();
+      rc.jsonCatedras.catedras.forEach(function (element) {
+        var objOption = document.createElement("option");
+        objOption.setAttribute("value", element.id);
+        objOption.innerHTML = element.catedra;
+        $(".catedra").append(objOption);
+      }, this);
+      rc.jsonCarreras.carreras.forEach(function (element) {
+        var objOption = document.createElement("option");
+        objOption.setAttribute("value", element.id);
+        objOption.innerHTML = element.carrera;
+        $(".carrera").append(objOption);
+      }, this);
+      rc.jsonMaterias.materias.forEach(function (element) {
+        var objOption = document.createElement("option");
+        objOption.setAttribute("value", element.id);
+        objOption.innerHTML = element.materia;
+        $(".materia").append(objOption);
+      }, this);
+      rc.jsonAlumnos.alumnos.forEach(function (element) {
+        var objOption = document.createElement("option");
+        objOption.setAttribute("value", element.id);
+        objOption.innerHTML = element.nombre;
+        $(".alumnos").append(objOption);
+      }, this);
+
+      $('input:radio[name="postage"]').change(function () {
+        $("#presente").val($(this).val());
+      });
+
+    });
+  </script>
+</body>
+</html>

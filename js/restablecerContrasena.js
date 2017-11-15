@@ -1,6 +1,5 @@
 //Esta clase implementa la funcionalidad del reseteo de contraseña en Javascript. 
-
-document.getElementById("submit").onclick = function() { restablecerContrasenaSubmit() };
+$("#submit").click(function restablecerContrasenaSubmit() { });
 
 //Esta funcion muestra el error cuando la clase no esta implementada
 function restablecerContrasenaControllerBase()
@@ -93,8 +92,8 @@ class restablecerContrasenaControllerRemote
                 data: {
                     "apiVer" : "1.0",
                     "idSesion" : getCookie("idSesion"),
-                    "pregunta" : pregunta
-                    "respuesta" : respuesta
+                    "pregunta" : pregunta,
+                    "respuesta" : respuesta,
                     "password" : new_pass
                 },
                 success : function(result) {
@@ -124,7 +123,7 @@ class restablecerContrasenaControllerRemote
                 type: 'POST',
                 data: {
                     "apiVer" : "1.0",
-                    "idSesion" : getCookie("idSesion")
+                    "idSesion" : getCookie("idSesion"),
                     "pregunta" : pregunta_elegida,
                     "respuesta" : respuesta,
                     "password" : new_pass
