@@ -57,20 +57,22 @@
   <button id="btnModificacion" type="button">Modificacion Carrera</button>
   <br>
   <!-- Dar de alta una carrera -->
-  <div class="alta">
-    <!-- Titulo -->
-    <h1>Alta de carrera</h1>
-    <br>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-2">
-          <!-- Input de Carrera -->
-          <label>Nombre de la Carrera</label>
-          <input type="text">
+  <form class="alta">
+    <div class="alta">
+      <!-- Titulo -->
+      <h1>Alta de carrera</h1>
+      <br>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-2">
+            <!-- Input de Carrera -->
+            <label>Nombre de la Carrera</label>
+            <input id="carrera" type="text">
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </form>
   <!-- Dar de baja una carrera -->
   <div class="baja">
     <!-- Titulo -->
@@ -128,6 +130,36 @@
       objOption.innerHTML = element.carrera;
       $(".carrera").append(objOption);
     }, this);
+  });
+</script>
+<script>
+  jQuery.validator.addMethod("passwordCheck",
+    function (value, element, param) {
+      if (this.optional(element)) {
+        return true;
+      } else if (!/[A-Z]/.test(value)) {
+        return false;
+      } else if (!/[a-z]/.test(value)) {
+        return false;
+      } else if (!/[0-9]/.test(value)) {
+        return false;
+      }
+
+      return true;
+    },
+    "La contrase&ntilde;a debe contener al menos una mayuscula, una minuscula y un numero");
+
+  $(".alta").validate({
+    rules: {
+      carrera: {
+        required: true
+      }
+    },
+    messages: {
+      carrera: {
+        required: "Este campo es obligatorio"
+      }
+    }
   });
 </script>
 </body>
