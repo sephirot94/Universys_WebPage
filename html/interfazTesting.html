@@ -48,11 +48,11 @@
                     }
                 });
 
-                //llamado al unit test de Libreria con un click en el boton de testear libreria
-                $("#testLibrary").click(function(){
-                    var test = testLibrary();
+                //llamado al unit test de Recuperar contrasena con un click en el boton de testear recuperacion de contrasena
+                $("#testRecuperacionContrasena").click(function () {
+                    var test = testRestablecerContrasena();
                     //Si no se encuentran errores en los modulos del sistema, se le aplica un fondo verde al contenedor 
-                    if (test===null) {
+                    if (test === null) {
                         $(".error-screen").css("background-color", "#009933");
                     }
                     //Si se encuentran errores en los modulos del sistema, se le aplica un fondo rojo al contenedor 
@@ -77,12 +77,12 @@
                         $(".error-screen").append(error);
                     }
                 });
-
-                //llamado al unit test de Recuperar contrasena con un click en el boton de testear recuperacion de contrasena
-                $("#testRecuperacionContrasena").click(function(){
-                    var test = testRestablecerContrasena();
+                
+                //llamado al unit test de Libreria con un click en el boton de testear libreria
+                $("#testLibrary").click(function () {
+                    var test = testLibrary();
                     //Si no se encuentran errores en los modulos del sistema, se le aplica un fondo verde al contenedor 
-                    if (test===null) {
+                    if (test === null) {
                         $(".error-screen").css("background-color", "#009933");
                     }
                     //Si se encuentran errores en los modulos del sistema, se le aplica un fondo rojo al contenedor 
