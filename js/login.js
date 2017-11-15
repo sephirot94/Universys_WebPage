@@ -15,40 +15,44 @@ class LoginControllerLocal
     constructor() {}
     loginLogic (username, pass)
     {
-        alert(username);
-        alert(pass);
         if(username=="admin@admin.com" && pass=="Admin1234") {
-            return '{ "api-version" : "1.0", "error-code" : "200", “usuario” : { \
-                "nombre" : "Diego",\
-                "apellido" : "Maradona",\
-                "idSesion" : 1234,\
-                "rol" : "administrador"\
-                }\
-        }';
+            return {
+                "api-version": "1.0",
+                "error-code": "200",
+                "usuario": {
+                   "nombre": "Diego",
+                   "apellido": "Maradona",
+                   "idSesion": "1234",
+                   "rol": "administrador"
+                }
+             };
         }
         if(pass=="Admin1234" && username!="admin@admin.com") {
-            return '{ "api-version" : "1.0", "error-code" : "680" }';
+            return { "api-version" : "1.0", "error-code" : "680" };
         }
         if(pass!="Admin1234" && username=="admin@admin.com") {
-            return '{ "api-version" : "1.0", "error-code" : "777" }';
+            return { "api-version" : "1.0", "error-code" : "777" };
         }
         
-        return '{ "api-version" : "1.0", "error-code" : "800" }';
+        return { "api-version" : "1.0", "error-code" : "800" };
     }
 
     login (userField, passField)
     {
-        var login = parseJsonString(this.loginLogic(document.getElementById(userField).value, document.getElementById(passField).value));
-        console.log(login);
-        setCookie("idSesion", login.usuario.idSesion);
-        if (login.usuario.rol=="administrador") {
-            window.location.href = '../html/perfilAdministrador.html';
+        // debugger;
+        var json = this.loginLogic(document.getElementById(userField).value, document.getElementById(passField).value);
+        setCookie("idSesion", json.usuario.idSesion);
+        if (json.usuario.rol=="administrador") {
+            window.location.href = 'perfilAdministrador.html';
         }
-        if (login.usuario.rol=="alumno") {
+        else if (json.usuario.rol=="alumno") {
             window.location.href = '../html/perfilAlumno.html';
         }
-        if (login.usuario.rol=="profesor") {
+        else if (json.usuario.rol=="profesor") {
             window.location.href = '../html/perfilProfesor.html';
+        }
+        else {
+            console.log("Error");
         }
     };
 
