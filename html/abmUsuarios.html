@@ -230,9 +230,8 @@
         <button id="submit" type="submit">Guardar</button>
         
 
-    <script src="../js/register.js"></script>
-    <script>
-        jQuery.validator.addMethod("passwordCheck",
+        <script>
+            jQuery.validator.addMethod("passwordCheck",
             function (value, element, param) {
                 if (this.optional(element)) {
                     return true;
@@ -243,80 +242,84 @@
                 } else if (!/[0-9]/.test(value)) {
                     return false;
                 }
-
+                
                 return true;
             },
             "La contrase&ntilde;a debe contener al menos una mayuscula, una minuscula y un numero");
-
-        $(".alta .baja .modificacion").validate({
-            rules: {
-                apellido: {
-                    required: true
-                },
-                nombre: {
-                    required: true
-                },
-                documento: {
-                    required: true
-                },
-                fnac: {
-                    required: true
-                },
-                genero: {
-                    required: true
-                },
-                domicilio: {
-                    required: true
-                },
-                matricula: {
-                    required: true
-                },
-                mail: {
-                    required: true
-                },
-                pass: {
-                    required: true,
-                    minlength: 8,
-                    maxlength: 16
-                },
-                confirm_pass: {
-                    equalTo: "#pass"
-                }
-            },
-            messages: {
-                apellido: {
-                    required: "Este campo es obligatorio"
-                },
-                nombre: {
-                    required: "Este campo es obligatorio"
-                },
-                documento: {
-                    required: "Este campo es obligatorio"
-                },
-                fnac: {
-                    required: "Este campo es obligatorio"
-                },
-                genero: {
-                    required: "Este campo es obligatorio"
-                },
-                domicilio: {
-                    required: "Este campo es obligatorio"
-                },
-                matricula: {
-                    required: "Este campo es obligatorio"
-                },
-                pass: {
-                    required: "Este campo es obligatorio",
-                    minlength: "Este campo debe contener al menos 8 caracteres",
-                    maxlength: "Este campo debe contener maximo 16 caracteres"
-                },
-                confirm_pass: {
-                    equalTo: "No coinciden las contrase&ntilde;a"
-                }
             
-            }
-        });
-    </script>
+            $(".alta .baja .modificacion").validate({
+                rules: {
+                    apellido: {
+                        required: true
+                    },
+                    nombre: {
+                        required: true
+                    },
+                    documento: {
+                        required: true
+                    },
+                    fnac: {
+                        required: true
+                    },
+                    genero: {
+                        required: true
+                    },
+                    domicilio: {
+                        required: true
+                    },
+                    matricula: {
+                        required: true
+                    },
+                    mail: {
+                        required: true
+                    },
+                    pass: {
+                        required: true,
+                        minlength: 8,
+                        maxlength: 16
+                    },
+                    confirm_pass: {
+                        equalTo: "#pass"
+                    }
+                },
+                messages: {
+                    apellido: {
+                        required: "Este campo es obligatorio"
+                    },
+                    nombre: {
+                        required: "Este campo es obligatorio"
+                    },
+                    documento: {
+                        required: "Este campo es obligatorio"
+                    },
+                    fnac: {
+                        required: "Este campo es obligatorio"
+                    },
+                    genero: {
+                        required: "Este campo es obligatorio"
+                    },
+                    domicilio: {
+                        required: "Este campo es obligatorio"
+                    },
+                    matricula: {
+                        required: "Este campo es obligatorio"
+                    },
+                    pass: {
+                        required: "Este campo es obligatorio",
+                        minlength: "Este campo debe contener al menos 8 caracteres",
+                        maxlength: "Este campo debe contener maximo 16 caracteres"
+                    },
+                    confirm_pass: {
+                        equalTo: "No coinciden las contrase&ntilde;a"
+                    }
+                    
+                }
+            });
+            </script>
+    <script src="../js/register.js"></script>
+    <script src="../js/login.js"></script>
+    <script src="../js/library.js"></script>
+    <script src="../js/common.js"></script>
 
 </body>
 </html>

@@ -56,6 +56,7 @@ class LoginControllerLocal
     };
 
     logout () {
+        debugger;
         dropCookie("idSesion");
         window.location.href = '../html/login.html';
     }
