@@ -40,6 +40,7 @@
           </div>
           <div class="col-md-6">
             <input class="centered" type="email" name="username" id="username" value="" placeholder="Ingrese su usuario">
+            <p class="error">Este campo es obligatorio</p>
           </div>
         </div>
         <div class="row">
@@ -48,11 +49,12 @@
           </div>
           <div class="col-md-6">
             <input class="centered" type="password" name="password" id="password" value="" passwordcheck="passwordCheck" placeholder="Ingrese su contrase&ntilde;a">
+            <p class="error">Este campo es obligatorio</p>
           </div>
         </div>
         <a href="./reiniciarContrasena.html">Me olvide mi contrase&ntilde;a</a>
         <div>
-          <button type="button" onclick="myfunction()">Ingresar</button>
+          <button type="button" id="submit" onclick="myfunction()">Ingresar</button>
         </div>
       </form>
     </div>
@@ -63,50 +65,18 @@
   <script>
     
     function myfunction() {
-      var lc = new LoginControllerLocal;  
-      lc.login("username", "password");
+      if($('#username').val()=="" || $('#password').val()==""){
+        $(".error").show();
+      }
+      else{
+        var lc = new LoginControllerLocal;  
+        lc.login("username", "password");
+      }
     }
   </script>
   <script>
-    jQuery.validator.addMethod("passwordCheck",
-      function (value, element, param) {
-        if (this.optional(element)) {
-          return true;
-        } else if (!/[A-Z]/.test(value)) {
-          return false;
-        } else if (!/[a-z]/.test(value)) {
-          return false;
-        } else if (!/[0-9]/.test(value)) {
-          return false;
-        }
-
-        return true;
-      },
-      "La contrase&ntilde;a debe contener al menos una mayuscula, una minuscula y un numero");
-
-    $("#login").validate({
-      rules: {
-        username: {
-          required: true,
-          email: true
-        },
-        password: {
-          required: true,
-          minlength: 8,
-          maxlength: 16
-        }
-      },
-      messages: {
-        username: {
-          required: "Este campo es obligatorio",
-          email: "Este campo debe contener una direccion de correo electronico valida"
-        },
-        password: {
-          required: "Este campo es obligatorio",
-          minlength: "Este campo debe contener al menos 8 caracteres",
-          maxlength: "Este campo debe contener maximo 16 caracteres"
-        }
-      }
+    $(document).ready(function() {
+      $(".error").hide();
     });
   </script>
 </body>
