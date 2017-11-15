@@ -39,17 +39,16 @@ class LoginControllerLocal
 
     login (userField, passField)
     {
-        // debugger;
         var json = this.loginLogic(document.getElementById(userField).value, document.getElementById(passField).value);
         setCookie("idSesion", json.usuario.idSesion);
         if (json.usuario.rol=="administrador") {
             window.location.href = 'perfilAdministrador.html';
         }
         else if (json.usuario.rol=="alumno") {
-            window.location.href = '../html/perfilAlumno.html';
+            window.location.href = 'perfilAlumno.html';
         }
         else if (json.usuario.rol=="profesor") {
-            window.location.href = '../html/perfilProfesor.html';
+            window.location.href = 'perfilProfesor.html';
         }
         else {
             console.log("Error");
