@@ -56,82 +56,84 @@
   <button id="btnModificacion" type="button">Modificacion Fichada</button>
   <br>
   <!-- Dar de alta una fichada -->
-  <div class="alta">
-    <!-- Titulo -->
-    <h1>Alta de Fichada</h1>
-    <br>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4">
-          <!-- Seleccion de Catedra -->
-          <label>Catedra</label>
-          <select class="catedra">
-            <option></option>
-          </select>
-        </div>
-        <div class="col-md-4">
-          <!-- Seleccion de Carrera -->
-          <label>Carrera</label>
-          <select class="carrera">
-            <option></option>
-          </select>
-        </div>
-        <div class="col-md-4">
-          <!-- Seleccion de Materia -->
-          <label>Materia</label>
-          <select class="materia">
-            <option></option>
-          </select>
-        </div>
-        <div class="col-md-4">
-          <!-- Seleccion de Horario -->
-          <label>Horario</label>
-          <select class="horario">
-            <option value="0">7:00hs</option>
-            <option value="1">8:00hs</option>
-            <option value="2">9:00hs</option>
-            <option value="3">10:00hs</option>
-            <option value="4">11:00hs</option>
-            <option value="5">12:00hs</option>
-            <option value="6">13:00hs</option>
-            <option value="7">14:00hs</option>
-            <option value="8">15:00hs</option>
-            <option value="9">16:00hs</option>
-            <option value="A">17:00hs</option>
-            <option value="B">18:00hs</option>
-            <option value="C">19:00hs</option>
-            <option value="D">20:00hs</option>
-            <option value="E">21:00hs</option>
-            <option value="F">22:00hs</option>
-          </select>
-        </div>
-        <div class="col-md-4">
-          <!-- Seleccion de Alumno -->
-          <label>Alumno</label>
-          <select class="alumnos">
-            <option></option>
-          </select>
-        </div>
-        <div class="col-md-4">
-          <!-- Seleccion de Presente -->
-          <label class="radioPresente">Presente
-            <input type="radio" name="postage" value="true"> Si
-            <input type="radio" name="postage" value="false"> No</label>
+  <form class="alta">
+    <div class="alta">
+      <!-- Titulo -->
+      <h1>Alta de Fichada</h1>
+      <br>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <!-- Seleccion de Catedra -->
+            <label>Catedra</label>
+            <select class="catedra">
+              <option></option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <!-- Seleccion de Carrera -->
+            <label>Carrera</label>
+            <select class="carrera">
+              <option></option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <!-- Seleccion de Materia -->
+            <label>Materia</label>
+            <select class="materia">
+              <option></option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <!-- Seleccion de Horario -->
+            <label>Horario</label>
+            <select class="horario">
+              <option value="0">7:00hs</option>
+              <option value="1">8:00hs</option>
+              <option value="2">9:00hs</option>
+              <option value="3">10:00hs</option>
+              <option value="4">11:00hs</option>
+              <option value="5">12:00hs</option>
+              <option value="6">13:00hs</option>
+              <option value="7">14:00hs</option>
+              <option value="8">15:00hs</option>
+              <option value="9">16:00hs</option>
+              <option value="A">17:00hs</option>
+              <option value="B">18:00hs</option>
+              <option value="C">19:00hs</option>
+              <option value="D">20:00hs</option>
+              <option value="E">21:00hs</option>
+              <option value="F">22:00hs</option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <!-- Seleccion de Alumno -->
+            <label>Alumno</label>
+            <select class="alumnos">
+              <option></option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <!-- Seleccion de Presente -->
+            <label class="radioPresente">Presente
+              <input type="radio" name="postage" value="true"> Si
+              <input type="radio" name="postage" value="false"> No</label>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-  <!-- Dar de baja una fichada -->
-  <div class="baja">
-    <!-- Titulo -->
-    <h1>Baja de Fichada</h1>
-    <br>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4">
-          <!-- Seleccion de Catedra -->
-          <label>Catedra</label>
-          <select class="catedra">
+    </form>
+      <!-- Dar de baja una fichada -->
+      <div class="baja">
+        <!-- Titulo -->
+        <h1>Baja de Fichada</h1>
+        <br>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4">
+              <!-- Seleccion de Catedra -->
+              <label>Catedra</label>
+              <select class="catedra">
             <option></option>
           </select>
         </div>
@@ -286,6 +288,48 @@
         $("#presente").val($(this).val());
       });
 
+    });
+  </script>
+  <script>
+    jQuery.validator.addMethod("passwordCheck",
+      function (value, element, param) {
+        if (this.optional(element)) {
+          return true;
+        } else if (!/[A-Z]/.test(value)) {
+          return false;
+        } else if (!/[a-z]/.test(value)) {
+          return false;
+        } else if (!/[0-9]/.test(value)) {
+          return false;
+        }
+
+        return true;
+      },
+      "La contrase&ntilde;a debe contener al menos una mayuscula, una minuscula y un numero");
+
+    $(".alta .modificacion").validate({
+      rules: {
+        catedra: {
+          required: true
+        },
+        nombre: {
+          required: true
+        },
+        titularDeCatedra: {
+          required: true
+        }
+      },
+      messages: {
+        catedra: {
+          required: "Este campo es obligatorio"
+        },
+        nombre: {
+          required: "Este campo es obligatorio"
+        },
+        titularDeCatedra: {
+          required: "Este campo es obligatorio"
+        }
+      }
     });
   </script>
 </body>

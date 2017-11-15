@@ -56,34 +56,36 @@
   <button id="btnModificacion" type="button">Modificacion Materia</button>
   <br>
   <!-- Dar de alta una materia -->
-  <div class="alta">
-    <!-- Titulo -->
-    <h1>Alta de materia</h1>
-    <br>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4">
-          <!-- Seleccion de Catedras -->
-          <label>Catedra</label>
-          <select class="catedra">
-            <option></option>
-          </select>
-        </div>
-        <div class="col-md-4">
-          <!-- Seleccion de Carrera -->
-          <label>Carrera</label>
-          <select class="carrera">
-            <option></option>
-          </select>
-        </div>
-        <div class="col-md-4">
-          <!-- Input de Materia -->
-          <label>Materia</label>
-          <input type="text">
+  <form class="alta">
+    <div class="alta">
+      <!-- Titulo -->
+      <h1>Alta de materia</h1>
+      <br>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <!-- Seleccion de Catedras -->
+            <label>Catedra</label>
+            <select class="catedra">
+              <option></option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <!-- Seleccion de Carrera -->
+            <label>Carrera</label>
+            <select class="carrera">
+              <option></option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <!-- Input de Materia -->
+            <label>Materia</label>
+            <input type="text" id="materia">
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </form>
   <!-- Dar de baja una materia -->
   <div class="baja">
     <!-- Titulo -->
@@ -102,36 +104,38 @@
     </div>
   </div>
   <!-- Modificar una materia -->
-  <div class="modificacion">
-    <!-- Titulo -->
-    <h1>Modificacion de materia</h1>
-    <br>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4">
-          <!-- Select de Materia -->
-          <label>Materia</label>
-          <select class="materia">
-            <option></option>
-          </select>
-        </div>
-        <div class="col-md-6">
-          <!-- Input de Materia -->
-          <label>Nuevo Nombre Materia <input type="text"></label>
+  <form class="modificacion">
+    <div class="modificacion">
+      <!-- Titulo -->
+      <h1>Modificacion de materia</h1>
+      <br>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <!-- Select de Materia -->
+            <label>Materia</label>
+            <select class="materia">
+              <option></option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <!-- Input de Materia -->
+            <label>Nuevo Nombre Materia <input type="text" id="materia"></label>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <!-- Boton para guardar datos -->
-  <input id="operacion" type="text" style="display:none;">
-  <button id="submit" type="submit">Guardar</button>
-  <script src="../js/register.js"></script>
-  <script src="../js/library.js"></script>
-
-
-  <!-- Poblar select para modificacion y baja de datos -->
-  <script>
-    $(document).ready(function () {
+  </form>
+    <!-- Boton para guardar datos -->
+    <input id="operacion" type="text" style="display:none;">
+    <button id="submit" type="submit">Guardar</button>
+    <script src="../js/register.js"></script>
+    <script src="../js/library.js"></script>
+    
+    
+    <!-- Poblar select para modificacion y baja de datos -->
+    <script>
+      $(document).ready(function () {
       var rc = new RegisterControllerLocal();
       rc.jsonCatedras.catedras.forEach(function (element) {
         var objOption = document.createElement("option");
@@ -164,5 +168,35 @@
 
     });
   </script>
+    <script>
+      jQuery.validator.addMethod("passwordCheck",
+        function (value, element, param) {
+          if (this.optional(element)) {
+            return true;
+          } else if (!/[A-Z]/.test(value)) {
+            return false;
+          } else if (!/[a-z]/.test(value)) {
+            return false;
+          } else if (!/[0-9]/.test(value)) {
+            return false;
+          }
+
+          return true;
+        },
+        "La contrase&ntilde;a debe contener al menos una mayuscula, una minuscula y un numero");
+
+      $(".alta .modificacion").validate({
+        rules: {
+          materia: {
+            required: true
+          }
+        },
+        messages: {
+          materia: {
+            required: "Este campo es obligatorio"
+          }
+        }
+      });
+    </script>
 </body>
 </html>
