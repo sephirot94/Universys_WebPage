@@ -93,20 +93,6 @@
     <div class="container">
       <div class="row">
         <div class="col-md-4">
-          <!-- Seleccion de Catedras -->
-          <label>Catedra</label>
-          <select class="catedra">
-            <option></option>
-          </select>
-        </div>
-        <div class="col-md-4">
-          <!-- Seleccion de Carrera -->
-          <label>Carrera</label>
-          <select class="carrera">
-            <option></option>
-          </select>
-        </div>
-        <div class="col-md-4">
           <!-- Input de Materia -->
           <label>Materia</label>
           <select class="materia">
@@ -116,7 +102,8 @@
         <script>
           var operacion = "alta";
         </script>
-        </div>
+      </div>
+    </div>
   </div>
   <!-- Modificar una materia -->
   <div class="modificacion">
@@ -125,12 +112,16 @@
     <br>
     <div class="container">
       <div class="row">
-        <div class="col-md-2">
-          <!-- Input de Carrera -->
-          <label>Nombre de la Carrera</label>
-          <select class="carrera">
+        <div class="col-md-4">
+          <!-- Select de Materia -->
+          <label>Materia</label>
+          <select class="materia">
             <option></option>
           </select>
+        </div>
+        <div class="col-md-6">
+          <!-- Input de Materia -->
+          <label>Nuevo Nombre Materia <input type="text"></label>
         </div>
       </div>
       <script>
