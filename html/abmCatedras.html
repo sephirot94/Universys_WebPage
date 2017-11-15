@@ -282,6 +282,18 @@
                     objOption.innerHTML = element.catedra;
                     $(".catedra").append(objOption);
                 }, this);
+                rc.jsonCarreras.carreras.forEach(function (element) {
+                    var objOption = document.createElement("option");
+                    objOption.setAttribute("value", element.id);
+                    objOption.innerHTML = element.carrera;
+                    $(".carrera").append(objOption);
+                }, this);
+                rc.jsonMaterias.materias.forEach(function (element) {
+                    var objOption = document.createElement("option");
+                    objOption.setAttribute("value", element.id);
+                    objOption.innerHTML = element.materia;
+                    $(".materia").append(objOption);
+                }, this);
             });
     </script>
 </body>
