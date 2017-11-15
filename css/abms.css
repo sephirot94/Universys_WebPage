@@ -39,3 +39,14 @@ input {
     display: inline;
     margin-left: 0;
 }
+
+#btnCerrarSesion {
+    display: none;
+}
+
+#imagenUsuario {
+    width: 20px;
+    height: 20px;
+    margin: 0 auto;
+    float: left;
+}
