@@ -1,6 +1,5 @@
 //Esta clase implementa la funcionalidad del reseteo de contraseña en Javascript. 
-
-document.getElementById("submit").onclick = function() { restablecerContrasenaSubmit() };
+$("#submit").click(function restablecerContrasenaSubmit() { });
 
 //Esta funcion muestra el error cuando la clase no esta implementada
 function restablecerContrasenaControllerBase()

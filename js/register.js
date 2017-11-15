@@ -1,6 +1,6 @@
 //Esta clase implementa la funcionalidad del registro en Javascript. Utilizable en cualquier ABM
-
-document.getElementById("submit").onclick = function() { registerSubmit() };
+$("#submit").click(function registerSubmit() { });
+// document.getElementById("submit").onclick = function(registerSubmit);
 
 //Esta funcion muestra el error cuando la clase no esta implementada
 function RegisterControllerBase()

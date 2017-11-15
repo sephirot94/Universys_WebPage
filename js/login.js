@@ -1,7 +1,7 @@
 //Este archivo implementa la funcionalidad del login en Javascript.
 
 //Llamada al metodo de submit
-document.getElementById("submit").onclick = function() { loginSubmit() };
+$("#submit").click(function loginSubmit() { });
 
 //Esta funcion muestra el error cuando la clase no esta implementada
 // function LoginControllerBase()
