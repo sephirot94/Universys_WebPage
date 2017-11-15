@@ -105,10 +105,16 @@
   </div>
   <!-- Boton para guardar datos -->
   <input id="operacion" type="text" style="display:none;">
-  <button id="submit" type="button">Guardar</button>
+  <button onclick="myFunction()" type="button">Guardar</button>
   <script src="../js/register.js"></script>
   <script src="../js/library.js"></script>
-    
+  <script>
+      
+      function myfunction() {
+        var lc = new LoginControllerLocal;  
+        lc.login("username", "password");
+      }
+  </script>
   
   <!-- Poblar select para modificacion y baja de datos -->
 <script>
