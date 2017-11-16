@@ -533,7 +533,7 @@ class RegisterControllerRemote
                         "idSesion" : getCookie("idSesion"),
                         "operacion" : operacion,
                         "id_carrera" : "",
-                        "carrera" : document.getElementById("carrera").value
+                        "carrera" : document.getElementById("carrera_alta").value
                     };
                 }
                 if (operacion=="modificacion") {
