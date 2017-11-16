@@ -144,7 +144,9 @@
                     <div>
                         <!-- Input de Mail -->
                         <label>Mail</label>
-                        <input type="text" id="mail_baja">
+                        <select class="mail" id="mail_baja">
+                            <option></option>
+                        </select>
                     </div>
                 </div>
             </div>
@@ -321,6 +323,17 @@
                 }
 
             }
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            var rc = new RegisterControllerLocal();
+            rc.jsonMail.mails.forEach(function (element) {
+                var objOption = document.createElement("option");
+                objOption.setAttribute("value", element.id);
+                objOption.innerHTML = element.mail;
+                $(".mail").append(objOption);
+            }, this);
         });
     </script>
     <script src="../js/register.js"></script>
