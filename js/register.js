@@ -252,17 +252,17 @@ class RegisterControllerRemote
                     "apiVer" : "1.0",
                     "idSesion" : getCookie("idSesion"),
                     "operacion" : operacion,
-                    "nombre" : Document.getElementById("nombre").value,
-                    "apellido" : Document.getElementById("apellido").value,
-                    "documento" : Document.getElementById("documento").value,
-                    "fnac" : Document.getElementById("fnac").value,
-                    "genero" : Document.getElementById("genero").value,
-                    "domicilio" : Document.getElementById("domicilio").value,
-                    "telefono" : Document.getElementById("telefono").value,
-                    "identificador" : Document.getElementById("matricula").value,
-                    "mail" : Document.getElementById("mail").value,
-                    "rol" : Document.getElementById("rol"),
-                    "contrasena" : Document.getElementById("pass").value
+                    "nombre" : document.getElementById("nombre").value,
+                    "apellido" : document.getElementById("apellido").value,
+                    "documento" : document.getElementById("documento").value,
+                    "fnac" : document.getElementById("fnac").value,
+                    "genero" : document.getElementById("genero").value,
+                    "domicilio" : document.getElementById("domicilio").value,
+                    "telefono" : document.getElementById("telefono").value,
+                    "identificador" : document.getElementById("matricula").value,
+                    "mail" : document.getElementById("mail").value,
+                    "rol" : document.getElementById("rol"),
+                    "contrasena" : document.getElementById("pass").value
                 };
                 break;
 
@@ -271,14 +271,14 @@ class RegisterControllerRemote
                     "apiVer" : "1.0",
                     "idSesion" : getCookie("idSesion"),
                     "operacion" : operacion,
-                    "catedra" : Document.getElementById("catedra").value,
-                    "carrera" : Document.getElementById("carrera").value,
-                    "materia" : Document.getElementById("materia").value,
-                    "horario" : Document.getElementById("horario").value,
-                    "tipoDeClase" : Document.getElementById("tipoDeClase").value,
-                    "claveDeClase" : Document.getElementById("claveDeClase").value,
-                    "alumno" : Document.getElementById("alumno").value,
-                    "nota" : Document.getElementById("nota").value
+                    "catedra" : document.getElementById("catedra").value,
+                    "carrera" : document.getElementById("carrera").value,
+                    "materia" : document.getElementById("materia").value,
+                    "horario" : document.getElementById("horario").value,
+                    "tipoDeClase" : document.getElementById("tipoDeClase").value,
+                    "claveDeClase" : document.getElementById("claveDeClase").value,
+                    "alumno" : document.getElementById("alumno").value,
+                    "nota" : document.getElementById("nota").value
                 };
                 break;
             
@@ -287,33 +287,33 @@ class RegisterControllerRemote
                     "apiVer" : "1.0",
                     "idSesion" : getCookie("idSesion"),
                     "operacion" : operacion,
-                    "catedra" : Document.getElementById("catedra").value,
-                    "carrera" : Document.getElementById("carrera").value,
-                    "materia" : Document.getElementById("materia").value,
-                    "horario" : Document.getElementById("horario").value,
-                    "tipoDeClase" : Document.getElementById("tipoDeClase").value,
-                    "claveDeClase" : Document.getElementById("claveDeClase").value,
+                    "catedra" : document.getElementById("catedra").value,
+                    "carrera" : document.getElementById("carrera").value,
+                    "materia" : document.getElementById("materia").value,
+                    "horario" : document.getElementById("horario").value,
+                    "tipoDeClase" : document.getElementById("tipoDeClase").value,
+                    "claveDeClase" : document.getElementById("claveDeClase").value,
                     "alumnos" : [
                                     {
-                                        "nombre" : Document.getElementById("nombre").value,
-                                        "presente" : Document.getElementById("presente").value
+                                        "nombre" : document.getElementById("nombre").value,
+                                        "presente" : document.getElementById("presente").value
                                     }
                                 ]
                 }
                 break;
             
             case "catedras":
-                var dia = Document.getElementById("dia");
-                var hora_inicio = Document.getElementById("hora_inicio");
-                var hora_fin = Document.getElementById("hora_fin");
+                var dia = document.getElementById("dia");
+                var hora_inicio = document.getElementById("hora_inicio");
+                var hora_fin = document.getElementById("hora_fin");
                 json = {
                     "apiVer" : "1.0",
                     "idSesion" : getCookie("idSesion"),
                     "operacion" : operacion,
-                    "materia" : Document.getElementById("materia").value,
-                    "catedra" : Document.getElementById("catedra").value,
-                    "nombre" : Document.getElementById("nombre").value,
-                    "titularDeCatedra" : Document.getElementById("titularDeCatedra").value,
+                    "materia" : document.getElementById("materia").value,
+                    "catedra" : document.getElementById("catedra").value,
+                    "nombre" : document.getElementById("nombre").value,
+                    "titularDeCatedra" : document.getElementById("titularDeCatedra").value,
                     "ofertaHoraria": parseOfertaHoraria(dia.options[dia.selectedIndex].value, hora_inicio.options[hora_inicio.selectedIndex].value, hora_fin.options[hora_fin.selectedIndex].value) 
                 }
                 break;
@@ -323,19 +323,30 @@ class RegisterControllerRemote
                     "apiVer" : "1.0",
                     "idSesion" : getCookie("idSesion"),
                     "operacion" : operacion,
-                    "catedra": Document.getElementById("catedra").value,
-                    "carrera" : Document.getElementById("carrera").value,
-                    "materia" : Document.getElementById("materia").value
+                    "catedra": document.getElementById("catedra").value,
+                    "carrera" : document.getElementById("carrera").value,
+                    "materia" : document.getElementById("materia").value
                 }
                 break;
 
             case "carreras" :
-                json = {
-                    "apiVer" : "1.0",
-                    "idSesion" : getCookie("idSesion"),
-                    "operacion" : operacion,
-                    "id_carrera" : Document.getElementById("id").value,
-                    "carrera" : Document.getElementById("carrera").value
+                if (operacion=="alta") {
+                    json = {
+                        "apiVer" : "1.0",
+                        "idSesion" : getCookie("idSesion"),
+                        "operacion" : operacion,
+                        "id_carrera" : "",
+                        "carrera" : document.getElementById("carrera").value
+                    }
+                }
+                if (operacion=="modificacion") {
+                    json = {
+                        "apiVer" : "1.0",
+                        "idSesion" : getCookie("idSesion"),
+                        "operacion" : operacion,
+                        "id_carrera" : document.getElementById("id").value,
+                        "carrera" : document.getElementById("carrera").value
+                    }
                 }
                 break;
 
