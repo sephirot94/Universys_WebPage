@@ -18,7 +18,7 @@ class LoginControllerLocal
         if(username=="admin@admin.com" && pass=="Admin1234") {
             return {
                 "api-version": "1.0",
-                "error-code": "200",
+                "error_code": "200",
                 "usuario": {
                    "nombre": "Diego",
                    "apellido": "Maradona",
@@ -28,13 +28,13 @@ class LoginControllerLocal
              };
         }
         if(pass=="Admin1234" && username!="admin@admin.com") {
-            return { "api-version" : "1.0", "error-code" : "680" };
+            return { "api-version" : "1.0", "error_code" : "680" };
         }
         if(pass!="Admin1234" && username=="admin@admin.com") {
-            return { "api-version" : "1.0", "error-code" : "777" };
+            return { "api-version" : "1.0", "error_code" : "777" };
         }
         
-        return { "api-version" : "1.0", "error-code" : "800" };
+        return { "api-version" : "1.0", "error_code" : "800" };
     }
 
     login (userField, passField)
@@ -95,7 +95,7 @@ class LoginControllerRemote
                 }               
             },
             error: function(result) {
-                alert("Hubo un error: " + result.error-code);
+                alert("Hubo un error: " + result.error_code);
             } 
         });
     };
@@ -121,7 +121,7 @@ class LoginControllerRemote
                 window.location.href = '../html/home.html';
             },
             error: function(result) {
-                alert("Hubo un error: " + result.error-code);
+                alert("Hubo un error: " + result.error_code);
             } 
         });
 
@@ -139,33 +139,31 @@ function loginSubmit() {
 //Metodo de test unitario de la clase Login
 function testLogin() {
     var lc = new LoginControllerLocal;
-
+    
     var json = lc.loginLogic("admin@admin.com", "Admin1234");
 
-    if(json.usuario.apellido != "Maradona" || json.usuario.nombre != "Diego" || json.usuario.fNac != "3/8/01" || json.usuario.tipo != "alumno" )
+    if(json.usuario.apellido != "Maradona" || json.usuario.nombre != "Diego" || json.usuario.rol != "administrador" || json.usuario.idSesion != "1234" || json.error_code != "200")
     {
         return "testLogin has ERRORS: loginLogic not returning the right value";
     }
 
-    var json = lc.loginLogic("admin@admin.com", "admin");
-
     json = lc.loginLogic("riverkpo99@altorancho.com", "libertadores2015");
 
-    if(json.error-code == "200")
+    if(json.error_code == "200")
     {
         return "testLogin has ERRORS: stating success when it should be failing";
     }
 
-    json = lc.logicLogic("admin@admin.com", "libertadores2015");
+    json = lc.loginLogic("admin@admin.com", "libertadores2015");
 
-    if(json.error-code != "777")
+    if(json.error_code != "777")
     {
         return "testLogin has ERRORS: receiving wrong error code";
     }
 
-    json = lc.logicLogic("riverkpo99@altorancho.com", "admin");
+    json = lc.loginLogic("riverkpo99@altorancho.com", "Admin1234");
     
-    if(json.error-code != "680")
+    if(json.error_code != "680")
     {
         return "testLogin has ERRORS: receiving wrong error code";
     }
