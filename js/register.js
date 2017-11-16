@@ -388,7 +388,7 @@ class RegisterControllerRemote
                     };
                 }
                 if (operacion=="baja") {
-                    var select_alumnos = document.getElementById("alumnos_baja");
+                    var select_alumnos = document.getElementById("alumno_baja");
                     var select_catedras = document.getElementById("catedra_baja");
                     var select_carreras = document.getElementById("carrera_baja");
                     var select_materias = document.getElementById("materia_baja");
@@ -616,7 +616,7 @@ class RegisterControllerRemote
 function testRegister() {
     var rcr = new RegisterControllerRemote;
     var rc = new RegisterControllerLocal;
-
+    debugger;
     var json = rc.armarJson("usuario");
 
     //Chequeo JSON Usuario
