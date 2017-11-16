@@ -130,7 +130,7 @@ class RegisterControllerLocal
                     "genero" : "masculino",
                     "domicilio" : "blanco encalada 4892",
                     "telefono" : "45228786",
-                    "matrícula" : "03140",
+                    "matricula" : "03140",
                     "mail" : "pepito@gmail.com"
                 }
             }  
@@ -230,7 +230,7 @@ class RegisterControllerLocal
                     "genero" : "masculino",
                     "domicilio" : "blanco encalada 4892",
                     "telefono" : "45228786",
-                    "matrícula" : "",
+                    "matricula" : "",
                     "mail" : "pepito@gmail.com"
                 }
             };
@@ -616,11 +616,11 @@ class RegisterControllerRemote
 function testRegister() {
     var rcr = new RegisterControllerRemote;
     var rc = new RegisterControllerLocal;
-    debugger;
     var json = rc.armarJson("usuario");
 
     //Chequeo JSON Usuario
     if(json.usuario.nombre != "Gaston" || json.usuario.apellido != "Bodeman" || json.usuario.fnac != "20/09/1994" || json.usuario.genero != "masculino" || json.usuario.domicilio != "blanco encalada 4892" || json.usuario.telefono != "45228786" || json.usuario.matricula != "03140" || json.usuario.mail != "pepito@gmail.com") {
+        console.log(json.usuario);
         return "testRegister has ERRORS: RegisterController not returning the right value RegisterController::Controller:: Usuario";
     }
 
@@ -634,14 +634,14 @@ function testRegister() {
     json = rc.armarJson("fichadas");
 
     //Chequeo JSON Fichadas
-    if(json.fichadas.catedra != "Didier" || json.fichadas.carrera != "Programacion" || json.fichadas.materia != "Proyecto" || json.fichadas.horario != "19:00hs" || json.fichadas.tipoDeClase != "teorico" || json.fichadas.claveDeClase != "30" || json.fichadas.alumnos[0].nombre != "ivan" || !json.fichadas.alumnos[0].presente) {
+    if(json.fichada.catedra != "Didier" || json.fichada.carrera != "Programacion" || json.fichada.materia != "Proyecto" || json.fichada.horario != "19:00hs" || json.fichada.tipoDeClase != "teorico" || json.fichada.claveDeClase != "30" || json.fichada.alumnos[0].nombre != "ivan" || !json.fichada.alumnos[0].presente) {
         return "testRegister has ERRORS: RegisterController not returning the right value. RegisterController::: Fichadas";
     }
 
     json = rc.armarJson("catedras");
 
     //Chequeo JSON Catedra
-    if(json.catedra.catedra != "Didier" || json.catedra.nombre != "Proyecto" || json.catedra.titularDeCatedra != "Didier" || json.catedra.ofertaHoraria != "Lun-Vie, 19:00 a 23:00" ) {
+    if(json.catedra.catedra != "Didier" || json.catedra.nombre != "Proyecto" || json.catedra.titularDeCatedra != "Didier" || json.catedra.ofertaHoraria != "2AB" ) {
         return "testRegister has ERRORS: RegisterController not returning the right value. RegisterController::: catedra";
     }
 
@@ -655,7 +655,7 @@ function testRegister() {
     json = rc.armarJson("vacio");
     
     //Chequeo JSON valores vacios
-    if(json.usuario.nombre != "Gaston" || json.usuario.apellido == "" || json.usuario.matricula != "") {
+    if(json.usuario.nombre != "Gaston" || json.usuario.apellido != "" || json.usuario.matricula != "") {
         return "testRegister has ERRORS: RegisterController not returning the right value. RegisterController::: Empty fields: Lastname";
     }
 
