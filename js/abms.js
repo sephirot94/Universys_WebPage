@@ -41,7 +41,7 @@ $(document).ready(function () {
     });
 
     $("#submit").click(function () {
-        $("input, select").val('');
+        $(".empty").val('');
     });
 });
 
