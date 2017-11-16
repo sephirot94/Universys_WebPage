@@ -446,7 +446,7 @@ class RegisterControllerRemote
                         "idSesion" : "", // getCookie("idSesion"),
                         "operacion" : operacion,
                         "materia" : materia_select.options[materia_select.selectedIndex].text,
-                        "catedra" : document.getElementById("catedra").value,
+                        "catedra" : document.getElementById("catedra_alta").value,
                         "nombre" : document.getElementById("nombre_alta").value,
                         "titularDeCatedra" : document.getElementById("titularDeCatedra_alta").value,
                         "ofertaHoraria": parseOfertaHoraria(dia.options[dia.selectedIndex].value, hora_inicio.options[hora_inicio.selectedIndex].value, hora_fin.options[hora_fin.selectedIndex].value) 
@@ -497,7 +497,7 @@ class RegisterControllerRemote
                         "operacion" : operacion,
                         "catedra": select_catedra.options[select_catedra.selectedIndex].text,
                         "carrera" : select_carrera.options[select_carrera.selectedIndex].text,
-                        "materia" : document.getElementById("materia").value
+                        "materia" : document.getElementById("materia_alta").value
                     };
                 }
                 if (operacion=="baja") {
@@ -520,7 +520,7 @@ class RegisterControllerRemote
                         "operacion" : operacion,
                         "catedra": "",
                         "carrera" : "",
-                        "materia" : document.getElementById("nueva_materia").value,
+                        "materia" : document.getElementById("nueva_materia_modificacion").value,
                         "id_materia" : select.options[select.selectedIndex].value
                     };
                 }
@@ -543,7 +543,7 @@ class RegisterControllerRemote
                         "idSesion" : "", // getCookie("idSesion"),
                         "operacion" : operacion,
                         "id_carrera" : select.options[select.selectedIndex].value,
-                        "carrera" : select.options[select.selectedIndex].text
+                        "carrera" : document.getElementById("nueva_carrera_modificacion").value
                     };
                 } 
                 if(operacion=="baja"){
