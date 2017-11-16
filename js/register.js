@@ -306,6 +306,15 @@ class RegisterControllerRemote
                 var dia = document.getElementById("dia");
                 var hora_inicio = document.getElementById("hora_inicio");
                 var hora_fin = document.getElementById("hora_fin");
+                if (operacion=="alta") {
+                    
+                }
+                if (operacion=="baja") {
+                    
+                }
+                if (operacion=="modificacion") {
+                    
+                }
                 json = {
                     "apiVer" : "1.0",
                     "idSesion" : getCookie("idSesion"),
@@ -319,13 +328,41 @@ class RegisterControllerRemote
                 break;
 
             case "materias" :
-                json = {
-                    "apiVer" : "1.0",
-                    "idSesion" : getCookie("idSesion"),
-                    "operacion" : operacion,
-                    "catedra": document.getElementById("catedra").value,
-                    "carrera" : document.getElementById("carrera").value,
-                    "materia" : document.getElementById("materia").value
+                if (operacion=="alta") {
+                    var select_catedra = document.getElementById("catedra_alta");
+                    var select_carrera = document.getElementById("carrera_alta");
+                    json = {
+                        "apiVer" : "1.0",
+                        "idSesion" : getCookie("idSesion"),
+                        "operacion" : operacion,
+                        "catedra": select_catedra.options[select_catedra.selectedIndex].text,
+                        "carrera" : select_carrera.options[select_carrera.selectedIndex].text,
+                        "materia" : document.getElementById("materia").value
+                    }
+                }
+                if (operacion=="baja") {
+                    var select = document.getElementById("materia_baja");
+                    json = {
+                        "apiVer" : "1.0",
+                        "idSesion" : getCookie("idSesion"),
+                        "operacion" : operacion,
+                        "catedra": "",
+                        "carrera" : "",
+                        "materia" : select.options[select.selectedIndex].text,
+                        "id_materia" : select.options[select.selectedIndex].value
+                    }
+                }
+                if (operacion=="modificacion") {
+                    var select = document.getElementById("materia_modificacion");
+                    json = {
+                        "apiVer" : "1.0",
+                        "idSesion" : getCookie("idSesion"),
+                        "operacion" : operacion,
+                        "catedra": "",
+                        "carrera" : "",
+                        "materia" : document.getElementById("nueva_materia").value,
+                        "id_materia" : select.options[select.selectedIndex].value
+                    }
                 }
                 break;
 
