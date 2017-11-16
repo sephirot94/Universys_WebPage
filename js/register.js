@@ -340,12 +340,23 @@ class RegisterControllerRemote
                     }
                 }
                 if (operacion=="modificacion") {
+                    var select = document.getElementById("carrera_modificacion");
                     json = {
                         "apiVer" : "1.0",
                         "idSesion" : getCookie("idSesion"),
                         "operacion" : operacion,
-                        "id_carrera" : document.getElementById("id").value,
-                        "carrera" : document.getElementById("carrera").value
+                        "id_carrera" : select.options[select.selectedIndex].value,
+                        "carrera" : select.options[select.selectedIndex].text
+                    }
+                } 
+                if(operacion=="baja"){
+                    var select = document.getElementById("carrera_baja");
+                    json = {
+                        "apiVer" : "1.0",
+                        "idSesion" : getCookie("idSesion"),
+                        "operacion" : operacion,
+                        "id_carrera" : select.options[select.selectedIndex].value,
+                        "carrera" : select.options[select.selectedIndex].text
                     }
                 }
                 break;
