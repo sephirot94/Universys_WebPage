@@ -303,27 +303,54 @@ class RegisterControllerRemote
                 break;
             
             case "catedras":
-                var dia = document.getElementById("dia");
-                var hora_inicio = document.getElementById("hora_inicio");
-                var hora_fin = document.getElementById("hora_fin");
                 if (operacion=="alta") {
-                    
+                    var dia = document.getElementById("dia_alta");
+                    var hora_inicio = document.getElementById("hora_inicio_alta");
+                    var hora_fin = document.getElementById("hora_fin_alta");
+                    var materia_select = document.getElementById("materia_alta");
+                    json = {
+                        "apiVer" : "1.0",
+                        "idSesion" : getCookie("idSesion"),
+                        "operacion" : operacion,
+                        "materia" : materia_select.options[materia_select.selectedIndex].text,
+                        "catedra" : document.getElementById("catedra").value,
+                        "nombre" : document.getElementById("nombre_alta").value,
+                        "titularDeCatedra" : document.getElementById("titularDeCatedra_alta").value,
+                        "ofertaHoraria": parseOfertaHoraria(dia.options[dia.selectedIndex].value, hora_inicio.options[hora_inicio.selectedIndex].value, hora_fin.options[hora_fin.selectedIndex].value) 
+                    }
                 }
                 if (operacion=="baja") {
-                    
+                    var catedra_select = document.getElementById("catedra_baja");
+                    var materia_select = document.getElementById("materia_baja");
+                    json = {
+                        "apiVer" : "1.0",
+                        "idSesion" : getCookie("idSesion"),
+                        "operacion" : operacion,
+                        "materia" : materia_select.options[materia_select.selectedIndex].text,
+                        "catedra" : catedra_select.options[catedra_select.selectedIndex].text,
+                        "id_catedra" : catedra_select.options[catedra_select.selectedIndex].value,
+                        "nombre" : "",
+                        "titularDeCatedra" : "",
+                        "ofertaHoraria": ""
+                    }
                 }
                 if (operacion=="modificacion") {
-                    
-                }
-                json = {
-                    "apiVer" : "1.0",
-                    "idSesion" : getCookie("idSesion"),
-                    "operacion" : operacion,
-                    "materia" : document.getElementById("materia").value,
-                    "catedra" : document.getElementById("catedra").value,
-                    "nombre" : document.getElementById("nombre").value,
-                    "titularDeCatedra" : document.getElementById("titularDeCatedra").value,
-                    "ofertaHoraria": parseOfertaHoraria(dia.options[dia.selectedIndex].value, hora_inicio.options[hora_inicio.selectedIndex].value, hora_fin.options[hora_fin.selectedIndex].value) 
+                    var dia = document.getElementById("dia_modificacion");
+                    var hora_inicio = document.getElementById("hora_inicio_modificacion");
+                    var hora_fin = document.getElementById("hora_fin_modificacion");
+                    var catedra_select = document.getElementById("catedra_modificacion");
+                    var materia_select = document.getElementById("materia_modificacion");
+                    json = {
+                        "apiVer" : "1.0",
+                        "idSesion" : getCookie("idSesion"),
+                        "operacion" : operacion,
+                        "materia" : materia_select.options[materia_select.selectedIndex].text,
+                        "catedra" : catedra_select.options[catedra_select.selectedIndex].text,
+                        "id_catedra" : catedra_select.options[catedra_select.selectedIndex].value,
+                        "nombre" : document.getElementById("nombre_modificacion").value,
+                        "titularDeCatedra" : document.getElementById("titularDeCatedra_modificacion").value,
+                        "ofertaHoraria": parseOfertaHoraria(dia.options[dia.selectedIndex].value, hora_inicio.options[hora_inicio.selectedIndex].value, hora_fin.options[hora_fin.selectedIndex].value) 
+                    }
                 }
                 break;
 
