@@ -53,11 +53,14 @@
             $(document).ready(function() {
                 //llamado al unit test de ABM con un click en el boton de testear ABM
                 $("#testAbm").click(function(){
+                    $(".error-screen").empty();
                     var test = testRegister();
                     console.log(test);
                     //Si no se encuentran errores en los modulos del sistema, se le aplica un fondo verde al contenedor 
                     if (test===null) {
                         $(".error-screen").css("background-color", "#009933");
+                        var success = "<p style='color:#ffffff;'>No se encontraron errores</p>";
+                        $(".error-screen").append(success);
                     }
                     //Si se encuentran errores en los modulos del sistema, se le aplica un fondo rojo al contenedor 
                     else {
@@ -69,10 +72,13 @@
 
                 //llamado al unit test de Recuperar contrasena con un click en el boton de testear recuperacion de contrasena
                 $("#testRecuperacionContrasena").click(function () {
+                    $(".error-screen").empty();
                     var test = testRestablecerContrasena();
                     //Si no se encuentran errores en los modulos del sistema, se le aplica un fondo verde al contenedor 
                     if (test === null) {
                         $(".error-screen").css("background-color", "#009933");
+                        var success = "<p style='color:#ffffff;'>No se encontraron errores</p>";
+                        $(".error-screen").append(success);
                     }
                     //Si se encuentran errores en los modulos del sistema, se le aplica un fondo rojo al contenedor 
                     else {
@@ -84,11 +90,14 @@
 
                 //llamado al unit test de Login con un click en el boton de testear Login
                 $("#testLogin").click(function(){
+                    $(".error-screen").empty();
                     var test = testLogin();
                     console.log(test);
                     //Si no se encuentran errores en los modulos del sistema, se le aplica un fondo verde al contenedor 
                     if (test===null) {
                         $(".error-screen").css("background-color", "#009933");
+                        var success = "<p style='color:#ffffff;'>No se encontraron errores</p>";
+                        $(".error-screen").append(success);
                     }
                     //Si se encuentran errores en los modulos del sistema, se le aplica un fondo rojo al contenedor 
                     else {
@@ -100,10 +109,13 @@
                 
                 //llamado al unit test de Libreria con un click en el boton de testear libreria
                 $("#testLibrary").click(function () {
+                    $(".error-screen").empty();
                     var test = testLibrary();
                     //Si no se encuentran errores en los modulos del sistema, se le aplica un fondo verde al contenedor 
                     if (test === null) {
                         $(".error-screen").css("background-color", "#009933");
+                        var success = "<p style='color:#ffffff;'>No se encontraron errores</p>";
+                        $(".error-screen").append(success);
                     }
                     //Si se encuentran errores en los modulos del sistema, se le aplica un fondo rojo al contenedor 
                     else {
