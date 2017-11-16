@@ -128,7 +128,6 @@
                 </div>
             </div>
         </div>
-        <button onclick="myFunction()" type="submit" id="submit_alta">Guardar</button>
     </form>
     <form id="form_baja">
         <div class="baja">
@@ -147,7 +146,6 @@
                 </div>
             </div>
         </div>
-        <button onclick="myFunction()" type="submit" id="submit_baja">Guardar</button>
     </form>
     <form id="form_modificacion">
         <div class="modificacion">
@@ -218,10 +216,10 @@
                 </div>
             </div>
         </div>
-        <button onclick="myFunction()" type="submit" id="submit_modificacion">Guardar</button>
     </form>
     <!-- Boton para guardar datos -->
     <input id="operacion" type="text" style="display:none;">
+    <button onclick="myFunction()" type="submit" id="submit">Guardar</button>
     <script>
         function myFunction() {
             var rc = new RegisterControllerRemote;

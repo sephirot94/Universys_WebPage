@@ -94,37 +94,42 @@
     </div>
     <button onclick="myFunction()" type="submit" id="submit_baja">Guardar</button>
   </form>
-    <!-- Modificar una carrera -->
-    <form id="form_modificacion" class="modificacion">
-      <div class="modificacion">
-        <!-- Titulo -->
-        <h1>Modificacion de carrera</h1>
-        <br>
-        <div class="container">
-          <div class="row">
-            <div class="col-md-2">
-              <!-- Input de Carrera -->
-              <label>Nombre de la Carrera</label>
-              <select class="carrera" id="carrera_modificacion">
-                <option></option>
-              </select>
-            </div>
+  <!-- Modificar una carrera -->
+  <form id="form_modificacion">
+    <div class="modificacion">
+      <!-- Titulo -->
+      <h1>Modificacion de carrera</h1>
+      <br>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-2">
+            <!-- Input de Carrera -->
+            <label>Nombre de la Carrera</label>
+            <select class="carrera" id="carrera_modificacion">
+              <option></option>
+            </select>
+          </div>
+          <div class="col-md-2">
+            <!-- Input de Carrera -->
+            <label>Nombre de la nueva Carrera</label>
+            <input type="text" id="nueva_carrera_modificacion">
           </div>
         </div>
       </div>
-      <button onclick="myFunction()" type="submit" id="submit_modificacion">Guardar</button>
-    </form>
-      <!-- Boton para guardar datos -->
-      <input id="operacion" type="text" style="display:none;">
-      <script src="../js/register.js"></script>
-      <script src="../js/login.js"></script>
-      <script src="../js/library.js"></script>
-      <script src="../js/common.js"></script>
-      <script>
-        function myFunction() {
-          var rc = new RegisterControllerRemote;
-          var operacion = $("#operacion").val();
-          var json = rc.armarJson("carreras", operacion);
+    </div>
+  </form>
+  <!-- Boton para guardar datos -->
+  <input id="operacion" type="text" style="display:none;">
+  <button onclick="myFunction()" type="submit" id="submit">Guardar</button>
+  <script src="../js/register.js"></script>
+  <script src="../js/login.js"></script>
+  <script src="../js/library.js"></script>
+  <script src="../js/common.js"></script>
+  <script>
+    function myFunction() {
+      var rc = new RegisterControllerRemote;
+      var operacion = $("#operacion").val();
+      var json = rc.armarJson("carreras", operacion);
       console.log(json);
     }
   </script>
