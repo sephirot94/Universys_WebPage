@@ -115,9 +115,11 @@
   <script src="../js/library.js"></script>
   <script src="../js/common.js"></script>
   <script>
-      function myfunction() {
-        var lc = new LoginControllerLocal;  
-        lc.login("username", "password");
+      function myFunction() {
+        var rc = new RegisterControllerRemote;  
+        var operacion = $("#operacion").val();
+        var json = rc.armarJson("carreras", operacion);
+        console.log(json);
       }
   </script>
   
