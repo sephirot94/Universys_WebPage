@@ -29,10 +29,6 @@ class restablecerContrasenaControllerLocal
             };
         }
 
-        return json;
-    };
-
-    restablecerRespuesta (flag) {
         if (flag=="respuesta") {
             var json = 
             {
@@ -47,7 +43,7 @@ class restablecerContrasenaControllerLocal
         }
 
         return json;
-    }
+    };
 
     //Metodo de uso para testeo local, devuelve el JSON con las preguntas secretas que hay en servidor
     getPreguntas () {
@@ -159,16 +155,30 @@ class restablecerContrasenaControllerRemote
 //Metodo de testing unitario
 function testRestablecerContrasena() {
    var instance = new restablecerContrasenaControllerLocal;
-
+   
    var json = instance.restablecerContrasena("mail");
 
    if (json.mail!="pepito@gmail.com") {
      return "testRestablecerContraseña has ERRORS: restablecerContraseña not sending the right value: mail";
    }
 
-   if (json.password!="NuevaContrasena1234") {
-    return "testRestablecerContraseña has ERRORS: restablecerContraseña not returning the right value: password";
-  }
+   var json = instance.restablecerContrasena("pregunta");
+
+    if (json.pregunta!="Cual es la mejor banda de la historia?") {
+        return "testRestablecerContraseña has ERRORS: restablecerContraseña not returning the right value: pregunta";
+    }
+
+    var json = instance.restablecerContrasena("respuesta");
+  
+     if (json.respuesta!="Rush") {
+        return "testRestablecerContraseña has ERRORS: restablecerContraseña not returning the right value: respuesta";
+    }
+
+    var json = instance.restablecerContrasena("password");
+    
+       if (json.new_password!="NewPassword1234") {
+        return "testRestablecerContraseña has ERRORS: restablecerContraseña not returning the right value: pregunta";
+      }
 
   return null;
 }
