@@ -33,7 +33,8 @@ $(document).ready(function () {
     });
 
     $("#submit").click(function () {
-        $("input select").empty();
+        $("input, select").val('');
+        
     });
 });
 
