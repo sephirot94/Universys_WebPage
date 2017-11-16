@@ -31,6 +31,9 @@ $(document).ready(function () {
         $(".modificacion").show();
         $("#submit").show();
     });
-});
 
+    $("#submit").click(function () {
+        $("input select").empty();
+    });
+});
 
