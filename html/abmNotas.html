@@ -57,160 +57,166 @@
     <button id="btnModificacion" type="button">Modificacion Nota</button>
     <br>
     <!-- Dar de alta una nota -->
-    <div class="alta">
-        <!-- Titulo -->
-        <h1>Alta de nota</h1>
-        <br>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <!-- Seleccion de Carrera -->
-                    <label>Carrera</label>
-                    <select class="carrera" id="carrera_alta">
-                        <option></option>
-                    </select>
-                </div>
-                <div class="col-md-3">
-                    <!-- Seleccion de Catedra -->
-                    <label>Catedra</label>
-                    <select class="catedra" id="catedra_alta">
-                        <option></option>
-                    </select>
-                </div>
-                <div class="col-md-3">
-                    <label>Materia</label>
-                    <!-- Seleccion de Materia -->
-                    <select class="materia" id="materia_alta">
-                        <option></option>
-                    </select>
-                </div>
-                <div class="col-md-3">
-                    <label>Alumno</label>
-                    <!-- Seleccion de Alumno -->
-                    <select class="alumnos" id="alumnos_alta">
-                        <option></option>
-                    </select>
-                </div>
-                <div class="col-md-3">
-                    <label>Nota</label>
-                    <!-- Seleccion de Nota -->
-                    <select class="nota" id="nota_alta">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Dar de baja una catedra -->
-    <div class="baja">
-        <!-- Titulo -->
-        <h1>Baja de nota</h1>
-        <br>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <!-- Seleccion de Carrera -->
-                    <label>Carrera</label>
-                    <select class="carrera" id="carrera_baja">
-                        <option></option>
-                    </select>
-                </div>
-                <div class="col-md-4">
-                    <!-- Seleccion de Catedra -->
-                    <label>Catedra</label>
-                    <select class="catedra" id="catedra_baja">
-                        <option></option>
-                    </select>
-                </div>
-                <div class="col-md-4">
-                    <label>Materia</label>
-                    <!-- Seleccion de Materia -->
-                    <select class="materia" id="materia_baja">
-                        <option></option>
-                    </select>
-                </div>
-                <div class="col-md-4">
-                    <label>Alumno</label>
-                    <!-- Seleccion de Alumno -->
-                    <select class="alumnos" id="alumnos_baja">
-                        <option></option>
-                    </select>
+    <form id="form_alta">
+        <div class="alta">
+            <!-- Titulo -->
+            <h1>Alta de nota</h1>
+            <br>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <!-- Seleccion de Carrera -->
+                        <label>Carrera</label>
+                        <select class="carrera" id="carrera_alta">
+                            <option></option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <!-- Seleccion de Catedra -->
+                        <label>Catedra</label>
+                        <select class="catedra" id="catedra_alta">
+                            <option></option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label>Materia</label>
+                        <!-- Seleccion de Materia -->
+                        <select class="materia" id="materia_alta">
+                            <option></option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label>Alumno</label>
+                        <!-- Seleccion de Alumno -->
+                        <select class="alumnos" id="alumnos_alta">
+                            <option></option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label>Nota</label>
+                        <!-- Seleccion de Nota -->
+                        <select class="nota" id="nota_alta">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Modificar una catedra -->
-    <div class="modificacion">
-        <!-- Titulo -->
-        <h1>Modificacion de nota</h1>
-        <br>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <!-- Seleccion de Carrera -->
-                    <label>Carrera</label>
-                    <select class="carrera" id="carrera_modificacion">
-                        <option></option>
-                    </select>
-                </div>
-                <div class="col-md-3">
-                    <!-- Seleccion de Catedra -->
-                    <label>Catedra</label>
-                    <select class="catedra" id="catedra_modificacion">
-                        <option></option>
-                    </select>
-                </div>
-                <div class="col-md-3">
-                    <label>Materia</label>
-                    <!-- Seleccion de Materia -->
-                    <select class="materia" id="materia_modificacion">
-                        <option></option>
-                    </select>
-                </div>
-                <div class="col-md-3">
-                    <label>Alumno</label>
-                    <!-- Seleccion de Alumno -->
-                    <select class="alumnos" id="alumnos_modificacion">
-                        <option></option>
-                    </select>
-                </div>
-                <div class="col-md-3">
-                    <label>Nota</label>
-                    <!-- Seleccion de Nota -->
-                    <select class="nota" id="nota_modificacion">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                    </select>
+    </form>
+        <!-- Dar de baja una catedra -->
+        <form id="form_baja">
+            <div class="baja">
+                <!-- Titulo -->
+                <h1>Baja de nota</h1>
+                <br>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <!-- Seleccion de Carrera -->
+                            <label>Carrera</label>
+                            <select class="carrera" id="carrera_baja">
+                                <option></option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <!-- Seleccion de Catedra -->
+                            <label>Catedra</label>
+                            <select class="catedra" id="catedra_baja">
+                                <option></option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label>Materia</label>
+                            <!-- Seleccion de Materia -->
+                            <select class="materia" id="materia_baja">
+                                <option></option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label>Alumno</label>
+                            <!-- Seleccion de Alumno -->
+                            <select class="alumnos" id="alumnos_baja">
+                                <option></option>
+                            </select>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <!-- Botoon para guardar datos -->
-    <input id="operacion" type="text" style="display:none;">
-    <button onclick="myFunction()" type="submit" id="submit">Guardar</button>
-    <script src="../js/register.js"></script>
-    <script src="../js/login.js"></script>
-    <script src="../js/library.js"></script>
-    <script src="../js/common.js"></script>
-    <script>
-        function myFunction() {
+        </form>
+            <!-- Modificar una catedra -->
+            <form id="form_modificacion">
+                <div class="modificacion">
+                    <!-- Titulo -->
+                    <h1>Modificacion de nota</h1>
+                    <br>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <!-- Seleccion de Carrera -->
+                                <label>Carrera</label>
+                                <select class="carrera" id="carrera_modificacion">
+                                    <option></option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <!-- Seleccion de Catedra -->
+                                <label>Catedra</label>
+                                <select class="catedra" id="catedra_modificacion">
+                                    <option></option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <label>Materia</label>
+                                <!-- Seleccion de Materia -->
+                                <select class="materia" id="materia_modificacion">
+                                    <option></option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <label>Alumno</label>
+                                <!-- Seleccion de Alumno -->
+                                <select class="alumnos" id="alumnos_modificacion">
+                                    <option></option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <label>Nota</label>
+                                <!-- Seleccion de Nota -->
+                                <select class="nota" id="nota_modificacion">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+                <!-- Botoon para guardar datos -->
+                <input id="operacion" type="text" style="display:none;">
+                <button onclick="myFunction()" type="submit" id="submit">Guardar</button>
+                <script src="../js/register.js"></script>
+                <script src="../js/login.js"></script>
+                <script src="../js/library.js"></script>
+                <script src="../js/common.js"></script>
+                <script>
+                    function myFunction() {
             var rc = new RegisterControllerRemote;
             var operacion = $("#operacion").val();
             var json = rc.armarJson("notas", operacion);

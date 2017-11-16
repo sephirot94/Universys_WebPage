@@ -56,7 +56,7 @@
   <button id="btnModificacion" type="button">Modificacion Materia</button>
   <br>
   <!-- Dar de alta una materia -->
-  <form class="alta">
+  <form id="form_alta">
     <div class="alta">
       <!-- Titulo -->
       <h1>Alta de materia</h1>
@@ -87,24 +87,26 @@
     </div>
   </form>
   <!-- Dar de baja una materia -->
-  <div class="baja">
-    <!-- Titulo -->
-    <h1>Baja de materia</h1>
-    <br>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4">
-          <!-- Input de Materia -->
-          <label>Materia</label>
-          <select class="materia" id="materia_baja">
-            <option></option>
-          </select>
+  <form id="form_baja">
+    <div class="baja">
+      <!-- Titulo -->
+      <h1>Baja de materia</h1>
+      <br>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <!-- Input de Materia -->
+            <label>Materia</label>
+            <select class="materia" id="materia_baja">
+              <option></option>
+            </select>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <!-- Modificar una materia -->
-  <form class="modificacion">
+  </form>
+    <!-- Modificar una materia -->
+    <form id="form_modificacion">
     <div class="modificacion">
       <!-- Titulo -->
       <h1>Modificacion de materia</h1>

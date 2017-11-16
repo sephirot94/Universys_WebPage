@@ -51,7 +51,7 @@
     <button id="btnModificacion" type="button">Modificacion Usuario</button>
     <br>
     <!-- Dar de alta una usuario -->
-    <form class="alta">
+    <form id="form_alta">
         <div class="alta">
             <!-- Titulo -->
             <h1>Alta de usuario</h1>
@@ -129,7 +129,7 @@
             </div>
         </div>
     </form>
-    <form class="baja">
+    <form id="form_baja">
         <div class="baja">
             <!-- Titulo -->
             <h1>Baja de usuario</h1>
@@ -147,7 +147,7 @@
             </div>
         </div>
     </form>
-    <form class="modificacion">
+    <form id="form_modificacion">
         <div class="modificacion">
             <!-- Titulo -->
             <h1>Modificacion de usuario</h1>
@@ -246,7 +246,7 @@
             },
             "La contrase&ntilde;a debe contener al menos una mayuscula, una minuscula y un numero");
 
-        $(".alta .baja .modificacion").validate({
+        $("#form_alta, #form_baja, #form_modificacion").validate({
             rules: {
                 apellido: {
                     required: true
@@ -278,7 +278,13 @@
                     maxlength: 16
                 },
                 confirm_pass: {
-                    equalTo: "#pass"
+                    equalTo: "#pass",
+                },
+                rol: {
+                    required: true,
+                },
+                telefono: {
+                    required: true
                 }
             },
             messages: {
@@ -310,6 +316,15 @@
                 },
                 confirm_pass: {
                     equalTo: "No coinciden las contrase&ntilde;a"
+                },
+                rol: {
+                    required: "Este campo es obligatorio"
+                },
+                telefono: {
+                    required: "Este campo es obligatorio"
+                },
+                mail: {
+                    required: "Este campo es obligatorio"
                 }
 
             }
