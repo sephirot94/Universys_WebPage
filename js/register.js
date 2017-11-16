@@ -267,38 +267,127 @@ class RegisterControllerRemote
                 break;
 
             case "notas":
-                json = {
-                    "apiVer" : "1.0",
-                    "idSesion" : getCookie("idSesion"),
-                    "operacion" : operacion,
-                    "catedra" : document.getElementById("catedra").value,
-                    "carrera" : document.getElementById("carrera").value,
-                    "materia" : document.getElementById("materia").value,
-                    "horario" : document.getElementById("horario").value,
-                    "tipoDeClase" : document.getElementById("tipoDeClase").value,
-                    "claveDeClase" : document.getElementById("claveDeClase").value,
-                    "alumno" : document.getElementById("alumno").value,
-                    "nota" : document.getElementById("nota").value
-                };
+                if (operacion="alta") {
+                    var select_alumnos = document.getElementById("alumnos_alta");
+                    var select_catedras = document.getElementById("catedra_alta");
+                    var select_carreras = document.getElementById("carrera_alta");
+                    var select_materias = document.getElementById("materia_alta");
+                    var select_notas = document.getElementById("nota_alta");
+                    json = {
+                        "apiVer" : "1.0",
+                        "idSesion" : getCookie("idSesion"),
+                        "operacion" : operacion,
+                        "catedra" : select_catedras.options[select_catedras.selectedIndex].text,
+                        "carrera" : select_carreras.options[select_carreras.selectedIndex].text,
+                        "materia" : select_materias.options[select_materias.selectedIndex].text,
+                        "alumno" : select_alumnos.options[select_alumnos.selectedIndex].text,
+                        "nota" : select_notas.options[select_notas.selectedIndex].value
+                    };
+                }
+                if (operacion="baja") {
+                    var select_alumnos = document.getElementById("alumnos_baja");
+                    var select_catedras = document.getElementById("catedra_baja");
+                    var select_carreras = document.getElementById("carrera_baja");
+                    var select_materias = document.getElementById("materia_baja");
+                    json = {
+                        "apiVer" : "1.0",
+                        "idSesion" : getCookie("idSesion"),
+                        "operacion" : operacion,
+                        "catedra" : select_catedras.options[select_catedras.selectedIndex].text,
+                        "carrera" : select_carreras.options[select_carreras.selectedIndex].text,
+                        "materia" : select_materias.options[select_materias.selectedIndex].text,
+                        "alumno" : select_alumnos.options[select_alumnos.selectedIndex].text,
+                        "nota" : ""
+                    };
+                }
+                if (operacion="modificacion") {
+                    var select_alumnos = document.getElementById("alumnos_modificacion");
+                    var select_catedras = document.getElementById("catedra_modificacion");
+                    var select_carreras = document.getElementById("carrera_modificacion");
+                    var select_materias = document.getElementById("materia_modificacion");
+                    var select_notas = document.getElementById("nota_modificacion");
+                    json = {
+                        "apiVer" : "1.0",
+                        "idSesion" : getCookie("idSesion"),
+                        "operacion" : operacion,
+                        "catedra" : select_catedras.options[select_catedras.selectedIndex].text,
+                        "carrera" : select_carreras.options[select_carreras.selectedIndex].text,
+                        "materia" : select_materias.options[select_materias.selectedIndex].text,
+                        "alumno" : select_alumnos.options[select_alumnos.selectedIndex].text,
+                        "nota" : select_notas.options[select_notas.selectedIndex].value
+                    };
+                }
                 break;
             
             case "fichadas":
-                json = {
-                    "apiVer" : "1.0",
-                    "idSesion" : getCookie("idSesion"),
-                    "operacion" : operacion,
-                    "catedra" : document.getElementById("catedra").value,
-                    "carrera" : document.getElementById("carrera").value,
-                    "materia" : document.getElementById("materia").value,
-                    "horario" : document.getElementById("horario").value,
-                    "tipoDeClase" : document.getElementById("tipoDeClase").value,
-                    "claveDeClase" : document.getElementById("claveDeClase").value,
-                    "alumnos" : [
-                                    {
-                                        "nombre" : document.getElementById("nombre").value,
-                                        "presente" : document.getElementById("presente").value
-                                    }
-                                ]
+                if (operacion=="alta") {
+                    var select_alumnos = document.getElementById("alumnos_alta");
+                    var select_catedras = document.getElementById("catedra_alta");
+                    var select_carreras = document.getElementById("carrera_alta");
+                    var select_materias = document.getElementById("materia_alta");
+                    var select_dia = document.getElementById("dia_alta");
+                    var select_horario = document.getElementById("horario_alta");
+                    json = {
+                        "apiVer" : "1.0",
+                        "idSesion" : getCookie("idSesion"),
+                        "operacion" : operacion,
+                        "catedra" : select_catedras.options[select_catedras.selectedIndex].text,
+                        "carrera" : select_carreras.options[select_carreras.selectedIndex].text,
+                        "materia" : select_materias.options[select_materias.selectedIndex].text,
+                        "horario" : this.parseOfertaHoraria(select_dia.options[select_dia.selectedIndex].value, select_horario.options[select_horario.selectedIndex].value, "" ),
+                        "alumnos" : [
+                                        {
+                                            "nombre" : select_alumnos.options[select_alumnos.selectedIndex].text,
+                                            "presente" : document.getElementById("presente").value
+                                        }
+                                    ]
+                    };
+                }
+                if (operacion=="baja") {
+                    var select_alumnos = document.getElementById("alumnos_baja");
+                    var select_catedras = document.getElementById("catedra_baja");
+                    var select_carreras = document.getElementById("carrera_baja");
+                    var select_materias = document.getElementById("materia_baja");
+                    var select_dia = document.getElementById("dia_baja");
+                    var select_horario = document.getElementById("horario_baja");
+                    json = {
+                        "apiVer" : "1.0",
+                        "idSesion" : getCookie("idSesion"),
+                        "operacion" : operacion,
+                        "catedra" : select_catedras.options[select_catedras.selectedIndex].text,
+                        "carrera" : select_carreras.options[select_carreras.selectedIndex].text,
+                        "materia" : select_materias.options[select_materias.selectedIndex].text,
+                        "horario" : this.parseOfertaHoraria(select_dia.options[select_dia.selectedIndex].value, select_horario.options[select_horario.selectedIndex].value, "" ),
+                        "alumnos" : [
+                                        {
+                                            "nombre" : select_alumnos.options[select_alumnos.selectedIndex].text,
+                                            "presente" : document.getElementById("presente").value
+                                        }
+                                    ]
+                    };
+                }
+                if (operacion=="modificacion") {
+                    var select_alumnos = document.getElementById("alumnos_modificacion");
+                    var select_catedras = document.getElementById("catedra_modificacion");
+                    var select_carreras = document.getElementById("carrera_modificacion");
+                    var select_materias = document.getElementById("materia_modificacion");
+                    var select_dia = document.getElementById("dia_modificacion");
+                    var select_horario = document.getElementById("horario_modificacion");
+                    json = {
+                        "apiVer" : "1.0",
+                        "idSesion" : getCookie("idSesion"),
+                        "operacion" : operacion,
+                        "catedra" : select_catedras.options[select_catedras.selectedIndex].text,
+                        "carrera" : select_carreras.options[select_carreras.selectedIndex].text,
+                        "materia" : select_materias.options[select_materias.selectedIndex].text,
+                        "horario" : this.parseOfertaHoraria(select_dia.options[select_dia.selectedIndex].value, select_horario.options[select_horario.selectedIndex].value, "" ),
+                        "alumnos" : [
+                                        {
+                                            "nombre" : select_alumnos.options[select_alumnos.selectedIndex].text,
+                                            "presente" : document.getElementById("presente").value
+                                        }
+                                    ]
+                    };
                 }
                 break;
             
@@ -317,7 +406,7 @@ class RegisterControllerRemote
                         "nombre" : document.getElementById("nombre_alta").value,
                         "titularDeCatedra" : document.getElementById("titularDeCatedra_alta").value,
                         "ofertaHoraria": parseOfertaHoraria(dia.options[dia.selectedIndex].value, hora_inicio.options[hora_inicio.selectedIndex].value, hora_fin.options[hora_fin.selectedIndex].value) 
-                    }
+                    };
                 }
                 if (operacion=="baja") {
                     var catedra_select = document.getElementById("catedra_baja");
@@ -332,7 +421,7 @@ class RegisterControllerRemote
                         "nombre" : "",
                         "titularDeCatedra" : "",
                         "ofertaHoraria": ""
-                    }
+                    };
                 }
                 if (operacion=="modificacion") {
                     var dia = document.getElementById("dia_modificacion");
@@ -349,8 +438,8 @@ class RegisterControllerRemote
                         "id_catedra" : catedra_select.options[catedra_select.selectedIndex].value,
                         "nombre" : document.getElementById("nombre_modificacion").value,
                         "titularDeCatedra" : document.getElementById("titularDeCatedra_modificacion").value,
-                        "ofertaHoraria": parseOfertaHoraria(dia.options[dia.selectedIndex].value, hora_inicio.options[hora_inicio.selectedIndex].value, hora_fin.options[hora_fin.selectedIndex].value) 
-                    }
+                        "ofertaHoraria": this.parseOfertaHoraria(dia.options[dia.selectedIndex].value, hora_inicio.options[hora_inicio.selectedIndex].value, hora_fin.options[hora_fin.selectedIndex].value) 
+                    };
                 }
                 break;
 
@@ -365,7 +454,7 @@ class RegisterControllerRemote
                         "catedra": select_catedra.options[select_catedra.selectedIndex].text,
                         "carrera" : select_carrera.options[select_carrera.selectedIndex].text,
                         "materia" : document.getElementById("materia").value
-                    }
+                    };
                 }
                 if (operacion=="baja") {
                     var select = document.getElementById("materia_baja");
@@ -377,7 +466,7 @@ class RegisterControllerRemote
                         "carrera" : "",
                         "materia" : select.options[select.selectedIndex].text,
                         "id_materia" : select.options[select.selectedIndex].value
-                    }
+                    };
                 }
                 if (operacion=="modificacion") {
                     var select = document.getElementById("materia_modificacion");
@@ -389,7 +478,7 @@ class RegisterControllerRemote
                         "carrera" : "",
                         "materia" : document.getElementById("nueva_materia").value,
                         "id_materia" : select.options[select.selectedIndex].value
-                    }
+                    };
                 }
                 break;
 
@@ -401,7 +490,7 @@ class RegisterControllerRemote
                         "operacion" : operacion,
                         "id_carrera" : "",
                         "carrera" : document.getElementById("carrera").value
-                    }
+                    };
                 }
                 if (operacion=="modificacion") {
                     var select = document.getElementById("carrera_modificacion");
@@ -411,7 +500,7 @@ class RegisterControllerRemote
                         "operacion" : operacion,
                         "id_carrera" : select.options[select.selectedIndex].value,
                         "carrera" : select.options[select.selectedIndex].text
-                    }
+                    };
                 } 
                 if(operacion=="baja"){
                     var select = document.getElementById("carrera_baja");
@@ -421,7 +510,7 @@ class RegisterControllerRemote
                         "operacion" : operacion,
                         "id_carrera" : select.options[select.selectedIndex].value,
                         "carrera" : select.options[select.selectedIndex].text
-                    }
+                    };
                 }
                 break;
 
