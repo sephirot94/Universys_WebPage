@@ -274,6 +274,14 @@
     <script src="../js/library.js"></script>
     <script src="../js/common.js"></script>
     <script>
+        function myFunction() {
+            var rc = new RegisterControllerRemote;
+            var operacion = $("#operacion").val();
+            var json = rc.armarJson("catedras", operacion);
+            console.log(json);
+        }
+    </script>
+    <script>
         $(document).ready(function () {
             var rc = new RegisterControllerLocal();
             rc.jsonCatedras.catedras.forEach(function (element) {

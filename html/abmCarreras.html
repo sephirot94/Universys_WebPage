@@ -115,55 +115,55 @@
   <script src="../js/library.js"></script>
   <script src="../js/common.js"></script>
   <script>
-      function myFunction() {
-        var rc = new RegisterControllerRemote;  
-        var operacion = $("#operacion").val();
-        var json = rc.armarJson("carreras", operacion);
-        console.log(json);
-      }
-  </script>
-  
-  <!-- Poblar select para modificacion y baja de datos -->
-<script>
-  $(document).ready(function() {
-    var rc = new RegisterControllerLocal();
-    rc.jsonCarreras.carreras.forEach(function (element) {
-      var objOption = document.createElement("option");
-      objOption.setAttribute("value", element.id);
-      objOption.innerHTML = element.carrera;
-      $(".carrera").append(objOption);
-    }, this);
-  });
-</script>
-<script>
-  jQuery.validator.addMethod("passwordCheck",
-    function (value, element, param) {
-      if (this.optional(element)) {
-        return true;
-      } else if (!/[A-Z]/.test(value)) {
-        return false;
-      } else if (!/[a-z]/.test(value)) {
-        return false;
-      } else if (!/[0-9]/.test(value)) {
-        return false;
-      }
-
-      return true;
-    },
-    "La contrase&ntilde;a debe contener al menos una mayuscula, una minuscula y un numero");
-
-  $(".alta").validate({
-    rules: {
-      carrera: {
-        required: true
-      }
-    },
-    messages: {
-      carrera: {
-        required: "Este campo es obligatorio"
-      }
+    function myFunction() {
+      var rc = new RegisterControllerRemote;
+      var operacion = $("#operacion").val();
+      var json = rc.armarJson("carreras", operacion);
+      console.log(json);
     }
-  });
-</script>
+  </script>
+
+  <!-- Poblar select para modificacion y baja de datos -->
+  <script>
+    $(document).ready(function () {
+      var rc = new RegisterControllerLocal();
+      rc.jsonCarreras.carreras.forEach(function (element) {
+        var objOption = document.createElement("option");
+        objOption.setAttribute("value", element.id);
+        objOption.innerHTML = element.carrera;
+        $(".carrera").append(objOption);
+      }, this);
+    });
+  </script>
+  <script>
+    jQuery.validator.addMethod("passwordCheck",
+      function (value, element, param) {
+        if (this.optional(element)) {
+          return true;
+        } else if (!/[A-Z]/.test(value)) {
+          return false;
+        } else if (!/[a-z]/.test(value)) {
+          return false;
+        } else if (!/[0-9]/.test(value)) {
+          return false;
+        }
+
+        return true;
+      },
+      "La contrase&ntilde;a debe contener al menos una mayuscula, una minuscula y un numero");
+
+    $(".alta").validate({
+      rules: {
+        carrera: {
+          required: true
+        }
+      },
+      messages: {
+        carrera: {
+          required: "Este campo es obligatorio"
+        }
+      }
+    });
+  </script>
 </body>
 </html>

@@ -120,24 +120,33 @@
           </div>
           <div class="col-md-6">
             <!-- Input de Materia -->
-            <label>Nuevo Nombre Materia <input type="text" id="nueva_materia"></label>
+            <label>Nuevo Nombre Materia
+              <input type="text" id="nueva_materia">
+            </label>
           </div>
         </div>
       </div>
     </div>
   </form>
-    <!-- Boton para guardar datos -->
-    <input id="operacion" type="text" style="display:none;">
-    <button id="submit" type="submit">Guardar</button>
+  <!-- Boton para guardar datos -->
+  <input id="operacion" type="text" style="display:none;">
+  <button id="submit" type="submit">Guardar</button>
   <script src="../js/register.js"></script>
   <script src="../js/login.js"></script>
   <script src="../js/library.js"></script>
   <script src="../js/common.js"></script>
-    
-    
-    <!-- Poblar select para modificacion y baja de datos -->
-    <script>
-      $(document).ready(function () {
+  <script>
+    function myFunction() {
+      var rc = new RegisterControllerRemote;
+      var operacion = $("#operacion").val();
+      var json = rc.armarJson("materias", operacion);
+      console.log(json);
+    }
+  </script>
+
+  <!-- Poblar select para modificacion y baja de datos -->
+  <script>
+    $(document).ready(function () {
       var rc = new RegisterControllerLocal();
       rc.jsonCatedras.catedras.forEach(function (element) {
         var objOption = document.createElement("option");
@@ -170,35 +179,35 @@
 
     });
   </script>
-    <script>
-      jQuery.validator.addMethod("passwordCheck",
-        function (value, element, param) {
-          if (this.optional(element)) {
-            return true;
-          } else if (!/[A-Z]/.test(value)) {
-            return false;
-          } else if (!/[a-z]/.test(value)) {
-            return false;
-          } else if (!/[0-9]/.test(value)) {
-            return false;
-          }
-
+  <script>
+    jQuery.validator.addMethod("passwordCheck",
+      function (value, element, param) {
+        if (this.optional(element)) {
           return true;
-        },
-        "La contrase&ntilde;a debe contener al menos una mayuscula, una minuscula y un numero");
-
-      $(".alta .modificacion").validate({
-        rules: {
-          materia: {
-            required: true
-          }
-        },
-        messages: {
-          materia: {
-            required: "Este campo es obligatorio"
-          }
+        } else if (!/[A-Z]/.test(value)) {
+          return false;
+        } else if (!/[a-z]/.test(value)) {
+          return false;
+        } else if (!/[0-9]/.test(value)) {
+          return false;
         }
-      });
-    </script>
+
+        return true;
+      },
+      "La contrase&ntilde;a debe contener al menos una mayuscula, una minuscula y un numero");
+
+    $(".alta .modificacion").validate({
+      rules: {
+        materia: {
+          required: true
+        }
+      },
+      messages: {
+        materia: {
+          required: "Este campo es obligatorio"
+        }
+      }
+    });
+  </script>
 </body>
 </html>

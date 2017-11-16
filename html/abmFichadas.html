@@ -118,22 +118,22 @@
             <label class="radioPresente">Presente
               <input type="radio" name="postage" value="true"> Si
               <input type="radio" name="postage" value="false"> No</label>
-            </div>
           </div>
         </div>
       </div>
-    </form>
-      <!-- Dar de baja una fichada -->
-      <div class="baja">
-        <!-- Titulo -->
-        <h1>Baja de Fichada</h1>
-        <br>
-        <div class="container">
-          <div class="row">
-            <div class="col-md-4">
-              <!-- Seleccion de Catedra -->
-              <label>Catedra</label>
-              <select class="catedra" id="catedra_baja">
+    </div>
+  </form>
+  <!-- Dar de baja una fichada -->
+  <div class="baja">
+    <!-- Titulo -->
+    <h1>Baja de Fichada</h1>
+    <br>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <!-- Seleccion de Catedra -->
+          <label>Catedra</label>
+          <select class="catedra" id="catedra_baja">
             <option></option>
           </select>
         </div>
@@ -257,6 +257,14 @@
   <script src="../js/login.js"></script>
   <script src="../js/library.js"></script>
   <script src="../js/common.js"></script>
+  <script>
+    function myFunction() {
+      var rc = new RegisterControllerRemote;
+      var operacion = $("#operacion").val();
+      var json = rc.armarJson("fichadas", operacion);
+      console.log(json);
+    }
+  </script>
   <!-- Poblar select para modificacion y baja de datos -->
   <script>
     $(document).ready(function () {
