@@ -3,7 +3,9 @@ $(document).ready(function () {
     $(".alta").hide();
     $(".baja").hide();
     $(".modificacion").hide();
-    $("#submit").hide();
+    $("#submit_alta").hide();
+    $("#submit_baja").hide();
+    $("#submit_modificacion").hide();
 
     //Funcion para mostrar el panel de alta y esconder todos los otros paneles
     $("#btnAlta").click(function () {
@@ -11,7 +13,9 @@ $(document).ready(function () {
         $(".baja").hide();
         $(".modificacion").hide();
         $(".alta").show();
-        $("#submit").show();
+        $("#submit_alta").show();
+        $("#submit_baja").hide();
+        $("#submit_modificacion").hide();
     });
 
     //Funcion para mostrar el panel de baja y esconder todos los otros paneles
@@ -20,7 +24,9 @@ $(document).ready(function () {
         $(".alta").hide();
         $(".modificacion").hide();
         $(".baja").show();
-        $("#submit").show();
+        $("#submit_alta").hide();
+        $("#submit_baja").show();
+        $("#submit_modificacion").hide();
     });
 
     //Funcion para mostrar el panel de modificacion y esconder todos los otros paneles
@@ -29,12 +35,13 @@ $(document).ready(function () {
         $(".alta").hide();
         $(".baja").hide();
         $(".modificacion").show();
-        $("#submit").show();
+        $("#submit_alta").hide();
+        $("#submit_baja").hide();
+        $("#submit_modificacion").show();
     });
 
     $("#submit").click(function () {
         $("input, select").val('');
-        
     });
 });
 
