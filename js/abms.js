@@ -12,10 +12,10 @@ $(document).ready(function () {
         $("#operacion").val("alta");
         $(".baja").hide();
         $(".modificacion").hide();
-        $(".alta").show();
-        $("#submit_alta").show();
         $("#submit_baja").hide();
         $("#submit_modificacion").hide();
+        $(".alta").show();
+        $("#submit_alta").show();
     });
 
     //Funcion para mostrar el panel de baja y esconder todos los otros paneles
@@ -23,10 +23,10 @@ $(document).ready(function () {
         $("#operacion").val("baja");
         $(".alta").hide();
         $(".modificacion").hide();
-        $(".baja").show();
         $("#submit_alta").hide();
-        $("#submit_baja").show();
         $("#submit_modificacion").hide();
+        $(".baja").show();
+        $("#submit_baja").show();
     });
 
     //Funcion para mostrar el panel de modificacion y esconder todos los otros paneles
@@ -34,9 +34,9 @@ $(document).ready(function () {
         $("#operacion").val("modificacion");
         $(".alta").hide();
         $(".baja").hide();
-        $(".modificacion").show();
         $("#submit_alta").hide();
         $("#submit_baja").hide();
+        $(".modificacion").show();
         $("#submit_modificacion").show();
     });
 
