@@ -56,13 +56,8 @@ class LoginControllerLocal
     };
 
     logout () {
-        debugger;
         dropCookie("idSesion");
         window.location.href = '../html/login.html';
-    }
-
-    redirectAdmin() {
-        window.location.href = 'perfilAdministrador.html';
     }
 }
 

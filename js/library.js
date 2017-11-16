@@ -8,13 +8,13 @@ function parseJsonString(json) {
 
 //Metodo para setear cookies. Principalmente usado para guardar el idSesion que backend envia en el login.
 function setCookie(name,value) {
-    document.cookie = name + "=" + value + ";" ;
+    Document.cookie = name + "=" + value + ";" ;
 }
 
 //Metodo para devolver cookie.
 function getCookie(name) {
     var nameEQ = name + "=";
-    var cookie_arr = document.cookie.split(';');
+    var cookie_arr = Document.cookie.split(';');
     for(var i=0;i < cookie_arr.length;i++) {
         var cookie = cookie_arr[i];
         if(cookie.includes(name)) {
@@ -28,13 +28,13 @@ function getCookie(name) {
 
 //Metodo para borrar cookie.
 function dropCookie(name) {
-	document.cookie = name + "=;" ;
+	Document.cookie = name + "=;" ;
 }
 
 //Metodo de testing unitario de setCookie
 var testSetCookie = function(name, value) {
     setCookie(name, value);
-    var cookie_array = document.cookie.split(";");
+    var cookie_array = Document.cookie.split(";");
     var cookie = cookie_array[0].split("=");
     var cookie_name = cookie[0];
     var cookie_value = cookie[1];
@@ -49,10 +49,9 @@ var testSetCookie = function(name, value) {
 
 //Metodo de testing unitario de getCookie
 var testGetCookie = function(name) {
-    debugger;
-    document.cookie = name + "= 1 ;" ;
+    
+    Document.cookie = name + "= 1 ;" ;
     var cookie = getCookie(name);
-    console.log(document.cookie);
    if(cookie.includes(1)) {
        dropCookie(name);
         return null;
@@ -63,7 +62,7 @@ var testGetCookie = function(name) {
 
 //Metodo de testing unitario de dropCookie
 var testDropCookie = function(name) {
-    document.cookie = name + "=1;";
+    Document.cookie = name + "=1;";
     var cookie = getCookie(name);
     if (cookie.includes("1")) {
         dropCookie(name);
@@ -78,9 +77,9 @@ var testDropCookie = function(name) {
 //Metodo de testing unitario de la Libreria
 function testLibrary() {
     
-    var testSetCookieResults = testSetCookie();
-    var testGetCookieResults = testGetCookie();
-    var testDropCookieResults = testDropCookie();
+    var testSetCookieResults = testSetCookie("hola", 3);
+    var testGetCookieResults = testGetCookie("hola");
+    var testDropCookieResults = testDropCookie("hola");
 
     if (testSetCookieResults!==null) {
         return "Error encountered in function setCookie: " + testSetCookieResults;

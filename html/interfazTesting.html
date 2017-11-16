@@ -55,11 +55,10 @@
                 $("#testAbm").click(function(){
                     $(".error-screen").empty();
                     var test = testRegister();
-                    console.log(test);
                     //Si no se encuentran errores en los modulos del sistema, se le aplica un fondo verde al contenedor 
                     if (test===null) {
                         $(".error-screen").css("background-color", "#009933");
-                        var success = "<p style='color:#ffffff;'>No se encontraron errores</p>";
+                        var success = "<p style='color:#ffffff;'>No se encontraron errores en la clase Register</p>";
                         $(".error-screen").append(success);
                     }
                     //Si se encuentran errores en los modulos del sistema, se le aplica un fondo rojo al contenedor 
@@ -77,7 +76,7 @@
                     //Si no se encuentran errores en los modulos del sistema, se le aplica un fondo verde al contenedor 
                     if (test === null) {
                         $(".error-screen").css("background-color", "#009933");
-                        var success = "<p style='color:#ffffff;'>No se encontraron errores</p>";
+                        var success = "<p style='color:#ffffff;'>No se encontraron errores en la clase RecuperacionContrasena</p>";
                         $(".error-screen").append(success);
                     }
                     //Si se encuentran errores en los modulos del sistema, se le aplica un fondo rojo al contenedor 
@@ -92,11 +91,10 @@
                 $("#testLogin").click(function(){
                     $(".error-screen").empty();
                     var test = testLogin();
-                    console.log(test);
                     //Si no se encuentran errores en los modulos del sistema, se le aplica un fondo verde al contenedor 
                     if (test===null) {
                         $(".error-screen").css("background-color", "#009933");
-                        var success = "<p style='color:#ffffff;'>No se encontraron errores</p>";
+                        var success = "<p style='color:#ffffff;'>No se encontraron errores en la clase Login</p>";
                         $(".error-screen").append(success);
                     }
                     //Si se encuentran errores en los modulos del sistema, se le aplica un fondo rojo al contenedor 
@@ -114,7 +112,7 @@
                     //Si no se encuentran errores en los modulos del sistema, se le aplica un fondo verde al contenedor 
                     if (test === null) {
                         $(".error-screen").css("background-color", "#009933");
-                        var success = "<p style='color:#ffffff;'>No se encontraron errores</p>";
+                        var success = "<p style='color:#ffffff;'>No se encontraron errores en la clase Library</p>";
                         $(".error-screen").append(success);
                     }
                     //Si se encuentran errores en los modulos del sistema, se le aplica un fondo rojo al contenedor 

@@ -253,7 +253,7 @@ class RegisterControllerRemote
                     var select_genero = document.getElementById("genero_alta");
                     json = {
                         "apiVer" : "1.0",
-                        "idSesion" : getCookie("idSesion"),
+                        "idSesion" : "",  // getCookie("idSesion"),
                         "operacion" : operacion,
                         "nombre" : document.getElementById("nombre_alta").value,
                         "apellido" : document.getElementById("apellido_alta").value,
@@ -272,7 +272,7 @@ class RegisterControllerRemote
                     var select_mail = document.getElementById("mail_baja");
                     json = {
                         "apiVer" : "1.0",
-                        "idSesion" : getCookie("idSesion"),
+                        "idSesion" : "", // getCookie("idSesion"),
                         "operacion" : operacion,
                         "nombre" : "",
                         "apellido" : "",
@@ -293,7 +293,7 @@ class RegisterControllerRemote
                     var select_mail = document.getElementById("mail_modificacion");
                     json = {
                         "apiVer" : "1.0",
-                        "idSesion" : getCookie("idSesion"),
+                        "idSesion" : "", // getCookie("idSesion"),
                         "operacion" : operacion,
                         "nombre" : document.getElementById("nombre_modificacion").value,
                         "apellido" : document.getElementById("apellido_modificacion").value,
@@ -319,7 +319,7 @@ class RegisterControllerRemote
                     var select_notas = document.getElementById("nota_alta");
                     json = {
                         "apiVer" : "1.0",
-                        "idSesion" : getCookie("idSesion"),
+                        "idSesion" : "", // getCookie("idSesion"),
                         "operacion" : operacion,
                         "catedra" : select_catedras.options[select_catedras.selectedIndex].text,
                         "carrera" : select_carreras.options[select_carreras.selectedIndex].text,
@@ -335,13 +335,13 @@ class RegisterControllerRemote
                     var select_materias = document.getElementById("materia_baja");
                     json = {
                         "apiVer" : "1.0",
-                        "idSesion" : getCookie("idSesion"),
+                        "idSesion" : "", // getCookie("idSesion"),
                         "operacion" : operacion,
                         "catedra" : select_catedras.options[select_catedras.selectedIndex].text,
                         "carrera" : select_carreras.options[select_carreras.selectedIndex].text,
                         "materia" : select_materias.options[select_materias.selectedIndex].text,
                         "alumno" : select_alumnos.options[select_alumnos.selectedIndex].text,
-                        "nota" : ""
+                        "nota" : "",
                     };
                 }
                 if (operacion="modificacion") {
@@ -352,7 +352,7 @@ class RegisterControllerRemote
                     var select_notas = document.getElementById("nota_modificacion");
                     json = {
                         "apiVer" : "1.0",
-                        "idSesion" : getCookie("idSesion"),
+                        "idSesion" : "", // getCookie("idSesion"),
                         "operacion" : operacion,
                         "catedra" : select_catedras.options[select_catedras.selectedIndex].text,
                         "carrera" : select_carreras.options[select_carreras.selectedIndex].text,
@@ -373,7 +373,7 @@ class RegisterControllerRemote
                     var select_horario = document.getElementById("horario_alta");
                     json = {
                         "apiVer" : "1.0",
-                        "idSesion" : getCookie("idSesion"),
+                        "idSesion" : "", // getCookie("idSesion"),
                         "operacion" : operacion,
                         "catedra" : select_catedras.options[select_catedras.selectedIndex].text,
                         "carrera" : select_carreras.options[select_carreras.selectedIndex].text,
@@ -396,7 +396,7 @@ class RegisterControllerRemote
                     var select_horario = document.getElementById("horario_baja");
                     json = {
                         "apiVer" : "1.0",
-                        "idSesion" : getCookie("idSesion"),
+                        "idSesion" : "", // getCookie("idSesion"),
                         "operacion" : operacion,
                         "catedra" : select_catedras.options[select_catedras.selectedIndex].text,
                         "carrera" : select_carreras.options[select_carreras.selectedIndex].text,
@@ -419,7 +419,7 @@ class RegisterControllerRemote
                     var select_horario = document.getElementById("horario_modificacion");
                     json = {
                         "apiVer" : "1.0",
-                        "idSesion" : getCookie("idSesion"),
+                        "idSesion" : "", // getCookie("idSesion"),
                         "operacion" : operacion,
                         "catedra" : select_catedras.options[select_catedras.selectedIndex].text,
                         "carrera" : select_carreras.options[select_carreras.selectedIndex].text,
@@ -443,7 +443,7 @@ class RegisterControllerRemote
                     var materia_select = document.getElementById("materia_alta");
                     json = {
                         "apiVer" : "1.0",
-                        "idSesion" : getCookie("idSesion"),
+                        "idSesion" : "", // getCookie("idSesion"),
                         "operacion" : operacion,
                         "materia" : materia_select.options[materia_select.selectedIndex].text,
                         "catedra" : document.getElementById("catedra").value,
@@ -457,7 +457,7 @@ class RegisterControllerRemote
                     var materia_select = document.getElementById("materia_baja");
                     json = {
                         "apiVer" : "1.0",
-                        "idSesion" : getCookie("idSesion"),
+                        "idSesion" : "", // getCookie("idSesion"),
                         "operacion" : operacion,
                         "materia" : materia_select.options[materia_select.selectedIndex].text,
                         "catedra" : catedra_select.options[catedra_select.selectedIndex].text,
@@ -475,7 +475,7 @@ class RegisterControllerRemote
                     var materia_select = document.getElementById("materia_modificacion");
                     json = {
                         "apiVer" : "1.0",
-                        "idSesion" : getCookie("idSesion"),
+                        "idSesion" : "", // getCookie("idSesion"),
                         "operacion" : operacion,
                         "materia" : materia_select.options[materia_select.selectedIndex].text,
                         "catedra" : catedra_select.options[catedra_select.selectedIndex].text,
@@ -493,7 +493,7 @@ class RegisterControllerRemote
                     var select_carrera = document.getElementById("carrera_alta");
                     json = {
                         "apiVer" : "1.0",
-                        "idSesion" : getCookie("idSesion"),
+                        "idSesion" : "", // getCookie("idSesion"),
                         "operacion" : operacion,
                         "catedra": select_catedra.options[select_catedra.selectedIndex].text,
                         "carrera" : select_carrera.options[select_carrera.selectedIndex].text,
@@ -504,7 +504,7 @@ class RegisterControllerRemote
                     var select = document.getElementById("materia_baja");
                     json = {
                         "apiVer" : "1.0",
-                        "idSesion" : getCookie("idSesion"),
+                        "idSesion" : "", // getCookie("idSesion"),
                         "operacion" : operacion,
                         "catedra": "",
                         "carrera" : "",
@@ -516,7 +516,7 @@ class RegisterControllerRemote
                     var select = document.getElementById("materia_modificacion");
                     json = {
                         "apiVer" : "1.0",
-                        "idSesion" : getCookie("idSesion"),
+                        "idSesion" : "", // getCookie("idSesion"),
                         "operacion" : operacion,
                         "catedra": "",
                         "carrera" : "",
@@ -530,7 +530,7 @@ class RegisterControllerRemote
                 if (operacion=="alta") {
                     json = {
                         "apiVer" : "1.0",
-                        "idSesion" : getCookie("idSesion"),
+                        "idSesion" : "", // getCookie("idSesion"),
                         "operacion" : operacion,
                         "id_carrera" : "",
                         "carrera" : document.getElementById("carrera_alta").value
@@ -540,7 +540,7 @@ class RegisterControllerRemote
                     var select = document.getElementById("carrera_modificacion");
                     json = {
                         "apiVer" : "1.0",
-                        "idSesion" : getCookie("idSesion"),
+                        "idSesion" : "", // getCookie("idSesion"),
                         "operacion" : operacion,
                         "id_carrera" : select.options[select.selectedIndex].value,
                         "carrera" : select.options[select.selectedIndex].text
@@ -550,7 +550,7 @@ class RegisterControllerRemote
                     var select = document.getElementById("carrera_baja");
                     json = {
                         "apiVer" : "1.0",
-                        "idSesion" : getCookie("idSesion"),
+                        "idSesion" : "", // getCookie("idSesion"),
                         "operacion" : operacion,
                         "id_carrera" : select.options[select.selectedIndex].value,
                         "carrera" : select.options[select.selectedIndex].text
@@ -620,7 +620,6 @@ function testRegister() {
 
     //Chequeo JSON Usuario
     if(json.usuario.nombre != "Gaston" || json.usuario.apellido != "Bodeman" || json.usuario.fnac != "20/09/1994" || json.usuario.genero != "masculino" || json.usuario.domicilio != "blanco encalada 4892" || json.usuario.telefono != "45228786" || json.usuario.matricula != "03140" || json.usuario.mail != "pepito@gmail.com") {
-        console.log(json.usuario);
         return "testRegister has ERRORS: RegisterController not returning the right value RegisterController::Controller:: Usuario";
     }
 

@@ -57,7 +57,7 @@
   <button id="btnModificacion" type="button">Modificacion Carrera</button>
   <br>
   <!-- Dar de alta una carrera -->
-  <form id="form_alta">
+  <form id="form_alta" class="alta">
     <div class="alta">
       <!-- Titulo -->
       <h1>Alta de carrera</h1>
@@ -72,9 +72,10 @@
         </div>
       </div>
     </div>
+    <button onclick="myFunction()" type="submit" id="submit_alta">Guardar</button>
   </form>
   <!-- Dar de baja una carrera -->
-  <form id="form_baja">
+  <form id="form_baja" class="baja">
     <div class="baja">
       <!-- Titulo -->
       <h1>Baja de carrera</h1>
@@ -91,6 +92,7 @@
         </div>
       </div>
     </div>
+    <button onclick="myFunction()" type="submit" id="submit_baja">Guardar</button>
   </form>
   <!-- Modificar una carrera -->
   <form id="form_modificacion">
@@ -161,14 +163,14 @@
       },
       "La contrase&ntilde;a debe contener al menos una mayuscula, una minuscula y un numero");
 
-    $(".alta").validate({
+    $("#form_alta").validate({
       rules: {
-        carrera: {
+        carrera_alta: {
           required: true
         }
       },
       messages: {
-        carrera: {
+        carrera_alta: {
           required: "Este campo es obligatorio"
         }
       }
