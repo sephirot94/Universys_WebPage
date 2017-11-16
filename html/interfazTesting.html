@@ -36,13 +36,14 @@
                 //llamado al unit test de ABM con un click en el boton de testear ABM
                 $("#testAbm").click(function(){
                     var test = testRegister();
+                    console.log(test);
                     //Si no se encuentran errores en los modulos del sistema, se le aplica un fondo verde al contenedor 
                     if (test===null) {
                         $(".error-screen").css("background-color", "#009933");
                     }
                     //Si se encuentran errores en los modulos del sistema, se le aplica un fondo rojo al contenedor 
                     else {
-                        $(".error-screen").css("background-color", "##ff0000");
+                        $(".error-screen").css("background-color", "#ff0000");
                         var error = "<p style='color:#ffffff;'>" + test + "</p>";
                         $(".error-screen").append(error);
                     }
@@ -51,13 +52,14 @@
                 //llamado al unit test de Libreria con un click en el boton de testear libreria
                 $("#testLibrary").click(function(){
                     var test = testLibrary();
+                    console.log(test);
                     //Si no se encuentran errores en los modulos del sistema, se le aplica un fondo verde al contenedor 
                     if (test===null) {
                         $(".error-screen").css("background-color", "#009933");
                     }
                     //Si se encuentran errores en los modulos del sistema, se le aplica un fondo rojo al contenedor 
                     else {
-                        $(".error-screen").css("background-color", "##ff0000");
+                        $(".error-screen").css("background-color", "#ff0000");
                         var error = "<p style='color:#ffffff;'>" + test + "</p>";
                         $(".error-screen").append(error);
                     }
@@ -66,13 +68,14 @@
                 //llamado al unit test de Login con un click en el boton de testear Login
                 $("#testLogin").click(function(){
                     var test = testLogin();
+                    console.log(test);
                     //Si no se encuentran errores en los modulos del sistema, se le aplica un fondo verde al contenedor 
                     if (test===null) {
                         $(".error-screen").css("background-color", "#009933");
                     }
                     //Si se encuentran errores en los modulos del sistema, se le aplica un fondo rojo al contenedor 
                     else {
-                        $(".error-screen").css("background-color", "##ff0000");
+                        $(".error-screen").css("background-color", "#ff0000");
                         var error = "<p style='color:#ffffff;'>" + test + "</p>";
                         $(".error-screen").append(error);
                     }
@@ -81,13 +84,14 @@
                 //llamado al unit test de Recuperar contrasena con un click en el boton de testear recuperacion de contrasena
                 $("#testRecuperacionContrasena").click(function(){
                     var test = testRestablecerContrasena();
+                    console.log(test);
                     //Si no se encuentran errores en los modulos del sistema, se le aplica un fondo verde al contenedor 
                     if (test===null) {
                         $(".error-screen").css("background-color", "#009933");
                     }
                     //Si se encuentran errores en los modulos del sistema, se le aplica un fondo rojo al contenedor 
                     else {
-                        $(".error-screen").css("background-color", "##ff0000");
+                        $(".error-screen").css("background-color", "#ff0000");
                         var error = "<p style='color:#ffffff;'>" + test + "</p>";
                         $(".error-screen").append(error);
                     }

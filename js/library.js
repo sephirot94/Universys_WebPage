@@ -49,8 +49,10 @@ var testSetCookie = function(name, value) {
 
 //Metodo de testing unitario de getCookie
 var testGetCookie = function(name) {
+    debugger;
     document.cookie = name + "= 1 ;" ;
     var cookie = getCookie(name);
+    console.log(document.cookie);
    if(cookie.includes(1)) {
        dropCookie(name);
         return null;

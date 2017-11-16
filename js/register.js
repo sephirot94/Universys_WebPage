@@ -393,53 +393,47 @@ class RegisterControllerRemote
     };
 }
 
-// var registerController = registerControllerLocal();
-
-function registerSubmit(){
-    registerController.register("{'nombre':'Juan'}");
-}
-
 //Metodo de testing unitario
 function testRegister() {
     var rcr = new RegisterControllerRemote;
     var rc = new RegisterControllerLocal;
 
-    var json = parsejsonstring(rc.armarJson("usuario"));
+    var json = rc.armarJson("usuario");
 
     //Chequeo JSON Usuario
     if(json.usuario.nombre != "Gaston" || json.usuario.apellido != "Bodeman" || json.usuario.fnac != "20/09/1994" || json.usuario.genero != "masculino" || json.usuario.domicilio != "blanco encalada 4892" || json.usuario.telefono != "45228786" || json.usuario.matricula != "03140" || json.usuario.mail != "pepito@gmail.com") {
         return "testRegister has ERRORS: RegisterController not returning the right value RegisterController::Controller:: Usuario";
     }
 
-    json = parsejsonstring(rc.armarJson("notas"));
+    json = rc.armarJson("notas");
 
     //Chequeo JSON Notas
     if(json.notas.catedra != "Didier" || json.notas.carrera != "Programacion" || json.notas.materia != "Proyecto" || json.notas.horario != "19:00hs" || json.notas.tipoDeClase != "teorico" || json.notas.claveDeClase != "30" || json.notas.alumno != "ivan" || json.notas.nota != "4") {
         return "testRegister has ERRORS: RegisterController not returning the right value. RegisterController::: Notas";
     }
 
-    json = parsejsonstring(rc.armarJson("fichadas"));
+    json = rc.armarJson("fichadas");
 
     //Chequeo JSON Fichadas
     if(json.fichadas.catedra != "Didier" || json.fichadas.carrera != "Programacion" || json.fichadas.materia != "Proyecto" || json.fichadas.horario != "19:00hs" || json.fichadas.tipoDeClase != "teorico" || json.fichadas.claveDeClase != "30" || json.fichadas.alumnos[0].nombre != "ivan" || !json.fichadas.alumnos[0].presente) {
         return "testRegister has ERRORS: RegisterController not returning the right value. RegisterController::: Fichadas";
     }
 
-    json = parsejsonstring(rc.armarJson("catedras"));
+    json = rc.armarJson("catedras");
 
     //Chequeo JSON Catedra
     if(json.catedra.catedra != "Didier" || json.catedra.nombre != "Proyecto" || json.catedra.titularDeCatedra != "Didier" || json.catedra.ofertaHoraria != "Lun-Vie, 19:00 a 23:00" ) {
         return "testRegister has ERRORS: RegisterController not returning the right value. RegisterController::: catedra";
     }
 
-    json = parsejsonstring(rc.armarJson("materias"));
+    json = rc.armarJson("materias");
 
     //Chequeo JSON Materia
     if(json.materia.catedra != "Didier" || json.materia.materia != "Proyecto" || json.materia.carrera != "Programacion") {
         return "testRegister has ERRORS: RegisterController not returning the right value. RegisterController::: materia";
     }
 
-    json = parsejsonstring(rc.armarJson("vacio"));
+    json = rc.armarJson("vacio");
     
     //Chequeo JSON valores vacios
     if(json.usuario.nombre != "Gaston" || json.usuario.apellido == "" || json.usuario.matricula != "") {
