@@ -70,22 +70,22 @@
                     <div>
                         <!-- Input de Nombre -->
                         <label>Nombre</label>
-                        <input type="text" id="nombre">
+                        <input type="text" id="nombre_alta">
                     </div>
                     <div>
                         <!-- Input de Apellido -->
                         <label>Apellido</label>
-                        <input type="text" id="apellido">
+                        <input type="text" id="apellido_alta">
                     </div>
                     <div>
                         <!-- Input de Documento -->
                         <label>Documento</label>
-                        <input type="number" id="documento">
+                        <input type="number" id="documento_alta">
                     </div>
                     <div>
                         <!-- Input de Fecha de Nacimiento -->
                         <label>Fecha de Nacimiento</label>
-                        <input type="date" id="fnac">
+                        <input type="date" id="fnac_alta">
                     </div>
                     <div>
                         <!-- Seleccion de Documento -->
@@ -98,32 +98,32 @@
                     <div>
                         <!-- Input de Domicilio -->
                         <label>Domicilio</label>
-                        <input type="text" id="domicilio">
+                        <input type="text" id="domicilio_alta">
                     </div>
                     <div>
                         <!-- Input de Telefono -->
                         <label>Telefono</label>
-                        <input type="number" id="telefono">
+                        <input type="number" id="telefono_alta">
                     </div>
                     <div>
                         <!-- Input de Matricula -->
                         <label>Matricula</label>
-                        <input type="number" id="matricula">
+                        <input type="number" id="matricula_alta">
                     </div>
                     <div>
                         <!-- Input de Mail -->
                         <label>Mail</label>
-                        <input type="text" id="mail">
+                        <input type="text" id="mail_alta">
                     </div>
                     <div>
                         <!-- Input de Contraseña -->
                         <label>Contraseña</label>
-                        <input type="password" id="pass">
+                        <input type="password" id="pass_alta">
                     </div>
                     <div>
                         <!-- Input de Confirmar Contraseña -->
                         <label>Confirmar Contraseña</label>
-                        <input type="password" id="confirm_pass">
+                        <input type="password" id="confirm_pass_alta">
                     </div>
                 </div>
             </div>
@@ -137,14 +137,11 @@
             <div class="container">
                 <div class="row">
                     <div>
-                        <!-- Input de Matricula -->
-                        <label>Matricula</label>
-                        <input type="number" id="matricula">
-                    </div>
-                    <div>
                         <!-- Input de Mail -->
                         <label>Mail</label>
-                        <input type="text" id="mail">
+                        <select class="mail" id="mail_baja">
+                            <option></option>
+                        </select>
                     </div>
                 </div>
             </div>
@@ -176,22 +173,22 @@
                     <div>
                         <!-- Input de Nombre -->
                         <label>Nombre</label>
-                        <input type="text" id="nombre">
+                        <input type="text" id="nombre_modificacion">
                     </div>
                     <div>
                         <!-- Input de Apellido -->
                         <label>Apellido</label>
-                        <input type="text" id="apellido">
+                        <input type="text" id="apellido_modificacion">
                     </div>
                     <div>
                         <!-- Input de Documento -->
                         <label>Documento</label>
-                        <input type="number" id="documento">
+                        <input type="number" id="documento_modificacion">
                     </div>
                     <div>
                         <!-- Input de Fecha de Nacimiento -->
                         <label>Fecha de Nacimiento</label>
-                        <input type="date" id="fnac">
+                        <input type="date" id="fnac_modificacion">
                     </div>
                     <div>
                         <!-- Seleccion de Documento -->
@@ -204,22 +201,17 @@
                     <div>
                         <!-- Input de Domicilio -->
                         <label>Domicilio</label>
-                        <input type="text" id="domicilio">
+                        <input type="text" id="domicilio_modificacion">
                     </div>
                     <div>
                         <!-- Input de Telefono -->
                         <label>Telefono</label>
-                        <input type="number" id="telefono">
-                    </div>
-                    <div>
-                        <!-- Input de Matricula -->
-                        <label>Matricula</label>
-                        <input type="number" id="matricula">
+                        <input type="number" id="telefono_modificacion">
                     </div>
                     <div>
                         <!-- Input de Contraseña -->
                         <label>Contraseña</label>
-                        <input type="password" id="pass">
+                        <input type="password" id="pass_modificacion">
                     </div>
                 </div>
             </div>
@@ -321,6 +313,17 @@
                 }
 
             }
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            var rc = new RegisterControllerLocal();
+            rc.jsonMail.mails.forEach(function (element) {
+                var objOption = document.createElement("option");
+                objOption.setAttribute("value", element.id);
+                objOption.innerHTML = element.mail;
+                $(".mail").append(objOption);
+            }, this);
         });
     </script>
     <script src="../js/register.js"></script>
