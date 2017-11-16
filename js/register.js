@@ -248,22 +248,66 @@ class RegisterControllerRemote
         var json;
         switch (flag) {
             case "usuario":
-                json = {
-                    "apiVer" : "1.0",
-                    "idSesion" : getCookie("idSesion"),
-                    "operacion" : operacion,
-                    "nombre" : document.getElementById("nombre").value,
-                    "apellido" : document.getElementById("apellido").value,
-                    "documento" : document.getElementById("documento").value,
-                    "fnac" : document.getElementById("fnac").value,
-                    "genero" : document.getElementById("genero").value,
-                    "domicilio" : document.getElementById("domicilio").value,
-                    "telefono" : document.getElementById("telefono").value,
-                    "identificador" : document.getElementById("matricula").value,
-                    "mail" : document.getElementById("mail").value,
-                    "rol" : document.getElementById("rol"),
-                    "contrasena" : document.getElementById("pass").value
-                };
+                if (operacion=="alta") {
+                    var select_rol = document.getElementById("rol_alta");
+                    var select_genero = document.getElementById("genero_alta");
+                    json = {
+                        "apiVer" : "1.0",
+                        "idSesion" : getCookie("idSesion"),
+                        "operacion" : operacion,
+                        "nombre" : document.getElementById("nombre_alta").value,
+                        "apellido" : document.getElementById("apellido_alta").value,
+                        "documento" : document.getElementById("documento_alta").value,
+                        "fnac" : document.getElementById("fnac_alta").value,
+                        "genero" : select_genero.options[select_genero.selectedIndex].value,
+                        "domicilio" : document.getElementById("domicilio_alta").value,
+                        "telefono" : document.getElementById("telefono_alta").value,
+                        "identificador" : document.getElementById("matricula_alta").value,
+                        "mail" : document.getElementById("mail_alta").value,
+                        "rol" : select_rol.options[select_rol.selectedIndex].value,
+                        "contrasena" : document.getElementById("pass_alta").value
+                    };
+                }
+                if (operacion=="baja") {
+                    var select_mail = document.getElementById("mail_baja");
+                    json = {
+                        "apiVer" : "1.0",
+                        "idSesion" : getCookie("idSesion"),
+                        "operacion" : operacion,
+                        "nombre" : "",
+                        "apellido" : "",
+                        "documento" : "",
+                        "fnac" : "",
+                        "genero" : "",
+                        "domicilio" : "",
+                        "telefono" : "",
+                        "identificador" : select_mail.options[select_mail.selectedIndex].value,
+                        "mail" : select_mail.options[select_mail.selectedIndex].text,
+                        "rol" : "",
+                        "contrasena" : ""
+                    };
+                }
+                if (operacion=="modificacion") {
+                    var select_rol = document.getElementById("rol_modificacion");
+                    var select_genero = document.getElementById("genero_modificacion");
+                    var select_mail = document.getElementById("mail_modificacion");
+                    json = {
+                        "apiVer" : "1.0",
+                        "idSesion" : getCookie("idSesion"),
+                        "operacion" : operacion,
+                        "nombre" : document.getElementById("nombre_modificacion").value,
+                        "apellido" : document.getElementById("apellido_modificacion").value,
+                        "documento" : document.getElementById("documento_modificacion").value,
+                        "fnac" : document.getElementById("fnac_modificacion").value,
+                        "genero" : select_genero.options[select_genero.selectedIndex].value,
+                        "domicilio" : document.getElementById("domicilio_modificacion").value,
+                        "telefono" : document.getElementById("telefono_modificacion").value,
+                        "identificador" : select_mail.options[select_mail.selectedIndex].value,
+                        "mail" : select_mail.options[select_mail.selectedIndex].text,
+                        "rol" : select_rol.options[select_rol.selectedIndex].value,
+                        "contrasena" : document.getElementById("pass_modificacion").value
+                    };
+                }
                 break;
 
             case "notas":
