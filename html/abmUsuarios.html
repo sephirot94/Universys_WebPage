@@ -62,6 +62,7 @@
                         <!-- Seleccion de Rol -->
                         <label>Rol</label>
                         <select class="rol empty" id="rol_alta">
+                            <!-- Opciones de Usuarios -->
                             <option value=""></option>
                             <option value="administrador">Administrador</option>
                             <option value="alumno">Alumno</option>
@@ -92,6 +93,7 @@
                         <!-- Seleccion de Documento -->
                         <label>Genero</label>
                         <select class="genero empty" id="genero_alta">
+                            <!-- Opciones de Genero -->
                             <option value=""></option>
                             <option value="masculino">Masculino</option>
                             <option value="femenino">Femenino</option>
@@ -167,7 +169,9 @@
                         </div>
                         <!-- Seleccion de Rol -->
                         <label>Rol</label>
+                        <!-- Opciones de Usuario -->
                         <select class="rol empty" id="rol_modificacion">
+                            <!-- Opciones de Usuarios -->
                             <option value=""></option>
                             <option value="administrador">Administrador</option>
                             <option value="alumno">Alumno</option>
@@ -198,6 +202,7 @@
                         <!-- Seleccion de Documento -->
                         <label>Genero</label>
                         <select class="genero empty" id="genero_modificacion">
+                            <!-- Opciones de Genero -->
                             <option value=""></option>
                             <option value="masculino">Masculino</option>
                             <option value="femenino">Femenino</option>
@@ -235,21 +240,21 @@
         function myFunction() {
             var rc = new RegisterControllerRemote;
             var operacion = $("#operacion").val();
-            if (operacion=="alta") {
-                if ($("#pass_alta").val()==$("#confirm_pass_alta").val()) {
+            if (operacion == "alta") {
+                if ($("#pass_alta").val() == $("#confirm_pass_alta").val()) {
                     $(".error").hide();
                     var json = rc.armarJson("usuario", operacion);
                 }
-                else{
+                else {
                     $(".error").show();
                 }
             }
-            if (operacion=="modificacion") {
-                if ($("#pass_modificacion").val()==$("#confirm_pass_modificacion").val()) {
+            if (operacion == "modificacion") {
+                if ($("#pass_modificacion").val() == $("#confirm_pass_modificacion").val()) {
                     $(".error").hide();
                     var json = rc.armarJson("usuario", operacion);
                 }
-                else{
+                else {
                     $(".error").show();
                 }
             }
@@ -261,6 +266,7 @@
     </script>
 
     <script>
+        // Validacion de Campos
         jQuery.validator.addMethod("passwordCheck",
             function (value, element, param) {
                 if (this.optional(element)) {
@@ -362,9 +368,9 @@
         });
     </script>
     <script>
+        // Llenado de selects con llamado a register.js
         $(document).ready(function () {
             $(".error").hide();
-
             var rc = new RegisterControllerLocal();
             rc.jsonMail.mails.forEach(function (element) {
                 var objOption = document.createElement("option");
@@ -374,10 +380,10 @@
             }, this);
         });
     </script>
+    <!-- Llamado a los js -->
     <script src="../js/register.js"></script>
     <script src="../js/login.js"></script>
     <script src="../js/library.js"></script>
     <script src="../js/common.js"></script>
-
 </body>
 </html>

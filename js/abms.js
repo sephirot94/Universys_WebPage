@@ -40,7 +40,7 @@ $(document).ready(function () {
         $("#submit_modificacion").show();
     });
 
-    //Borra los valores de los formularios con la clase empty
+    // Funcion para limpiar valores de inputs y selects al dar click en boton guardar
     $("#submit").click(function () {
         $(".empty").val('');
     });
