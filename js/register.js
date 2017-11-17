@@ -239,21 +239,21 @@ class RegisterControllerLocal
     };
 }
 
-//Esta funcion envia los datos del formulario de registro al servidor para ser procesados.
-
+//Clase de ABM con implementacion de API.
 class RegisterControllerRemote
 {
     //Este metodo arma el json para enviar a backend dependiendo del tipo de dato que se quiere enviar
     armarJson (flag, operacion) {
         var json;
         switch (flag) {
+            //Arma JSON usuarios.
             case "usuario":
                 if (operacion=="alta") {
                     var select_rol = document.getElementById("rol_alta");
                     var select_genero = document.getElementById("genero_alta");
                     json = {
                         "apiVer" : "1.0",
-                        "idSesion" : "",  // getCookie("idSesion"),
+                        "idSesion" : "",  
                         "operacion" : operacion,
                         "nombre" : document.getElementById("nombre_alta").value,
                         "apellido" : document.getElementById("apellido_alta").value,
@@ -272,7 +272,7 @@ class RegisterControllerRemote
                     var select_mail = document.getElementById("mail_baja");
                     json = {
                         "apiVer" : "1.0",
-                        "idSesion" : "", // getCookie("idSesion"),
+                        "idSesion" : "", 
                         "operacion" : operacion,
                         "nombre" : "",
                         "apellido" : "",
@@ -293,7 +293,7 @@ class RegisterControllerRemote
                     var select_mail = document.getElementById("mail_modificacion");
                     json = {
                         "apiVer" : "1.0",
-                        "idSesion" : "", // getCookie("idSesion"),
+                        "idSesion" : "", 
                         "operacion" : operacion,
                         "nombre" : document.getElementById("nombre_modificacion").value,
                         "apellido" : document.getElementById("apellido_modificacion").value,
@@ -309,7 +309,8 @@ class RegisterControllerRemote
                     };
                 }
                 break;
-
+            
+            // Arma JSON notas
             case "notas":
                 if (operacion=="alta") {
                     var select_alumnos = document.getElementById("alumnos_alta");
@@ -319,7 +320,7 @@ class RegisterControllerRemote
                     var select_notas = document.getElementById("nota_alta");
                     json = {
                         "apiVer" : "1.0",
-                        "idSesion" : "", // getCookie("idSesion"),
+                        "idSesion" : "", 
                         "operacion" : operacion,
                         "catedra" : select_catedras.options[select_catedras.selectedIndex].text,
                         "carrera" : select_carreras.options[select_carreras.selectedIndex].text,
@@ -335,7 +336,7 @@ class RegisterControllerRemote
                     var select_materias = document.getElementById("materia_baja");
                     json = {
                         "apiVer" : "1.0",
-                        "idSesion" : "", // getCookie("idSesion"),
+                        "idSesion" : "", 
                         "operacion" : operacion,
                         "catedra" : select_catedras.options[select_catedras.selectedIndex].text,
                         "carrera" : select_carreras.options[select_carreras.selectedIndex].text,
@@ -352,7 +353,7 @@ class RegisterControllerRemote
                     var select_notas = document.getElementById("nota_modificacion");
                     json = {
                         "apiVer" : "1.0",
-                        "idSesion" : "", // getCookie("idSesion"),
+                        "idSesion" : "", 
                         "operacion" : operacion,
                         "catedra" : select_catedras.options[select_catedras.selectedIndex].text,
                         "carrera" : select_carreras.options[select_carreras.selectedIndex].text,
@@ -363,6 +364,7 @@ class RegisterControllerRemote
                 }
                 break;
             
+            //Arma JSON fichadas
             case "fichadas":
                 if (operacion=="alta") {
                     var select_alumnos = document.getElementById("alumnos_alta");
@@ -373,7 +375,7 @@ class RegisterControllerRemote
                     var select_horario = document.getElementById("horario_alta");
                     json = {
                         "apiVer" : "1.0",
-                        "idSesion" : "", // getCookie("idSesion"),
+                        "idSesion" : "", 
                         "operacion" : operacion,
                         "catedra" : select_catedras.options[select_catedras.selectedIndex].text,
                         "carrera" : select_carreras.options[select_carreras.selectedIndex].text,
@@ -396,7 +398,7 @@ class RegisterControllerRemote
                     var select_horario = document.getElementById("horario_baja");
                     json = {
                         "apiVer" : "1.0",
-                        "idSesion" : "", // getCookie("idSesion"),
+                        "idSesion" : "", 
                         "operacion" : operacion,
                         "catedra" : select_catedras.options[select_catedras.selectedIndex].text,
                         "carrera" : select_carreras.options[select_carreras.selectedIndex].text,
@@ -419,7 +421,7 @@ class RegisterControllerRemote
                     var select_horario = document.getElementById("horario_modificacion");
                     json = {
                         "apiVer" : "1.0",
-                        "idSesion" : "", // getCookie("idSesion"),
+                        "idSesion" : "", 
                         "operacion" : operacion,
                         "catedra" : select_catedras.options[select_catedras.selectedIndex].text,
                         "carrera" : select_carreras.options[select_carreras.selectedIndex].text,
@@ -435,6 +437,7 @@ class RegisterControllerRemote
                 }
                 break;
             
+            //Arma JSON Catedras
             case "catedras":
                 if (operacion=="alta") {
                     var dia = document.getElementById("dia_alta");
@@ -443,7 +446,7 @@ class RegisterControllerRemote
                     var materia_select = document.getElementById("materia_alta");
                     json = {
                         "apiVer" : "1.0",
-                        "idSesion" : "", // getCookie("idSesion"),
+                        "idSesion" : "", 
                         "operacion" : operacion,
                         "materia" : materia_select.options[materia_select.selectedIndex].text,
                         "catedra" : document.getElementById("catedra_alta").value,
@@ -457,7 +460,7 @@ class RegisterControllerRemote
                     var materia_select = document.getElementById("materia_baja");
                     json = {
                         "apiVer" : "1.0",
-                        "idSesion" : "", // getCookie("idSesion"),
+                        "idSesion" : "", 
                         "operacion" : operacion,
                         "materia" : materia_select.options[materia_select.selectedIndex].text,
                         "catedra" : catedra_select.options[catedra_select.selectedIndex].text,
@@ -475,7 +478,7 @@ class RegisterControllerRemote
                     var materia_select = document.getElementById("materia_modificacion");
                     json = {
                         "apiVer" : "1.0",
-                        "idSesion" : "", // getCookie("idSesion"),
+                        "idSesion" : "", 
                         "operacion" : operacion,
                         "materia" : materia_select.options[materia_select.selectedIndex].text,
                         "catedra" : catedra_select.options[catedra_select.selectedIndex].text,
@@ -487,13 +490,14 @@ class RegisterControllerRemote
                 }
                 break;
 
+            //Amrar JSON Materias
             case "materias" :
                 if (operacion=="alta") {
                     var select_catedra = document.getElementById("catedra_alta");
                     var select_carrera = document.getElementById("carrera_alta");
                     json = {
                         "apiVer" : "1.0",
-                        "idSesion" : "", // getCookie("idSesion"),
+                        "idSesion" : "", 
                         "operacion" : operacion,
                         "catedra": select_catedra.options[select_catedra.selectedIndex].text,
                         "carrera" : select_carrera.options[select_carrera.selectedIndex].text,
@@ -504,7 +508,7 @@ class RegisterControllerRemote
                     var select = document.getElementById("materia_baja");
                     json = {
                         "apiVer" : "1.0",
-                        "idSesion" : "", // getCookie("idSesion"),
+                        "idSesion" : "", 
                         "operacion" : operacion,
                         "catedra": "",
                         "carrera" : "",
@@ -516,7 +520,7 @@ class RegisterControllerRemote
                     var select = document.getElementById("materia_modificacion");
                     json = {
                         "apiVer" : "1.0",
-                        "idSesion" : "", // getCookie("idSesion"),
+                        "idSesion" : "", 
                         "operacion" : operacion,
                         "catedra": "",
                         "carrera" : "",
@@ -526,11 +530,12 @@ class RegisterControllerRemote
                 }
                 break;
 
+            // Armar JSON Carreras
             case "carreras" :
                 if (operacion=="alta") {
                     json = {
                         "apiVer" : "1.0",
-                        "idSesion" : "", // getCookie("idSesion"),
+                        "idSesion" : "", 
                         "operacion" : operacion,
                         "id_carrera" : "",
                         "carrera" : document.getElementById("carrera_alta").value
@@ -540,7 +545,7 @@ class RegisterControllerRemote
                     var select = document.getElementById("carrera_modificacion");
                     json = {
                         "apiVer" : "1.0",
-                        "idSesion" : "", // getCookie("idSesion"),
+                        "idSesion" : "", 
                         "operacion" : operacion,
                         "id_carrera" : select.options[select.selectedIndex].value,
                         "carrera" : document.getElementById("nueva_carrera_modificacion").value
@@ -550,7 +555,7 @@ class RegisterControllerRemote
                     var select = document.getElementById("carrera_baja");
                     json = {
                         "apiVer" : "1.0",
-                        "idSesion" : "", // getCookie("idSesion"),
+                        "idSesion" : "", 
                         "operacion" : operacion,
                         "id_carrera" : select.options[select.selectedIndex].value,
                         "carrera" : select.options[select.selectedIndex].text
@@ -558,6 +563,7 @@ class RegisterControllerRemote
                 }
                 break;
 
+            //Si el flag es invalido, entra por default y devuelve error.
             default:
                 alert("Error: invalid parameter. Please check value of parameter in call RegisterControllerRemote.armarJson");
                 json = {
@@ -574,6 +580,7 @@ class RegisterControllerRemote
         return "" + dia + hora_inicio + hora_fin + "";
     }
 
+    //Metodo para enviar JSON a servidor
     register (json, flag)
     {
         //mapa con el flag como clave y la variacion de la url como valor
