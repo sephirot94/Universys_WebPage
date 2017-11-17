@@ -1,15 +1,4 @@
 //Esta clase implementa la funcionalidad del registro en Javascript. Utilizable en cualquier ABM
-$("#submit").click(function registerSubmit() { });
-// document.getElementById("submit").onclick = function(registerSubmit);
-
-//Esta funcion muestra el error cuando la clase no esta implementada
-function RegisterControllerBase()
-{
-    var register = function(json)
-    {
-        alert("registerControllerBase::register(json) ERROR: Base class, not implemented");
-    };
-}
 
 //Esta funcion es de uso de testeo solamente. No debe ser implementada en ambiente de produccion
 

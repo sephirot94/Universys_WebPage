@@ -1,14 +1,5 @@
 //Este archivo implementa la funcionalidad del login en Javascript.
 
-//Esta funcion muestra el error cuando la clase no esta implementada
-// function LoginControllerBase()
-// {
-//     var login = function(userField, passField)
-//     {
-//         alert("LoginControllerBase::login(userField, passField) ERROR: Base class, not implemented");
-//     };
-// }
-
 //Esta funcion es de uso de testeo solamente. No debe ser implementada en ambiente de produccion
 class LoginControllerLocal
 {
@@ -37,6 +28,7 @@ class LoginControllerLocal
         return { "api-version" : "1.0", "error_code" : "800" };
     }
 
+    //Este metodo ejecuta el Login Mockeado
     login (userField, passField)
     {
         var json = this.loginLogic(document.getElementById(userField).value, document.getElementById(passField).value);
@@ -55,6 +47,7 @@ class LoginControllerLocal
         }
     };
 
+    //Este metodo ejecuta el logout Mockeado
     logout () {
         dropCookie("idSesion");
         window.location.href = '../html/login.html';
