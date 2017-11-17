@@ -62,6 +62,7 @@
                         <!-- Seleccion de Rol -->
                         <label>Rol</label>
                         <select class="rol empty" id="rol_alta">
+                            <option value=""></option>
                             <option value="administrador">Administrador</option>
                             <option value="alumno">Alumno</option>
                             <option value="profesor">Profesor</option>
@@ -91,6 +92,7 @@
                         <!-- Seleccion de Documento -->
                         <label>Genero</label>
                         <select class="genero empty" id="genero_alta">
+                            <option value=""></option>
                             <option value="masculino">Masculino</option>
                             <option value="femenino">Femenino</option>
                         </select>
@@ -124,6 +126,7 @@
                         <!-- Input de Confirmar Contraseña -->
                         <label>Confirmar Contraseña</label>
                         <input type="password" class="empty" id="confirm_pass_alta">
+                        <p class="error">Las Contraseñas ingresadas deben ser iguales</p>
                     </div>
                 </div>
             </div>
@@ -165,6 +168,7 @@
                         <!-- Seleccion de Rol -->
                         <label>Rol</label>
                         <select class="rol" id="rol_modificacion">
+                            <option value=""></option>
                             <option value="administrador">Administrador</option>
                             <option value="alumno">Alumno</option>
                             <option value="profesor">Profesor</option>
@@ -194,6 +198,7 @@
                         <!-- Seleccion de Documento -->
                         <label>Genero</label>
                         <select class="genero" id="genero_modificacion">
+                            <option value=""></option>
                             <option value="masculino">Masculino</option>
                             <option value="femenino">Femenino</option>
                         </select>
@@ -213,6 +218,12 @@
                         <label>Contraseña</label>
                         <input type="password" id="pass_modificacion">
                     </div>
+                    <div>
+                        <!-- Input de Confirmar Contraseña -->
+                        <label>Confirmar Contraseña</label>
+                        <input type="password" class="empty" id="confirm_pass_modificacion">
+                        <p class="error">Las Contraseñas ingresadas deben ser iguales</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -224,8 +235,30 @@
         function myFunction() {
             var rc = new RegisterControllerRemote;
             var operacion = $("#operacion").val();
-            var json = rc.armarJson("usuario", operacion);
-            console.log(json);
+            if (operacion=="alta") {
+                if ($("#pass_alta").val()==$("#confirm_pass_alta").val()) {
+                    $(".error").hide();
+                    var json = rc.armarJson("usuario", operacion);
+                    console.log(json);
+                }
+                else{
+                    $(".error").show();
+                }
+            }
+            if (operacion=="modificacion") {
+                if ($("#pass_modificacion").val()==$("#confirm_pass_modificacion").val()) {
+                    $(".error").hide();
+                    var json = rc.armarJson("usuario", operacion);
+                    console.log(json);
+                }
+                else{
+                    $(".error").show();
+                }
+            }
+            else {
+                var json = rc.armarJson("usuario", operacion);
+                console.log(json);
+            }
         }
     </script>
 
@@ -332,6 +365,8 @@
     </script>
     <script>
         $(document).ready(function () {
+            $(".error").hide();
+
             var rc = new RegisterControllerLocal();
             rc.jsonMail.mails.forEach(function (element) {
                 var objOption = document.createElement("option");
