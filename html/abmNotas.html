@@ -96,6 +96,7 @@
                         <label>Nota</label>
                         <!-- Seleccion de Nota -->
                         <select class="nota empty" id="nota_alta">
+                            <option value=""></option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -192,6 +193,7 @@
                         <label>Nota</label>
                         <!-- Seleccion de Nota -->
                         <select class="nota empty" id="nota_modificacion">
+                            <option value=""></option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -252,10 +254,6 @@
                 objOption.innerHTML = element.carrera;
                 $(".carrera").append(objOption);
             }, this);
-
-            $('input:radio[name="postage"]').change(function () {
-                $("#presente").val($(this).val());
-            });
 
         });
     </script>

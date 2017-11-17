@@ -311,7 +311,7 @@ class RegisterControllerRemote
                 break;
 
             case "notas":
-                if (operacion="alta") {
+                if (operacion=="alta") {
                     var select_alumnos = document.getElementById("alumnos_alta");
                     var select_catedras = document.getElementById("catedra_alta");
                     var select_carreras = document.getElementById("carrera_alta");
@@ -328,7 +328,7 @@ class RegisterControllerRemote
                         "nota" : select_notas.options[select_notas.selectedIndex].value
                     };
                 }
-                if (operacion="baja") {
+                if (operacion=="baja") {
                     var select_alumnos = document.getElementById("alumnos_baja");
                     var select_catedras = document.getElementById("catedra_baja");
                     var select_carreras = document.getElementById("carrera_baja");
@@ -344,7 +344,7 @@ class RegisterControllerRemote
                         "nota" : "",
                     };
                 }
-                if (operacion="modificacion") {
+                if (operacion=="modificacion") {
                     var select_alumnos = document.getElementById("alumnos_modificacion");
                     var select_catedras = document.getElementById("catedra_modificacion");
                     var select_carreras = document.getElementById("carrera_modificacion");
