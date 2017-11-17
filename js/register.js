@@ -449,7 +449,7 @@ class RegisterControllerRemote
                         "catedra" : document.getElementById("catedra_alta").value,
                         "nombre" : document.getElementById("nombre_alta").value,
                         "titularDeCatedra" : document.getElementById("titularDeCatedra_alta").value,
-                        "ofertaHoraria": parseOfertaHoraria(dia.options[dia.selectedIndex].value, hora_inicio.options[hora_inicio.selectedIndex].value, hora_fin.options[hora_fin.selectedIndex].value) 
+                        "ofertaHoraria": this.parseOfertaHoraria(dia.options[dia.selectedIndex].value, hora_inicio.options[hora_inicio.selectedIndex].value, hora_fin.options[hora_fin.selectedIndex].value) 
                     };
                 }
                 if (operacion=="baja") {
