@@ -40,6 +40,7 @@ $(document).ready(function () {
         $("#submit_modificacion").show();
     });
 
+    // Funcion para limpiar valores de inputs y selects al dar click en boton guardar
     $("#submit").click(function () {
         $(".empty").val('');
     });

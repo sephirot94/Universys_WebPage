@@ -133,6 +133,7 @@
   <!-- Boton para guardar datos -->
   <input id="operacion" type="text" style="display:none;">
   <button onclick="myFunction()" type="submit" id="submit">Guardar</button>
+  <!-- Llamado a los js -->
   <script src="../js/register.js"></script>
   <script src="../js/login.js"></script>
   <script src="../js/library.js"></script>
@@ -148,6 +149,7 @@
 
   <!-- Poblar select para modificacion y baja de datos -->
   <script>
+    // Llenado de selects con llamado a register.js
     $(document).ready(function () {
       var rc = new RegisterControllerLocal();
       rc.jsonCatedras.catedras.forEach(function (element) {
@@ -182,6 +184,7 @@
     });
   </script>
   <script>
+    // Validacion de Campos
     jQuery.validator.addMethod("passwordCheck",
       function (value, element, param) {
         if (this.optional(element)) {
