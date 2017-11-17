@@ -88,6 +88,7 @@
             <!-- Seleccion de dias -->
             <label>Dias</label>
             <select class="dia empty" id="dia_alta">
+              <!-- Opciones de Dias -->
               <option value=""></option>
               <option value="0">Lunes</option>
               <option value="1">Martes</option>
@@ -101,6 +102,7 @@
             <!-- Seleccion de Horario -->
             <label>Horario</label>
             <select class="horario empty" id="horario_alta">
+              <!-- Opciones de horas -->
               <option value=""></option>
               <option value="0">7:00hs</option>
               <option value="1">8:00hs</option>
@@ -170,6 +172,7 @@
             <!-- Seleccion de dias -->
             <label>Dias</label>
             <select class="dia empty" id="dia_baja">
+              <!-- Opciones de Dias -->
               <option value=""></option>
               <option value="0">Lunes</option>
               <option value="1">Martes</option>
@@ -183,6 +186,7 @@
             <!-- Seleccion de Horario -->
             <label>Horario</label>
             <select class="horario empty" id="horario_baja">
+              <!-- Opciones de Horarios -->
               <option value=""></option>
               <option value="0">7:00hs</option>
               <option value="1">8:00hs</option>
@@ -246,6 +250,7 @@
             <!-- Seleccion de dias -->
             <label>Dias</label>
             <select class="dia empty" id="dia_modificacion">
+              <!-- Opciones de Dias -->
               <option value=""></option>
               <option value="0">Lunes</option>
               <option value="1">Martes</option>
@@ -259,6 +264,7 @@
             <!-- Seleccion de Horario -->
             <label>Horario</label>
             <select class="horario empty" id="horario_modificacion">
+              <!-- Opciones de Horarios -->
               <option value=""></option>
               <option value="0">7:00hs</option>
               <option value="1">8:00hs</option>
@@ -299,6 +305,7 @@
   <input id="operacion" type="text" style="display:none;">
   <button onclick="myFunction()" type="submit" id="submit">Guardar</button>
   <input style="display: none;" type="text" id="presente">
+  <!-- Llamado a los js -->
   <script src="../js/register.js"></script>
   <script src="../js/login.js"></script>
   <script src="../js/library.js"></script>
@@ -340,6 +347,7 @@
         $(".alumnos").append(objOption);
       }, this);
 
+      // Obtencion de los valores de los botones de presente por si o por no
       $('input:radio[name="postage_alta"]').change(function () {
         $("#presente").val($(this).val());
       });
