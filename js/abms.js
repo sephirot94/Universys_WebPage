@@ -40,6 +40,7 @@ $(document).ready(function () {
         $("#submit_modificacion").show();
     });
 
+    //Borra los valores de los formularios con la clase empty
     $("#submit").click(function () {
         $(".empty").val('');
     });
