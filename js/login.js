@@ -32,7 +32,10 @@ class LoginControllerLocal
     login (userField, passField)
     {
         var json = this.loginLogic(document.getElementById(userField).value, document.getElementById(passField).value);
-        setCookie("idSesion", json.usuario.idSesion);
+        if (json.error_code!=200) {
+            alert("Las credenciales ingresadas son incorrectas");
+        }
+        // setCookie("idSesion", json.usuario.idSesion);
         if (json.usuario.rol=="administrador") {
             window.location.href = 'perfilAdministrador.html';
         }
@@ -49,7 +52,7 @@ class LoginControllerLocal
 
     //Este metodo ejecuta el logout Mockeado
     logout () {
-        dropCookie("idSesion");
+        // dropCookie("idSesion");
         window.location.href = '../html/login.html';
     }
 }
