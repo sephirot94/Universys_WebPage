@@ -1,181 +1,233 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <!-- registerCareers.html sirve para el registro a las carreras -->
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>ABM Carreras</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-    crossorigin="anonymous">
-  <script src="http://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
-  <link rel="stylesheet" href="../css/abms.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
-  <script src="../js/abms.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ABM Carreras</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous">
+    <script src="http://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="../css/abms.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="../js/abms.js"></script>
 </head>
 
 <body>
-  <!-- Navbar -->
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
-          aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="./home.html">
-          <!-- Titulo -->
-          <strong>Universys</strong> Home</a>
-      </div>
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-          <!-- Link a pestaña de Historia -->
-          <li><a href="./historia.html">Historia</a></li>
-          <!-- Link a pestaña de Carreras -->
-          <li><a href="./carreras.html">Carreras</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <!-- Link para ir al Perfil de Administrador -->
-          <li><a href="perfilAdministrador.html"><img id="imagenUsuario" src="http://coyotechronicle.net/wp-content/uploads/2015/02/facebook-logo.jpeg"> <u>Admin</u></a></li>
-          <!-- Link para Cerrar Sesion -->
-          <li><a href="#" id="btnCerrarSesion">Cerrar Sesion</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+    <!-- Navbar -->
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                        aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="./home.html">
+                    <!-- Titulo -->
+                    <strong>Universys</strong> Home
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <!-- Link a pestaña de Historia -->
+                    <li><a href="./historia.html">Historia</a></li>
+                    <!-- Link a pestaña de Carreras -->
+                    <li><a href="./carreras.html">Carreras</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <!-- Link para ir al Perfil de Administrador -->
+                    <li><a href="perfilAdministrador.html"><img id="imagenUsuario" src="http://coyotechronicle.net/wp-content/uploads/2015/02/facebook-logo.jpeg"> <u>Admin</u></a></li>
+                    <!-- Link para Cerrar Sesion -->
+                    <li><a href="#" id="btnCerrarSesion">Cerrar Sesion</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Botón para dar de alta una carrera -->
+    <button id="btnAlta" type="button">Alta Carrera</button>
+    <!-- Botón para dar de baja una carrera -->
+    <button id="btnBaja" type="button">Baja Carrera</button>
+    <!-- Botón para modificar una carrera -->
+    <button id="btnModificacion" type="button">Modificacion Carrera</button>
 
-  <!-- Botón para dar de alta una carrera -->
-  <button id="btnAlta" type="button">Alta Carrera</button>
-  <!-- Botón para dar de baja una carrera -->
-  <button id="btnBaja" type="button">Baja Carrera</button>
-  <!-- Botón para modificar una carrera -->
-  <button id="btnModificacion" type="button">Modificacion Carrera</button>
-  <br>
-  <!-- Dar de alta una carrera -->
-  <form id="form_alta" class="alta">
-    <div class="alta">
-      <!-- Titulo -->
-      <h1>Alta de carrera</h1>
-      <br>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-2">
-            <!-- Input de Carrera -->
-            <label>Nombre de la Carrera</label>
-            <input class="empty" id="carrera_alta" type="text">
-          </div>
+    <button id="btnListar" type="button" >Listar Carrera</button>
+    <br>
+    <!-- Dar de alta una carrera -->
+    <form id="form_alta" class="alta">
+        <div class="alta">
+            <!-- Titulo -->
+            <h1>Alta de carrera</h1>
+            <br>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-2">
+                        <!-- Input de Carrera -->
+                        <label>Nombre de la Carrera</label>
+                        <input class="empty" id="carrera_alta" type="text">
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </form>
-  <!-- Dar de baja una carrera -->
-  <form id="form_baja" class="baja">
-    <div class="baja">
-      <!-- Titulo -->
-      <h1>Baja de carrera</h1>
-      <br>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-2">
-            <!-- Input de Carrera -->
-            <label>Nombre de la Carrera</label>
-            <select class="carrera empty" id="carrera_baja">
-              <option></option>
-            </select>
-          </div>
+    </form>
+    <!-- Dar de baja una carrera -->
+    <form id="form_baja" class="baja">
+        <div class="baja">
+            <!-- Titulo -->
+            <h1>Baja de carrera</h1>
+            <br>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-2">
+                        <!-- Input de Carrera -->
+                        <label>Nombre de la Carrera</label>
+                        <select class="carrera empty" id="carrera_baja">
+                            <option></option>
+                        </select>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </form>
-  <!-- Modificar una carrera -->
-  <form id="form_modificacion">
-    <div class="modificacion">
-      <!-- Titulo -->
-      <h1>Modificacion de carrera</h1>
-      <br>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-2">
-            <!-- Input de Carrera -->
-            <label>Nombre de la Carrera</label>
-            <select class="carrera empty" id="carrera_modificacion">
-              <option></option>
-            </select>
-          </div>
-          <div class="col-md-2">
-            <!-- Input de Carrera -->
-            <label>Nombre de la nueva Carrera</label>
-            <input class="empty" type="text" id="nueva_carrera_modificacion">
-          </div>
+    </form>
+    <!-- Modificar una carrera -->
+    <form id="form_modificacion">
+        <div class="modificacion">
+            <!-- Titulo -->
+            <h1>Modificacion de carrera</h1>
+            <br>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-2">
+                        <!-- Input de Carrera -->
+                        <label>Nombre de la Carrera</label>
+                        <select class="carrera empty" id="carrera_modificacion">
+                            <option></option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <!-- Input de Carrera -->
+                        <label>Nombre de la nueva Carrera</label>
+                        <input class="empty" type="text" id="nueva_carrera_modificacion">
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </form>
-  <!-- Boton para guardar datos -->
-  <input id="operacion" type="text" style="display:none;">
-  <button onclick="myFunction()" type="submit" id="submit">Guardar</button>
-  <!-- Llamado a los js -->
-  <script src="../js/register.js"></script>
-  <script src="../js/login.js"></script>
-  <script src="../js/library.js"></script>
-  <script src="../js/common.js"></script>
-  <script>
-    function myFunction() {
-      var rc = new RegisterControllerRemote;
-      var operacion = $("#operacion").val();
-      var json = rc.armarJson("carreras", operacion);
-      console.log(json);
-    }
-  </script>
+    </form>
 
-  <!-- Poblar select para modificacion y baja de datos -->
-  <script>
-    // Llenado de selects con llamado a register.js
-    $(document).ready(function () {
-      var rc = new RegisterControllerLocal();
-      rc.jsonCarreras.carreras.forEach(function (element) {
-        var objOption = document.createElement("option");
-        objOption.setAttribute("value", element.id);
-        objOption.innerHTML = element.carrera;
-        $(".carrera").append(objOption);
-      }, this);
-    });
-  </script>
-  <script>
-    // Validacion de Campos
-    jQuery.validator.addMethod("passwordCheck",
-      function (value, element, param) {
-        if (this.optional(element)) {
-          return true;
-        } else if (!/[A-Z]/.test(value)) {
-          return false;
-        } else if (!/[a-z]/.test(value)) {
-          return false;
-        } else if (!/[0-9]/.test(value)) {
-          return false;
+    <form id="form_listar">
+        <div class="listar container-fluid" >
+            <!-- Titulo -->
+            <h1>Listar carrera</h1>
+            <br>
+            <div class="containerGrilla">
+                <table id="tablaCarrera" class="display" style="width:100%">
+                </table>
+        </div>
+        </div>
+    </form>
+    <!-- Boton para guardar datos -->
+    <input id="operacion" type="text" style="display:none;">
+    <button onclick="myFunction()" type="submit" id="submit">Guardar</button>
+    <!-- Llamado a los js -->
+    <script src="../js/register.js"></script>
+    <script src="../js/login.js"></script>
+    <script src="../js/library.js"></script>
+    <script src="../js/common.js"></script>
+    <script>
+        function myFunction() {
+            var rc = new RegisterControllerRemote;
+            var operacion = $("#operacion").val();
+            var json = rc.armarJson("carreras", operacion);
+            jsonCarreras.push(json);
+            //rc.cookieLocalStorage("carreras", json);
+            console.log(json);
         }
 
-        return true;
-      },
-      "La contrase&ntilde;a debe contener al menos una mayuscula, una minuscula y un numero");
 
-    $("#form_alta").validate({
-      rules: {
-        carrera_alta: {
-          required: true
+        function loadGrid() {
+
+            $('#tablaCarrera').DataTable({
+                data: jsonCarreras,
+                columns: [
+                    { title: "carrera", data : "carrera" }
+                ]
+            });
         }
-      },
-      messages: {
-        carrera_alta: {
-          required: "Este campo es obligatorio"
+
+        function reloadGrid() {
+            var datatable = $('#tablaCarrera').DataTable();
+            datatable.clear().draw();
+            datatable.rows.add(jsonCarreras); // Add new data
+            datatable.columns.adjust().draw();
+
         }
-      }
-    });
-  </script>
+    </script>
+    <!-- Poblar select para modificacion y baja de datos -->
+    <script>
+        var jsonCarreras = [];
+        // Llenado de selects con llamado a register.js
+        $(document).ready(function () {
+
+            var rc = new RegisterControllerLocal();
+            rc.jsonCarreras.carreras.forEach(function (element) {
+                var objOption = document.createElement("option");
+                objOption.setAttribute("value", element.id);
+                objOption.innerHTML = element.carrera;
+                $(".carrera").append(objOption);
+            }, this);
+
+            setOnClickListar_Handler();
+            loadGrid();
+        });
+
+
+        function setOnClickListar_Handler() {
+            $("#btnListar").on("click", onClickListar_Handler)
+        }
+
+        function onClickListar_Handler() {
+            reloadGrid();
+        }
+
+
+    </script>
+    <script>
+        // Validacion de Campos
+        jQuery.validator.addMethod("passwordCheck",
+            function (value, element, param) {
+                if (this.optional(element)) {
+                    return true;
+                } else if (!/[A-Z]/.test(value)) {
+                    return false;
+                } else if (!/[a-z]/.test(value)) {
+                    return false;
+                } else if (!/[0-9]/.test(value)) {
+                    return false;
+                }
+
+                return true;
+            },
+            "La contrase&ntilde;a debe contener al menos una mayuscula, una minuscula y un numero");
+
+        $("#form_alta").validate({
+            rules: {
+                carrera_alta: {
+                    required: true
+                }
+            },
+            messages: {
+                carrera_alta: {
+                    required: "Este campo es obligatorio"
+                }
+            }
+        });
+    </script>
 </body>
 </html>
