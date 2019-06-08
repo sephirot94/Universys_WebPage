@@ -49,8 +49,10 @@ $(document).ready(function () {
         $("#operacion").val("Listar");
         $(".alta").hide();
         $(".baja").hide();
+        $(".modificacion").hide();
         $("#submit_alta").hide();
         $("#submit_baja").hide();
+        $("#submit_modificacion").hide();
         $(".listar").show();
     });
 
